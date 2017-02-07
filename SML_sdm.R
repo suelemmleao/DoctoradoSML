@@ -5,7 +5,6 @@
 # Each user should adjust this!
 setwd("/Users/guarinoonleptophis/Documents/Manuscritos/Em prepara??o/Ecofisiologia Micrablepharus atticolus")
 setwd("C:/Users/Vitor/Documents/GitHub/Extinction-risk-Micrablepharus-atticolus")
-setwd("C:/Users/izabellapaim/Documents/GitHub/Extinction-risk-Micrablepharus-atticolus")
 
 
 
