@@ -1,46 +1,47 @@
-###########################
-## SET WORKING DIRECTORY ##
-###########################
-
-# Each user should adjust this!
-setwd("/Users/guarinoonleptophis/Documents/Manuscritos/Em prepara??o/Ecofisiologia Micrablepharus atticolus")
-setwd("C:/Users/Vitor/Documents/GitHub/Extinction-risk-Micrablepharus-atticolus")
-
-
-
-
 ###############################
-## INSTALL REQUIRED PACKAGES ##
+#### SET WORKING DIRECTORY ####
 ###############################
 
+# Clean everything that was loaded before
+rm(list=ls())
 
-install.packages("biomod2", dep=T)
-install.packages("car", dep=T)
-install.packages("colorRamps", dep=T)
-install.packages("corrplot", dep=T)
-install.packages("dismo", dep=T)
-install.packages("doParallel", dep=T)
-install.packages("dplyr", dep=T)
-install.packages("maps", dep=T)
-install.packages("maptools", dep=T)
-install.packages("plotKML", dep=T)
-install.packages("PresenceAbsence", dep=T)
-install.packages("raster", dep=T)
-install.packages("rgdal", dep=T)
-install.packages("roxygen2", dep=T)
-install.packages("sdm", dep=T)
-install.packages("SDMTools", dep=T)
-install.packages("sqldf", dep=T)
-install.packages("testthat", dep=T)
-install.packages("usdm", dep=T)
-
+# My directory
+setwd("C:/Users/sukam/Dropbox/Doutorado/Gis/Modelado")
 
 
 
 
 ###################################
-## GET AND CROP WORLDCLIM LAYERS ##
+#### INSTALL REQUIRED PACKAGES ####
 ###################################
+
+
+#install.packages("biomod2", dep=T)
+#install.packages("car", dep=T)
+#install.packages("colorRamps", dep=T)
+#install.packages("corrplot", dep=T)
+#install.packages("dismo", dep=T)
+#install.packages("doParallel", dep=T)
+#install.packages("dplyr", dep=T)
+#install.packages("maps", dep=T)
+#install.packages("maptools", dep=T)
+#install.packages("plotKML", dep=T)
+#install.packages("PresenceAbsence", dep=T)
+#install.packages("raster", dep=T)
+#install.packages("rgdal", dep=T)
+#install.packages("roxygen2", dep=T)
+#install.packages("sdm", dep=T)
+#install.packages("SDMTools", dep=T)
+#install.packages("sqldf", dep=T)
+#install.packages("testthat", dep=T)
+#install.packages("usdm", dep=T)
+
+
+
+
+#######################################
+#### GET AND CROP WORLDCLIM LAYERS ####
+#######################################
 
 ## Get WorldClim layers
 #  ********************
@@ -95,10 +96,25 @@ library(maptools)
 
 # Visualize boundaries
 data(wrld_simpl)
-plot(wrld_simpl, xlim = c(-80, -30), ylim = c(-40, 10), axes = TRUE, col = "light grey")
+plot(wrld_simpl, xlim = c(-85, -35), ylim = c(-55, 10), axes = TRUE, col = "light grey")
+
+
+#All my date
+Bothrops<-read.csv("Bothrops.csv",header=T)
+names(Bothrops)<-c("Taxa","lon","lat")
+str(Bothrops)
+
+#General Map
+library(maps)
+plot(Bothrops$lon, Bothrops$lat, xlim=c(-85,-35),ylim=c(-55,10),
+     col="red",pch=19, cex= 0.5, xlab="Longitude",ylab="Latitude")  
+scalebar(500, xy = c(-40,-50), type = 'bar', divs = 2, below = "km")
+title(paste ("Distribuição Bothrops"))
+map(add=T)
+
 
 # Set boundaries
-ext <- extent(-80, -30, -40, 10)
+ext <- extent(-85, -35, -55, 10)
 
 # Crop layers (present)
 alt.crop <- crop(alt, ext); plot(alt.crop)
@@ -201,9 +217,9 @@ names(environment70_85)
 
 
 
-##################################
-## COLLINEARITY CHECK - PRESENT ##
-##################################
+######################################
+#### COLLINEARITY CHECK - PRESENT ####
+######################################
 
 library(car)
 library(dismo)
@@ -223,7 +239,8 @@ biplot(pca.env.data, pc.biplot = T)
 summary(pca.env.data)
 pca.env.data$loadings[, 1:3]
 
-# Variance Inflation Factors (VIF) of environmental variables
+# Variance Inflation Factors (VIF) of environmental variables    #Aqui eu não entendi muito bem, mas li o help e entendi melhor. 
+                                                                 #Só não entendi ainda pq escolher o v2 ao invés do v1? É pq o v2 é mais conservador?
 library(usdm)
 v1 <- vifcor(environment, th=0.9) #correlation
 v1
@@ -239,6 +256,7 @@ env.data.std <- data.frame(scale(env.data)) # Scale variables
 library(corrplot)
 M <- cor(env.data.std[, c("alt", "bio2", "bio3","bio8","bio9","bio13","bio14", "bio15", "bio18", "bio19")])
 corrplot.mixed(M, upper="ellipse", lower="number")
+
 
 # Subset environmental stack for future scenarios
 env50_26.selected <- subset(environment50_26, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
@@ -262,20 +280,21 @@ env70_85.selected
 
 
 
-######################################
-## INPUT AND PLOT DISTRIBUTION DATA ##
-######################################
+##########################################
+#### INPUT AND PLOT DISTRIBUTION DATA ####
+##########################################
+
 
 # Read data
-M.atticolus <- read.table("MicraDistribution.txt", h = T)
-str(M.atticolus)
-head(M.atticolus)
+alternatus <- read.csv("alternatus.csv", h = T)
+str(alternatus)
+head(alternatus)
 
 # Remove duplicates
-dups2 <- duplicated(M.atticolus[, 2:3])
+dups2 <- duplicated(alternatus[, 2:3])
 sum(dups2) # how many duplicates?
-M.atticolus <- M.atticolus[!dups2, 2:3] # remove duplicates
-str(M.atticolus)
+alternatus <- alternatus[!dups2, 2:3] # remove duplicates
+str(alternatus)
 
 # Visualize data
 library(plotKML)
@@ -283,10 +302,11 @@ library(colorRamps)
 library(RColorBrewer)
 library(rgdal)
 
-dis.cerrado <- readOGR("/Users/guarinoonleptophis/Documents/Manuscritos/Em preparaÃ§Ã£o/Ecofisiologia Micrablepharus atticolus/Analyses/Cerrado shapefiles",
-  "Cerrado_Eco_merge_Clip") #Guarino
-dis.cerrado <- readOGR("/Users/izabellapaim/Documents/GitHub/cerradoshape",
-  "Cerrado_Eco_merge_Clip") #Izabella
+
+dis.cerrado <- readOGR("C:/Users/sukam/Dropbox/Doutorado/Gis/Modelado","Cerrado")
+dis.caatinga <- readOGR("C:/Users/sukam/Dropbox/Doutorado/Gis/Modelado","Caatinga")
+dis.chaco <- readOGR("C:/Users/sukam/Dropbox/Doutorado/Gis/Modelado","Chaco")
+
 
 plot(environment[[1]], col = rev(brewer.pal(11, "RdYlBu")), main = "Altitude") #RColorBrewer
 plot(environment[[1]], col = SAGA_pal[[1]], main = "Altitude") #plotKML
@@ -294,19 +314,21 @@ plot(environment[[1]], col = rev(magenta2green(100)), main = "Altitude") #colorR
 plot(environment[[1]], col = blue2red(100), main = "Altitude") #colorRamps
 plot(environment[[1]], col = matlab.like2(100), main = "Altitude") #colorRamps
 
-quartz(w=6, h=6) #macOS only
-window(w=6, h=6) #Windows only
+
+#x11(w=6, h=6) #Windows only
 plot(environment[[1]], col = matlab.like(100), main = "Altitude", las=1) #colorRamps
 plot(wrld_simpl, add = TRUE, col="transparent", border="gray70", lwd = 0.25)
 plot(dis.cerrado, col=rgb(1,1,1,0.2), border="gray80", lwd = 0.5, add=T)
-points(M.atticolus$lon, M.atticolus$lat, pch = 21, cex = 1.25, col = "gray20", bg = "red")
+plot(dis.caatinga, col=rgb(1,1,1,0.2), border="gray80", lwd = 0.5, add=T)
+plot(dis.chaco, col=rgb(1,1,1,0.2), border="gray80", lwd = 0.5, add=T)
+points(alternatus$lon, alternatus$lat, pch = 21, cex = 1.25, col = "gray20", bg = "red")
 
 
 
 
-###################################################
-## ENVIRONMENTAL FILTER OF RAW DISTRIBUTION DATA ##
-###################################################
+#######################################################
+#### ENVIRONMENTAL FILTER OF RAW DISTRIBUTION DATA ####
+#######################################################
 
 # From https://github.com/SaraVarela/envSample
 # Varela, S., Anderson, R.P., Garcia-Valdes, R., Fernandez-Gonzalez, F., 2014. Environmental filters reduce the effects of sampling bias and improve predictions of ecological niche models. Ecography 37, 1084-1091.
@@ -422,22 +444,25 @@ envSample<- function (coord, filters, res, do.plot=TRUE){
   coord_filter
 }
 
+
+library(tcltk2)  #me deu uma mensagem de erro e dizia p instalar este pacote
+                 #Mas ainda me da essa mensagem: Warning message: Quoted identifiers should have class SQL, use DBI::SQL() if the caller performs the quoting.    
 # Apply environmental filter to create training data set
-env.data <- extract(env.selected, M.atticolus)
+env.data <- extract(env.selected, alternatus)
 env.data <- as.data.frame(env.data)
-(M.atticolus.training <- envSample(M.atticolus, filters=list(env.data$bio2, env.data$bio15,
-	env.data$bio18, env.data$bio19), res=list(20, 20, 20, 20), do.plot=TRUE)) # 4 predictors with smallest VIF
+(alternatus.training <- envSample(alternatus, filters=list(env.data$bio2, env.data$bio15,
+	env.data$bio8, env.data$bio18), res=list(20, 20, 20, 20), do.plot=TRUE)) # 4 predictors with smallest VIF
 
-# Reserve remaining (filtered out) points for testing data set
+# Reserve remaining (filtered out) points for testing data set   
 library(dplyr)
-(M.atticolus.testing <- M.atticolus %>% anti_join(M.atticolus.training)) # filtered out points
+(alternatus.testing <- alternatus %>% anti_join(alternatus.training)) # filtered out points
 
 
 
 
-################################
-## GENERATE BACKGROUND POINTS ##
-################################
+####################################
+#### GENERATE BACKGROUND POINTS ####
+####################################
 
 # Generate background points for training dataset
 mask <- environment$bio1
@@ -449,11 +474,11 @@ bg.df.train <- data.frame(Occurrence = rep(0, 35), lon = bg.train[, 1], lat = bg
 bg.df.train
 
 # Convert training dataset to SpatialPointsDataFrame
-df.train <- data.frame(Occurrence = rep(1, length(M.atticolus.training$lon)), M.atticolus.training)
+df.train <- data.frame(Occurrence = rep(1, length(alternatus.training$lon)), alternatus.training)
 merged.dfs.train <- rbind(df.train, bg.df.train)
-M.atticolus.training.spdf <- SpatialPointsDataFrame(coords = merged.dfs.train[, 2:3],	data = data.frame(merged.dfs.train[1]),
+alternatus.training.spdf <- SpatialPointsDataFrame(coords = merged.dfs.train[, 2:3],	data = data.frame(merged.dfs.train[1]),
 	proj4string = crs(environment))
-M.atticolus.training.spdf
+alternatus.training.spdf
 
 # Generate background points for testing dataset
 mask <- environment$bio1
@@ -465,67 +490,64 @@ bg.df <- data.frame(Occurrence = rep(0, 13), lon = bg[, 1], lat = bg[, 2])
 bg.df
 
 # Convert testing dataset to SpatialPointsDataFrame
-df <- data.frame(Occurrence = rep(1, length(M.atticolus.testing$lon)), M.atticolus.testing)
+df <- data.frame(Occurrence = rep(1, length(alternatus.testing$lon)), alternatus.testing)
 merged.dfs <- rbind(df, bg.df)
-M.atticolus.testing.spdf <- SpatialPointsDataFrame(coords = merged.dfs[, 2:3], data = data.frame(merged.dfs[1]),
+alternatus.testing.spdf <- SpatialPointsDataFrame(coords = merged.dfs[, 2:3], data = data.frame(merged.dfs[1]),
 	proj4string = crs(environment))
-M.atticolus.testing.spdf
+alternatus.testing.spdf
 
 
 
 
-############################################
-## FIT SPECIES DISTRIBUTION MODELS - SDMS ##
-############################################
+################################################
+#### FIT SPECIES DISTRIBUTION MODELS - SDMS ####
+################################################
 
 library(biomod2)
 
-occurrence.resp <-  rep(1, length(M.atticolus.training$lon))
+occurrence.resp <-  rep(1, length(alternatus.training$lon))
 
 # Prepare data
-MatticolusBiomodData_PA_equal <- BIOMOD_FormatingData(
+alternatusBiomodData_PA_equal <- BIOMOD_FormatingData(
 	resp.var = occurrence.resp,
 	expl.var = env.selected,
-	resp.xy = M.atticolus.training,
+	resp.xy = alternatus.training,
 	resp.name = "Occurrence",
 	PA.nb.rep = 10,
 	PA.nb.absences = 35,
 	PA.strategy = "sre",
 	PA.sre.quant = 0.025)
-MatticolusBiomodData_PA_equal
+alternatusBiomodData_PA_equal
 
-MatticolusBiomodData_PA_10000 <- BIOMOD_FormatingData(
+alternatusBiomodData_PA_10000 <- BIOMOD_FormatingData(
 	resp.var = occurrence.resp,
 	expl.var = env.selected,
-	resp.xy = M.atticolus.training,
+	resp.xy = alternatus.training,
 	resp.name = "Occurrence",
 	PA.nb.rep = 10,
 	PA.nb.absences = 10000,
 	PA.strategy = "sre",
 	PA.sre.quant = 0.025)
-MatticolusBiomodData_PA_10000
+alternatusBiomodData_PA_10000
 
 
 
 # Path to MAXENT
-myBiomodOption <- BIOMOD_ModelingOptions(MAXENT.Phillips = list(path_to_maxent.jar="C:/Users/Vitor/Documents/R/win-library/3.3/dismo/java", memory_allocated = 1024))
-myBiomodOption <- BIOMOD_ModelingOptions(MAXENT.Phillips = list(path_to_maxent.jar="/Users/vitorhugolacerdacavalcante/Library/R/3.3/library/dismo/java", memory_allocated = 1024))
-myBiomodOption <- BIOMOD_ModelingOptions(MAXENT.Phillips = list(path_to_maxent.jar="C:/Users/izabellapaim/Documents/R/win-library/3.3/dismo/java", memory_allocated = 1024))
-myBiomodOption <- BIOMOD_ModelingOptions(MAXENT.Phillips = list(path_to_maxent.jar="/Users/guarinoonleptophis/Library/R/3.3/library/dismo/java", memory_allocated = 1024))
-myBiomodOption <- BIOMOD_ModelingOptions()# When MAXENT is not necessary 
+myBiomodOption <- BIOMOD_ModelingOptions(MAXENT.Phillips = list(path_to_maxent.jar="C:/Users/sukam/Documents/R/win-library/3.3/dismo/java", memory_allocated = 1024))
+#myBiomodOption <- BIOMOD_ModelingOptions()# When MAXENT is not necessary                    
 
 # Parallel processing
 library(doParallel)
 cl <- makeCluster(4) # number of cores in computer
 registerDoParallel(cl)
 
-# models = c("GLM","GAM","GBM","CTA","ANN","SRE","FDA","MARS","RF","MAXENT.Phillips","MAXENT.Tsuruoka"),
-# Modeling: machine learning methods (using default options)
-# myBiomodOptions_PA_equal <- BIOMOD_ModelingOptions(GBM = NULL,
+models = c("GLM","GAM","GBM","CTA","ANN","SRE","FDA","MARS","RF","MAXENT.Phillips","MAXENT.Tsuruoka") #nessa linha tinha um # no início e uma , no final,mas como estava dando erro tirei p ver se funcionava o resto do script e deu certo.    
+#Modeling: machine learning methods (using default options)
+myBiomodOptions_PA_equal <- BIOMOD_ModelingOptions(GBM = NULL,
 	CTA = NULL,
 	RF = NULL)
                         
-MatticolusModelOut_PA_equal <- BIOMOD_Modeling(MatticolusBiomodData_PA_equal, 
+alternatusModelOut_PA_equal <- BIOMOD_Modeling(alternatusBiomodData_PA_equal, 
 	models = c("RF"), 
 	models.options = myBiomodOption, 
 	NbRunEval = 10,
@@ -536,10 +558,10 @@ MatticolusModelOut_PA_equal <- BIOMOD_Modeling(MatticolusBiomodData_PA_equal,
 	SaveObj = TRUE,
 	rescal.all.models = FALSE,
 	do.full.models = FALSE,
-	modeling.id = "Matticolus")
+	modeling.id = "alternatus")
 
 # Modeling: machine learning methods (using default options)
-# myBiomodOptions_PA_10000 <- BIOMOD_ModelingOptions(GLM = NULL,
+myBiomodOptions_PA_10000 <- BIOMOD_ModelingOptions(GLM = NULL,
 	GAM = NULL,
 	ANN = NULL,
 	SRE = NULL,
@@ -548,8 +570,8 @@ MatticolusModelOut_PA_equal <- BIOMOD_Modeling(MatticolusBiomodData_PA_equal,
 	MAXENT.Phillips = NULL,
 	MAXENT.Tsuruoka = NULL)
                         
-MatticolusModelOut_PA_10000 <- BIOMOD_Modeling( 
-	MatticolusBiomodData_PA_10000, 
+alternatusModelOut_PA_10000 <- BIOMOD_Modeling( 
+	alternatusBiomodData_PA_10000, 
 	models = c("GLM","GAM","ANN","SRE","FDA","MARS","MAXENT.Phillips","MAXENT.Tsuruoka"), 
 	models.options = myBiomodOption, 
 	NbRunEval = 10,
@@ -560,33 +582,33 @@ MatticolusModelOut_PA_10000 <- BIOMOD_Modeling(
 	SaveObj = TRUE,
 	rescal.all.models = FALSE,
 	do.full.models = FALSE,
-	modeling.id = "Matticolus")
+	modeling.id = "alternatus")
 
 
 
 
-###################################
-## EVALUATE MODELS USING BIOMOD2 ##
-###################################
+#######################################
+#### EVALUATE MODELS USING BIOMOD2 ####
+#######################################
 
 # Get evaluations
-MatticolusModelEval_PA_equal <- get_evaluations(MatticolusModelOut_PA_equal)
-MatticolusModelEval_PA_10000 <- get_evaluations(MatticolusModelOut_PA_10000)
+alternatusModelEval_PA_equal <- get_evaluations(alternatusModelOut_PA_equal)
+alternatusModelEval_PA_10000 <- get_evaluations(alternatusModelOut_PA_10000)
 
 # Print ROC scores of all selected models
-MatticolusModelEval_PA_equal["ROC","Testing.data",,,]
+alternatusModelEval_PA_equal["ROC","Testing.data",,,]
 
 # Get summaries (mean) of model evaluation: one model (MAXENT.Tsuruoka), one method (TSS)
-dimnames(MatticolusModelEval_PA_10000)
-MAXENT.Tsuruoka_Eval<- MatticolusModelEval_PA_10000["TSS","Testing.data","MAXENT.Tsuruoka",,]
+dimnames(alternatusModelEval_PA_10000)
+MAXENT.Tsuruoka_Eval<- alternatusModelEval_PA_10000["TSS","Testing.data","MAXENT.Tsuruoka",,]
 mean(MAXENT.Tsuruoka_Eval)
 
 # Get summaries (mean) of model evaluation: one model (GLM), all methods
-mean(MatticolusModelEval_PA_10000["KAPPA","Testing.data","GLM",,])
-mean(MatticolusModelEval_PA_10000["TSS","Testing.data","GLM",,])
-mean(MatticolusModelEval_PA_10000["ROC","Testing.data","GLM",,])
-mean(MatticolusModelEval_PA_10000["ACCURACY","Testing.data","GLM",,])
-mean(MatticolusModelEval_PA_10000["BIAS","Testing.data","GLM",,])
+mean(alternatusModelEval_PA_10000["KAPPA","Testing.data","GLM",,])
+mean(alternatusModelEval_PA_10000["TSS","Testing.data","GLM",,])
+mean(alternatusModelEval_PA_10000["ROC","Testing.data","GLM",,])
+mean(alternatusModelEval_PA_10000["ACCURACY","Testing.data","GLM",,])
+mean(alternatusModelEval_PA_10000["BIAS","Testing.data","GLM",,])
 
 # Get summaries (mean) of model evaluation: machine-learning models, all methods
 sdm.models <- c("GBM","CTA","RF") #3 models
@@ -596,7 +618,7 @@ means.i <- numeric(0)
 means.j <- numeric(5)
 for (i in 1:3){
 	for (j in 1:5){
-	means.j[j] <- mean(MatticolusModelEval_PA_equal[paste(eval.methods[j]),"Testing.data",paste(sdm.models[i]),,])
+	means.j[j] <- mean(alternatusModelEval_PA_equal[paste(eval.methods[j]),"Testing.data",paste(sdm.models[i]),,])
 	}
 	means.i <- c(means.i, means.j)
 }
@@ -615,7 +637,7 @@ means.i <- numeric(0)
 means.j <- numeric(5)
 for (i in 1:8){
 	for (j in 1:5){
-	means.j[j] <- mean(MatticolusModelEval_PA_10000[paste(eval.methods[j]),"Testing.data",paste(sdm.models[i]),,], na.rm=T)
+	means.j[j] <- mean(alternatusModelEval_PA_10000[paste(eval.methods[j]),"Testing.data",paste(sdm.models[i]),,], na.rm=T)
 	}
 	means.i <- c(means.i, means.j)
 }
@@ -626,12 +648,12 @@ summary.eval.10000
 xtabs(summary.eval.10000$Mean ~ summary.eval.10000$Model + summary.eval.10000$Method) #MAXENT.Phillips with best performance
 
 
-############################
-## PRODUCE ENSEMBLE MODEL ##
-############################
+################################
+#### PRODUCE ENSEMBLE MODEL ####
+################################
 
-MatticolusModelEnsemble <- BIOMOD_EnsembleModeling(
-                            modeling.output = MatticolusModelOut,
+alternatusModelEnsemble <- BIOMOD_EnsembleModeling(
+                            modeling.output = alternatusModelOut,
                             chosen.models = c("RF", "GBM"),
                             em.by = "PA_dataset+repet",
                             eval.metric = "all",
@@ -646,12 +668,12 @@ MatticolusModelEnsemble <- BIOMOD_EnsembleModeling(
                             prob.mean.weight.decay = 'proportional')
 
 
-###############################
-## PRODUCE MODEL PROJECTIONS ##
-###############################
+###################################
+#### PRODUCE MODEL PROJECTIONS ####
+###################################
 
-Matticolus.projections <- BIOMOD_Projection(
-	modeling.output = MatticolusModelOut_PA_equal,
+alternatus.projections <- BIOMOD_Projection(
+	modeling.output = alternatusModelOut_PA_equal,
 	new.env = env.selected,
 	#If you wanted to predict to a different area, or different
 	#conditions you would change the above line
@@ -666,7 +688,7 @@ names(projections)
 plot(projections[[99]]) #Just an example
 
 # Plot average projections for RF
-Matticolus.training.spdf <- SpatialPoints(coords = M.atticolus.training, proj4string = crs(environment))
+alternatus.training.spdf <- SpatialPoints(coords = alternatus.training, proj4string = crs(environment))
 
 quartz(w=9, h=9) #macos only
 window(w=6, h=6) #Windows only
@@ -677,20 +699,20 @@ projections.RF.mean <- mean(projections.RF)/1000
 plot(projections.RF.mean, col = matlab.like(100), main = "RF_Current", las = 1)
 plot(wrld_simpl, add = TRUE, col="transparent", border="white", lwd = 0.5)
 plot(dis.cerrado, col="transparent", border="black", lwd = 0.5, add=T)
-plot(Matticolus.training.spdf, pch = 21, cex = 1.25, col = "gray20", bg = "green", add = T)
+plot(alternatus.training.spdf, pch = 21, cex = 1.25, col = "gray20", bg = "green", add = T)
 
 
 
 
-###########################################
-## EVALUATE MODELS USING PresenceAbsence ##
-###########################################
+###############################################
+#### EVALUATE MODELS USING PresenceAbsence ####
+###############################################
 
 # The function "extract" will get the values from the projection raster for the actual data points
-EvalData <- data.frame(extract(projections.RF.mean, M.atticolus.training.spdf))
+EvalData <- data.frame(extract(projections.RF.mean, alternatus.training.spdf))
 
 # Combine the original data and the predictions into a single data frame
-EvalData <- cbind(M.atticolus.training.spdf@data[, 1], EvalData)
+EvalData <- cbind(alternatus.training.spdf@data[, 1], EvalData)
 
 # Rename the columns so they make sense
 colnames(EvalData) <- c("PresAbs", "Pred")
@@ -737,19 +759,19 @@ Kappa(ConfMat)
 
 
 
-#######################################################
-## CONVERT TO BINARY AND CALCULATE AREA OF OCCUPANCY ##
-#######################################################
+###########################################################
+#### CONVERT TO BINARY AND CALCULATE AREA OF OCCUPANCY ####
+###########################################################
 
 ## Find the threshold to convert continuous values into binary with BIOMOD2
 ## ************************************************************************
 
 # The function "extract" will get the values from the projection raster for the actual data points
-FitData <- extract(projections.RF.mean, M.atticolus.training.spdf)
+FitData <- extract(projections.RF.mean, alternatus.training.spdf)
 head(FitData)
 summary(FitData)
 
-ObsData <- M.atticolus.training.spdf@data[, 1]
+ObsData <- alternatus.training.spdf@data[, 1]
 head(ObsData)
 summary(ObsData)
 
@@ -762,10 +784,10 @@ Find.Optim.Stat(Stat="KAPPA", FitData, ObsData, Nb.thresh.test=100, Fixed.thresh
 ## ********************************************************************************
 
 # The function "extract" will get the values from the projection raster for the actual data points
-EvalData <- data.frame(extract(projections.RF.mean, M.atticolus.training.spdf))
+EvalData <- data.frame(extract(projections.RF.mean, alternatus.training.spdf))
 
 # Combine the original data and the predictions into a single data frame
-EvalData <- cbind(M.atticolus.training.spdf@data[, 1], EvalData)
+EvalData <- cbind(alternatus.training.spdf@data[, 1], EvalData)
 
 # Rename the columns so they make sense
 colnames(EvalData) <- c("PresAbs", "Pred")
@@ -821,16 +843,16 @@ area_current_presence = area_current[2]
 area_current_presence 
 
 
-#####################################
-## Model projection for the future ##
-#####################################
+#########################################
+#### Model projection for the future ####
+#########################################
 
-##########
-## 2050 ##
-##########
+##############
+#### 2050 ####
+##############
 
-Matticolus.projections <- BIOMOD_Projection(
-	modeling.output = MatticolusModelOut_PA_equal,
+alternatus.projections <- BIOMOD_Projection(
+	modeling.output = alternatusModelOut_PA_equal,
 	new.env = env50_85.selected,
 	proj.name = "RF.2050_rcp85",
 	selected.models = "all")
@@ -841,7 +863,7 @@ names(projections.RF_2050_rcp85)
 plot(projections.RF_2050_rcp85[[100]]) #Just an example
 
 # Plot average projections for RF
-Matticolus.training.spdf <- SpatialPoints(coords = M.atticolus.training, proj4string = crs(environment))
+alternatus.training.spdf <- SpatialPoints(coords = alternatus.training, proj4string = crs(environment))
 
 quartz(w=9, h=9) #macos only
 window(w=6, h=6) #Windows only
@@ -852,7 +874,7 @@ projections.RF_2050_rcp85.mean <- mean(projections.RF_2050_rcp85)/1000
 plot(projections.RF_2050_rcp85.mean, col = matlab.like(100), main = "RF 2050 rcp 85", las = 1)
 plot(wrld_simpl, add = TRUE, col="transparent", border="white", lwd = 0.5)
 plot(dis.cerrado, col="transparent", border="black", lwd = 0.5, add=T)
-plot(Matticolus.training.spdf, pch = 21, cex = 1.25, col = "gray20", bg = "green", add = T)
+plot(alternatus.training.spdf, pch = 21, cex = 1.25, col = "gray20", bg = "green", add = T)
 
 ## Convert to binary
 ## *****************
@@ -888,12 +910,12 @@ predict_area_2050_rcp85 # result = -0.3275401,  -570104.8 km2
 
 
 
-##########
-## 2070 ##
-##########
+##############
+#### 2070 ####
+##############
 
-Matticolus.projections_2070_45 <- BIOMOD_Projection(
-	modeling.output = MatticolusModelOut_PA_equal,
+alternatus.projections_2070_45 <- BIOMOD_Projection(
+	modeling.output = alternatusModelOut_PA_equal,
 	new.env = env70_45.selected,
 	#If you wanted to predict to a different area, or different
 	#conditions you would change the above line
@@ -913,7 +935,7 @@ names(projections.RF_2070_rcp85)
 
 
 # Plot average projections for RF 
-Matticolus.training.spdf <- SpatialPoints(coords = M.atticolus.training, proj4string = crs(environment))
+alternatus.training.spdf <- SpatialPoints(coords = alternatus.training, proj4string = crs(environment))
 
 quartz(w=9, h=9) #macos only
 window(w=6, h=6) #Windows only
@@ -924,7 +946,7 @@ projections.RF_2070_rcp85.mean <- mean(projections.RF_2070_rcp85)/1000
 plot(projections.RF_2070_rcp85.mean, col = matlab.like(100), main = "RF_2070_rcp85", las = 1)
 plot(wrld_simpl, add = TRUE, col="transparent", border="white", lwd = 0.5)
 plot(dis.cerrado, col="transparent", border="black", lwd = 0.5, add=T)
-plot(Matticolus.training.spdf, pch = 21, cex = 1.25, col = "gray20", bg = "green", add = T)
+plot(alternatus.training.spdf, pch = 21, cex = 1.25, col = "gray20", bg = "green", add = T)
 
 ## Convert to binary
 ## *****************
