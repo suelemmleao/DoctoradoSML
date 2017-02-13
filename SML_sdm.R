@@ -450,8 +450,9 @@ library(tcltk2)  #me deu uma mensagem de erro e dizia p instalar este pacote
 # Apply environmental filter to create training data set
 env.data <- extract(env.selected, alternatus)
 env.data <- as.data.frame(env.data)
-(alternatus.training <- envSample(alternatus, filters=list(env.data$bio2, env.data$bio15,
-	env.data$bio8, env.data$bio18), res=list(20, 20, 20, 20), do.plot=TRUE)) # 4 predictors with smallest VIF
+(alternatus.training <- envSample(alternatus, filters=list(env.data$bio2, env.data$bio8, env.data$bio15,
+	env.data$bio18), res=list(20, 20, 20, 20), do.plot=TRUE)) # 4 predictors with smallest VIF     #Sempre da esse aviso: Warning message:
+                                                                                                 #Quoted identifiers should have class SQL, use DBI::SQL() if the caller performs the quoting. 
 
 # Reserve remaining (filtered out) points for testing data set   
 library(dplyr)
@@ -548,7 +549,7 @@ myBiomodOptions_PA_equal <- BIOMOD_ModelingOptions(GBM = NULL,
 	RF = NULL)
                         
 alternatusModelOut_PA_equal <- BIOMOD_Modeling(alternatusBiomodData_PA_equal, 
-	models = c("RF"), 
+	models = c("GBM","CTA","RF"), # Tinha só "RF" e dava erro no loop da linha 620
 	models.options = myBiomodOption, 
 	NbRunEval = 10,
 	DataSplit = 75, 
@@ -618,7 +619,7 @@ means.i <- numeric(0)
 means.j <- numeric(5)
 for (i in 1:3){
 	for (j in 1:5){
-	means.j[j] <- mean(alternatusModelEval_PA_equal[paste(eval.methods[j]),"Testing.data",paste(sdm.models[i]),,])
+	means.j[j] <- mean(alternatusModelEval_PA_equal[paste(eval.methods[j]),"Testing.data",paste(sdm.models[i]),,],na.rm=T)
 	}
 	means.i <- c(means.i, means.j)
 }
