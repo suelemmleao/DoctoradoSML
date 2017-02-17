@@ -43,6 +43,7 @@ setwd("C:/Users/sukam/Dropbox/Doutorado/Gis/Modelado")
 #### GET AND CROP WORLDCLIM LAYERS ####
 #######################################
 
+
 ## Get WorldClim layers
 #  ********************
 
@@ -239,12 +240,12 @@ biplot(pca.env.data, pc.biplot = T)
 summary(pca.env.data)
 pca.env.data$loadings[, 1:3]
 
-# Variance Inflation Factors (VIF) of environmental variables    #Aqui eu não entendi muito bem, mas li o help e entendi melhor. 
-                                                                 #Só não entendi ainda pq escolher o v2 ao invés do v1? É pq o v2 é mais conservador?
+# Variance Inflation Factors (VIF) of environmental variables    # Aqui só não entendi ainda pq escolher o v2 (VIF) ao invés do v1? É pq o v2 é mais conservador?
+                                                                 
 library(usdm)
 v1 <- vifcor(environment, th=0.9) #correlation
 v1
-v2 <- vifstep(environment, th=10) #VIF
+v2 <- vifstep(environment, th=10) #VIF       
 v2
 
 # Subset environmental stack
@@ -254,8 +255,8 @@ env.selected
 # Pairs plot of selected environmental predictors
 env.data.std <- data.frame(scale(env.data)) # Scale variables
 library(corrplot)
-M <- cor(env.data.std[, c("alt", "bio2", "bio3","bio8","bio9","bio13","bio14", "bio15", "bio18", "bio19")])
-corrplot.mixed(M, upper="ellipse", lower="number")
+B <- cor(env.data.std[, c("alt", "bio2", "bio3","bio8","bio9","bio13","bio14", "bio15", "bio18", "bio19")])
+corrplot.mixed(B, upper="ellipse", lower="number")
 
 
 # Subset environmental stack for future scenarios
@@ -321,7 +322,7 @@ plot(wrld_simpl, add = TRUE, col="transparent", border="gray70", lwd = 0.25)
 plot(dis.cerrado, col=rgb(1,1,1,0.2), border="gray80", lwd = 0.5, add=T)
 plot(dis.caatinga, col=rgb(1,1,1,0.2), border="gray80", lwd = 0.5, add=T)
 plot(dis.chaco, col=rgb(1,1,1,0.2), border="gray80", lwd = 0.5, add=T)
-points(alternatus$lon, alternatus$lat, pch = 21, cex = 1.25, col = "gray20", bg = "red")
+points(alternatus$lon, alternatus$lat, pch = 21, cex = 1, col = "gray20", bg = "black")
 
 
 
@@ -445,14 +446,16 @@ envSample<- function (coord, filters, res, do.plot=TRUE){
 }
 
 
-library(tcltk2)  #me deu uma mensagem de erro e dizia p instalar este pacote
-                 #Mas ainda me da essa mensagem: Warning message: Quoted identifiers should have class SQL, use DBI::SQL() if the caller performs the quoting.    
+library(tcltk2)  #me deu uma mensagem de erro ao aplicar esse filtro e dizia p instalar este pacote
+                 #Agora funciona, mas ainda me da essa mensagem: 
+                 #Warning message: Quoted identifiers should have class SQL, use DBI::SQL() if the caller performs the quoting.    
+
 # Apply environmental filter to create training data set
 env.data <- extract(env.selected, alternatus)
 env.data <- as.data.frame(env.data)
 (alternatus.training <- envSample(alternatus, filters=list(env.data$bio2, env.data$bio8, env.data$bio15,
-	env.data$bio18), res=list(20, 20, 20, 20), do.plot=TRUE)) # 4 predictors with smallest VIF     #Sempre da esse aviso: Warning message:
-                                                                                                 #Quoted identifiers should have class SQL, use DBI::SQL() if the caller performs the quoting. 
+	env.data$bio18), res=list(20, 20, 20, 20), do.plot=TRUE)) # 4 predictors with smallest VIF
+                                                                                                 
 
 # Reserve remaining (filtered out) points for testing data set   
 library(dplyr)
@@ -464,6 +467,7 @@ library(dplyr)
 ####################################
 #### GENERATE BACKGROUND POINTS ####
 ####################################
+
 
 # Generate background points for training dataset
 mask <- environment$bio1
@@ -542,14 +546,14 @@ library(doParallel)
 cl <- makeCluster(4) # number of cores in computer
 registerDoParallel(cl)
 
-models = c("GLM","GAM","GBM","CTA","ANN","SRE","FDA","MARS","RF","MAXENT.Phillips","MAXENT.Tsuruoka") #nessa linha tinha um # no início e uma , no final,mas como estava dando erro tirei p ver se funcionava o resto do script e deu certo.    
+models = c("GLM","GAM","GBM","CTA","ANN","SRE","FDA","MARS","RF","MAXENT.Phillips","MAXENT.Tsuruoka")   
 #Modeling: machine learning methods (using default options)
 myBiomodOptions_PA_equal <- BIOMOD_ModelingOptions(GBM = NULL,
 	CTA = NULL,
 	RF = NULL)
                         
 alternatusModelOut_PA_equal <- BIOMOD_Modeling(alternatusBiomodData_PA_equal, 
-	models = c("GBM","CTA","RF"), # Tinha só "RF" e dava erro no loop da linha 620
+	models = c("GBM","CTA","RF"), 
 	models.options = myBiomodOption, 
 	NbRunEval = 10,
 	DataSplit = 75, 
@@ -611,6 +615,7 @@ mean(alternatusModelEval_PA_10000["ROC","Testing.data","GLM",,])
 mean(alternatusModelEval_PA_10000["ACCURACY","Testing.data","GLM",,])
 mean(alternatusModelEval_PA_10000["BIAS","Testing.data","GLM",,])
 
+
 # Get summaries (mean) of model evaluation: machine-learning models, all methods
 sdm.models <- c("GBM","CTA","RF") #3 models
 eval.methods <- c("KAPPA","TSS","ROC","ACCURACY","BIAS") #5 evaluation methods
@@ -624,10 +629,11 @@ for (i in 1:3){
 	means.i <- c(means.i, means.j)
 }
 
+
 summary.eval.equal <- data.frame(rep(sdm.models,each=5), rep(eval.methods,3), means.i)
 names(summary.eval.equal) <- c("Model", "Method", "Mean")
 summary.eval.equal
-xtabs(summary.eval.equal$Mean ~ summary.eval.equal$Model + summary.eval.equal$Method) #RF with best performance
+xtabs(summary.eval.equal$Mean ~ summary.eval.equal$Model + summary.eval.equal$Method) #RF and GBM with best performance
 
 
 # Get summaries (mean) of model evaluation: regression models, all methods
@@ -646,58 +652,88 @@ for (i in 1:8){
 summary.eval.10000 <- data.frame(rep(sdm.models,each=5), rep(eval.methods,8), means.i)
 names(summary.eval.10000) <- c("Model", "Method", "Mean")
 summary.eval.10000
-xtabs(summary.eval.10000$Mean ~ summary.eval.10000$Model + summary.eval.10000$Method) #MAXENT.Phillips with best performance
+xtabs(summary.eval.10000$Mean ~ summary.eval.10000$Model + summary.eval.10000$Method) 
 
 
 ################################
 #### PRODUCE ENSEMBLE MODEL ####
 ################################
 
+##Finding the  eval.metric.quality.threshold??? Li muito sobre isso, mas não consegui encontrar uma boa explicação de como calcular este número
+## extract TSS scores
+(scores_all <- get_evaluations(alternatusModelOut_PA_equal))
+scores_TSS <- as.numeric(scores_all["TSS","Testing.data",,,])
+scores_TSS
+mean(scores_TSS)
+
+## select a threshold to keep a single model
+score_thresh <- mean(tail(sort(scores_TSS),3))   #não consegui encontrar nenhuma explicação de que numero colocar. Escolhi 300 pq é o total de corridas.
+score_thresh                                     #Mas com 300 é o mesmo que a média, acho q não faz sentido. No exemplo que encontrei tinha um 2.
+                                                 #e usava 2 models com 2 corridas, mas se eu coloco qualquer valor menos que 10 da = 1 pq muitos TSS foram iguais a 1
+
+
+
+##BIOMOD_Modeling Again###   
+#não se era necessário, mas me pareceu lógico ter que fazer isso e sem isso nem funcionava a parte do ensemble
+##Run again only with the selected models ("GBM","RF")
+alternatusModelOut_PA_equal <- BIOMOD_Modeling(alternatusBiomodData_PA_equal, 
+                                               models = c("GBM","RF"), 
+                                               models.options = myBiomodOption, 
+                                               NbRunEval = 10,
+                                               DataSplit = 75, 
+                                               Prevalence = NULL, 
+                                               VarImport = 0,
+                                               models.eval.meth = c("KAPPA","TSS","ROC","ACCURACY","BIAS"),
+                                               SaveObj = TRUE,
+                                               rescal.all.models = FALSE,
+                                               do.full.models = FALSE,
+                                               modeling.id = "alternatus")
+
+
+##ENSEMBLE MODEL##
+#Essa parte dava erros e só consegui quando coloquei "all" para chosen.models e NULL para eval.metric.quality.threshold
 alternatusModelEnsemble <- BIOMOD_EnsembleModeling(
-                            modeling.output = alternatusModelOut,
-                            chosen.models = c("RF", "GBM"),
-                            em.by = "PA_dataset+repet",
-                            eval.metric = "all",
-                            eval.metric.quality.threshold = c(0.67), # This must be calculated BEFORE this step!
-                            prob.mean = TRUE,
-                            prob.cv = FALSE,
-                            prob.ci = FALSE,
-                            prob.ci.alpha = 0.05,
-                            prob.median = FALSE,
-                            committee.averaging = FALSE,
-                            prob.mean.weight = FALSE,
-                            prob.mean.weight.decay = 'proportional')
+  modeling.output = alternatusModelOut_PA_equal,
+  chosen.models = "all",
+  em.by = "PA_dataset+repet",
+  eval.metric = "all",
+  eval.metric.quality.threshold = NULL, # This must be calculated BEFORE this step! Isso é para selecionar só os melhores modelos para o ensemble?
+  prob.mean = TRUE,
+  prob.cv = FALSE,
+  prob.ci = FALSE,
+  prob.ci.alpha = 0.05,
+  prob.median = FALSE,
+  committee.averaging = FALSE,
+  prob.mean.weight = FALSE,
+  prob.mean.weight.decay = 'proportional')
 
 
 ###################################
 #### PRODUCE MODEL PROJECTIONS ####
 ###################################
 
+
 alternatus.projections <- BIOMOD_Projection(
-	modeling.output = alternatusModelOut_PA_equal,
-	new.env = env.selected,
-	#If you wanted to predict to a different area, or different
-	#conditions you would change the above line
-	proj.name = "Current",
-	selected.models = "all")
+  modeling.output = alternatusModelOut_PA_equal,
+  new.env = env.selected,
+  #If you wanted to predict to a different area, or different
+  #conditions you would change the above line
+  proj.name = "Current",
+  selected.models = "all")
 
 # Stack projections
-projections <- stack("C:/Users/Vitor/Documents/GitHub/Extinction-risk-Micrablepharus-atticolus/Occurrence/proj_Current/proj_Current_Occurrence.grd")
-projections <- stack("C:/Users/izabellapaim/Documents/GitHub/Extinction-risk-Micrablepharus-atticolus/Occurrence/proj_Current/proj_Current_Occurrence.grd")
-projections <- stack("/Users/guarinoonleptophis/Documents/Manuscritos/Em preparaÃ§Ã£o/Ecofisiologia Micrablepharus atticolus/Analyses/Occurrence/proj_Current/proj_Current_Occurrence.grd")
+projections <- stack("C:/Users/sukam/Dropbox/Doutorado/Gis/Modelado/Occurrence/proj_Current/proj_Current_Occurrence_ensemble.grd")
 names(projections)
 plot(projections[[99]]) #Just an example
 
-# Plot average projections for RF
+# Plot average projections for RF and GBM
 alternatus.training.spdf <- SpatialPoints(coords = alternatus.training, proj4string = crs(environment))
 
-quartz(w=9, h=9) #macos only
-window(w=6, h=6) #Windows only
-
-projections.RF <- subset(projections, grep("RF", names(projections)))
-names(projections.RF)
-projections.RF.mean <- mean(projections.RF)/1000
-plot(projections.RF.mean, col = matlab.like(100), main = "RF_Current", las = 1)
+#x11(w=6, h=6) #Windows only
+projections.RF.GBM <- subset(projections, grep("RF","GBM", names(projections))) #não consigo fazer essa parte funcionar. Tentei só com o RF, mas tb não funciona
+names(projections.RF.GBM)                                                           #Diz que projections.RF.GBM = NULL...parece que os arquivos em "projections" não tem RF ou GBM nos nomes
+projections.RF.GBM.mean <- mean(projections.RF)/1000
+plot(projections.RF.GBM.mean, col = matlab.like(100), main = "RF_Current","GBM_Current", las = 1)
 plot(wrld_simpl, add = TRUE, col="transparent", border="white", lwd = 0.5)
 plot(dis.cerrado, col="transparent", border="black", lwd = 0.5, add=T)
 plot(alternatus.training.spdf, pch = 21, cex = 1.25, col = "gray20", bg = "green", add = T)
@@ -712,8 +748,8 @@ plot(alternatus.training.spdf, pch = 21, cex = 1.25, col = "gray20", bg = "green
 # The function "extract" will get the values from the projection raster for the actual data points
 EvalData <- data.frame(extract(projections.RF.mean, alternatus.training.spdf))
 
-# Combine the original data and the predictions into a single data frame
-EvalData <- cbind(alternatus.training.spdf@data[, 1], EvalData)
+# Combine the original data and the predictions into a single data frame     #Aqui tem que voltar e criar alternatus.training.spdf novamente se der erro
+EvalData <- cbind(alternatus.training.spdf@data[, 1], EvalData)  
 
 # Rename the columns so they make sense
 colnames(EvalData) <- c("PresAbs", "Pred")
