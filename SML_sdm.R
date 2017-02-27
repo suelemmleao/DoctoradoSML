@@ -97,7 +97,7 @@ library(maptools)
 
 # Visualize boundaries
 data(wrld_simpl)
-plot(wrld_simpl, xlim = c(-85, -35), ylim = c(-55, 10), axes = TRUE, col = "light grey")
+plot(wrld_simpl, xlim = c(-85, -30), ylim = c(-60, 15), axes = TRUE, col = "light grey")
 
 
 #All my date
@@ -107,7 +107,7 @@ str(Bothrops)
 
 #General Map
 library(maps)
-plot(Bothrops$lon, Bothrops$lat, xlim=c(-85,-35),ylim=c(-55,10),
+plot(Bothrops$lon, Bothrops$lat, xlim=c(-85,-30),ylim=c(-60,15),
      col="red",pch=19, cex= 0.5, xlab="Longitude",ylab="Latitude")  
 scalebar(500, xy = c(-40,-50), type = 'bar', divs = 2, below = "km")
 title(paste ("Distribuição Bothrops"))
@@ -115,7 +115,7 @@ map(add=T)
 
 
 # Set boundaries
-ext <- extent(-85, -35, -55, 10)
+ext <- extent(-85, -30, -60, 15)
 
 # Crop layers (present)
 alt.crop <- crop(alt, ext); plot(alt.crop)
@@ -285,6 +285,8 @@ env70_85.selected
 #### INPUT AND PLOT DISTRIBUTION DATA ####
 ##########################################
 
+# My directory
+setwd("C:/Users/sukam/Dropbox/Doutorado/Gis/Modelado/alternatus")
 
 # Read data
 alternatus <- read.csv("alternatus.csv", h = T)
@@ -304,16 +306,16 @@ library(RColorBrewer)
 library(rgdal)
 
 
-dis.cerrado <- readOGR("C:/Users/sukam/Dropbox/Doutorado/Gis/Modelado","Cerrado")
-dis.caatinga <- readOGR("C:/Users/sukam/Dropbox/Doutorado/Gis/Modelado","Caatinga")
-dis.chaco <- readOGR("C:/Users/sukam/Dropbox/Doutorado/Gis/Modelado","Chaco")
-
-
 plot(environment[[1]], col = rev(brewer.pal(11, "RdYlBu")), main = "Altitude") #RColorBrewer
 plot(environment[[1]], col = SAGA_pal[[1]], main = "Altitude") #plotKML
 plot(environment[[1]], col = rev(magenta2green(100)), main = "Altitude") #colorRamps
 plot(environment[[1]], col = blue2red(100), main = "Altitude") #colorRamps
 plot(environment[[1]], col = matlab.like2(100), main = "Altitude") #colorRamps
+
+
+dis.cerrado <- readOGR("C:/Users/sukam/Dropbox/Doutorado/Gis/Modelado","Cerrado")
+dis.caatinga <- readOGR("C:/Users/sukam/Dropbox/Doutorado/Gis/Modelado","Caatinga")
+dis.chaco <- readOGR("C:/Users/sukam/Dropbox/Doutorado/Gis/Modelado","Chaco")
 
 
 #x11(w=6, h=6) #Windows only
@@ -446,7 +448,7 @@ envSample<- function (coord, filters, res, do.plot=TRUE){
 }
 
 
-library(tcltk2)  #me deu uma mensagem de erro ao aplicar esse filtro e dizia p instalar este pacote
+library(tcltk2)  #me deu uma mensagem de erro ao aplicar o filtro abaixo e dizia p instalar este pacote
                  #Agora funciona, mas ainda me da essa mensagem: 
                  #Warning message: Quoted identifiers should have class SQL, use DBI::SQL() if the caller performs the quoting.    
 
@@ -472,10 +474,10 @@ library(dplyr)
 # Generate background points for training dataset
 mask <- environment$bio1
 set.seed(22111962)
-bg.train <- randomPoints(mask, 35)
+bg.train <- randomPoints(mask, 204) #Remember to put the number of points after filter application (Number of points held after filter)
 plot(!is.na(mask), legend = F)
 points(bg.train, cex = 0.5)
-bg.df.train <- data.frame(Occurrence = rep(0, 35), lon = bg.train[, 1], lat = bg.train[, 2])
+bg.df.train <- data.frame(Occurrence = rep(0, 204), lon = bg.train[, 1], lat = bg.train[, 2])
 bg.df.train
 
 # Convert training dataset to SpatialPointsDataFrame
@@ -488,10 +490,10 @@ alternatus.training.spdf
 # Generate background points for testing dataset
 mask <- environment$bio1
 set.seed(22111962)
-bg <- randomPoints(mask, 13)
+bg <- randomPoints(mask, 194)  #Remember to put the number of points after filter application (Number of points removed after filter)
 plot(!is.na(mask), legend = F)
 points(bg, cex = 0.5)
-bg.df <- data.frame(Occurrence = rep(0, 13), lon = bg[, 1], lat = bg[, 2])
+bg.df <- data.frame(Occurrence = rep(0, 194), lon = bg[, 1], lat = bg[, 2])      
 bg.df
 
 # Convert testing dataset to SpatialPointsDataFrame
@@ -519,7 +521,7 @@ alternatusBiomodData_PA_equal <- BIOMOD_FormatingData(
 	resp.xy = alternatus.training,
 	resp.name = "Occurrence",
 	PA.nb.rep = 10,
-	PA.nb.absences = 35,
+	PA.nb.absences = 204,  #Remember to put the number of points after filter application (Number of points held after filter)        
 	PA.strategy = "sre",
 	PA.sre.quant = 0.025)
 alternatusBiomodData_PA_equal
@@ -550,7 +552,7 @@ models = c("GLM","GAM","GBM","CTA","ANN","SRE","FDA","MARS","RF","MAXENT.Phillip
 #Modeling: machine learning methods (using default options)
 myBiomodOptions_PA_equal <- BIOMOD_ModelingOptions(GBM = NULL,
 	CTA = NULL,
-	RF = NULL)
+  RF = NULL)
                         
 alternatusModelOut_PA_equal <- BIOMOD_Modeling(alternatusBiomodData_PA_equal, 
 	models = c("GBM","CTA","RF"), 
@@ -674,8 +676,7 @@ score_thresh                                     #Mas com 300 é o mesmo que a mé
 
 
 ##BIOMOD_Modeling Again###   
-#não se era necessário, mas me pareceu lógico ter que fazer isso e sem isso nem funcionava a parte do ensemble
-##Run again only with the selected models ("GBM","RF")
+##Run again only with the selected models ("GBM","RF")  #não sei se era necessário, mas me pareceu lógico ter que fazer isso e sem isso nem funcionava a parte do ensemble
 alternatusModelOut_PA_equal <- BIOMOD_Modeling(alternatusBiomodData_PA_equal, 
                                                models = c("GBM","RF"), 
                                                models.options = myBiomodOption, 
@@ -694,10 +695,10 @@ alternatusModelOut_PA_equal <- BIOMOD_Modeling(alternatusBiomodData_PA_equal,
 #Essa parte dava erros e só consegui quando coloquei "all" para chosen.models e NULL para eval.metric.quality.threshold
 alternatusModelEnsemble <- BIOMOD_EnsembleModeling(
   modeling.output = alternatusModelOut_PA_equal,
-  chosen.models = "all",
+  chosen.models = grep("GBM","RF", names(alternatusModelOut_PA_equal)),
   em.by = "PA_dataset+repet",
   eval.metric = "all",
-  eval.metric.quality.threshold = NULL, # This must be calculated BEFORE this step! Isso é para selecionar só os melhores modelos para o ensemble?
+  eval.metric.quality.threshold = NULL,  # This must be calculated BEFORE this step!
   prob.mean = TRUE,
   prob.cv = FALSE,
   prob.ci = FALSE,
@@ -706,6 +707,10 @@ alternatusModelEnsemble <- BIOMOD_EnsembleModeling(
   committee.averaging = FALSE,
   prob.mean.weight = FALSE,
   prob.mean.weight.decay = 'proportional')
+
+get_evaluations(alternatusModelEnsemble)
+
+
 
 
 ###################################
@@ -721,22 +726,35 @@ alternatus.projections <- BIOMOD_Projection(
   proj.name = "Current",
   selected.models = "all")
 
+alternatus_EnsembleForecasting<- BIOMOD_EnsembleForecasting( alternatusModelEnsemble,
+                                                            projection.output = alternatus.projections,
+                                                            selected.models = 'all')
+
 # Stack projections
 projections <- stack("C:/Users/sukam/Dropbox/Doutorado/Gis/Modelado/Occurrence/proj_Current/proj_Current_Occurrence_ensemble.grd")
 names(projections)
-plot(projections[[99]]) #Just an example
+plot(projections[[499]]) #Just an example
 
 # Plot average projections for RF and GBM
 alternatus.training.spdf <- SpatialPoints(coords = alternatus.training, proj4string = crs(environment))
 
 #x11(w=6, h=6) #Windows only
-projections.RF.GBM <- subset(projections, grep("RF","GBM", names(projections))) #não consigo fazer essa parte funcionar. Tentei só com o RF, mas tb não funciona
-names(projections.RF.GBM)                                                           #Diz que projections.RF.GBM = NULL...parece que os arquivos em "projections" não tem RF ou GBM nos nomes
-projections.RF.GBM.mean <- mean(projections.RF)/1000
-plot(projections.RF.GBM.mean, col = matlab.like(100), main = "RF_Current","GBM_Current", las = 1)
+projections.EM <- subset(projections, grep("EM", names(projections)))
+names(projections.EM)
+projections.EM.mean <- mean(projections.EM)/1000
+
+caa.col <- adjustcolor("#31a354", alpha.f=0.6)
+cerr.col <- adjustcolor("#74c476", alpha.f=0.7) 
+cha.col <- adjustcolor("#bae4b3", alpha=0.7)
+
+pdf("alternatus.pdf", width = 8.267, height= 11.692, paper="a4")
+plot(projections.EM.mean, col = matlab.like(100), main = "EM_Current", las = 1)
 plot(wrld_simpl, add = TRUE, col="transparent", border="white", lwd = 0.5)
-plot(dis.cerrado, col="transparent", border="black", lwd = 0.5, add=T)
-plot(alternatus.training.spdf, pch = 21, cex = 1.25, col = "gray20", bg = "green", add = T)
+plot(dis.caatinga, col=caa.col, border="#31a354", lwd = 0.5, add=T)
+plot(dis.cerrado, col=cerr.col, border="#74c476", lwd = 0.5, add=T)
+plot(dis.chaco, col=cha.col, border="#bae4b3", lwd = 0.5, add=T)
+points(alternatus$lon, alternatus$lat, pch = 21, cex = 0.7, col = "gray10", bg = "gray")
+dev.off()
 
 
 
@@ -746,9 +764,9 @@ plot(alternatus.training.spdf, pch = 21, cex = 1.25, col = "gray20", bg = "green
 ###############################################
 
 # The function "extract" will get the values from the projection raster for the actual data points
-EvalData <- data.frame(extract(projections.RF.mean, alternatus.training.spdf))
+EvalData <- data.frame(extract(projections.EM.mean, alternatus.training.spdf))      #Remember to create the "alternatus.training.spdf" again in case of error    
 
-# Combine the original data and the predictions into a single data frame     #Aqui tem que voltar e criar alternatus.training.spdf novamente se der erro
+# Combine the original data and the predictions into a single data frame
 EvalData <- cbind(alternatus.training.spdf@data[, 1], EvalData)  
 
 # Rename the columns so they make sense
@@ -771,20 +789,23 @@ summary(EvalData)
 # Calculate Area Under the Receiver Operating Curve and plot it
 library(PresenceAbsence)
 auc.roc.plot(EvalData)
-optimal.thresholds(EvalData) # Calculate optimal thresholds
+optimal.thresholds(EvalData) # Calculate optimal thresholds          #Warning messages:
+                                                                     #1: In optimal.thresholds(EvalData) : req.sens defaults to 0.85
+                                                                     #2: In optimal.thresholds(EvalData) : req.spec defaults to 0.85
+                                                                     #3: In optimal.thresholds(EvalData) : costs assumed to be equal
 
 # Create a column "Class" with the Predicted Probabilities
 EvalData$Class <- EvalData$Pred
 
-# Assign all values of "Class" that are greater than or equal to 0.6700000
-# (optimal threshold MaxSens+Spec = 0.6700000) to 1 (i.e., predicted presence), and
-# all values less than 0.6700000 to 0 (i.e, predicted absence)
-EvalData$Class[EvalData$Class >= 0.65] <- 1
-EvalData$Class[EvalData$Class < 0.65] <- 0
+# Assign all values of "Class" that are greater than or equal to 0.9200000
+# (optimal threshold MaxSens+Spec = 0.9200000) to 1 (i.e., predicted presence), and
+# all values less than 0.9200000 to 0 (i.e, predicted absence)
+EvalData$Class[EvalData$Class >= 0.9200000] <- 1
+EvalData$Class[EvalData$Class < 0.9200000] <- 0
 
 # Calculate confusion matrix and threshold dependent metrics of model fit
 # Calculate the Confusion Matrix
-ConfMat <- cmx(EvalData)
+ConfMat <- cmx(EvalData)       
 ConfMat
 # Sensitivity
 sensitivity(ConfMat)
@@ -804,7 +825,7 @@ Kappa(ConfMat)
 ## ************************************************************************
 
 # The function "extract" will get the values from the projection raster for the actual data points
-FitData <- extract(projections.RF.mean, alternatus.training.spdf)
+FitData <- extract(projections.EM.mean, alternatus.training.spdf)    #Remember to create the "alternatus.training.spdf" again in case of error
 head(FitData)
 summary(FitData)
 
@@ -821,7 +842,7 @@ Find.Optim.Stat(Stat="KAPPA", FitData, ObsData, Nb.thresh.test=100, Fixed.thresh
 ## ********************************************************************************
 
 # The function "extract" will get the values from the projection raster for the actual data points
-EvalData <- data.frame(extract(projections.RF.mean, alternatus.training.spdf))
+EvalData <- data.frame(extract(projections.EM.mean, alternatus.training.spdf))
 
 # Combine the original data and the predictions into a single data frame
 EvalData <- cbind(alternatus.training.spdf@data[, 1], EvalData)
@@ -845,7 +866,9 @@ summary(EvalData)
 
 # Calculate Area Under the Receiver Operating Curve and plot it
 library(PresenceAbsence)
-optimal.thresholds(EvalData) # Calculate optimal thresholds
+optimal.thresholds(EvalData) # Calculate optimal thresholds      #Warning messages:
+                                                                 #2: In optimal.thresholds(EvalData) : req.spec defaults to 0.85
+                                                                 #3: In optimal.thresholds(EvalData) : costs assumed to be equal
 
 
 ## Find the threshold to convert continuous values into binary with sdmTools
@@ -858,27 +881,31 @@ optim.thresh(ObsData, FitData, threshold = 101)
 ## Convert to binary
 ## *****************
 
-projections.RF.mean.binary <- BinaryTransformation(projections.RF.mean, 0.66)
-class(projections.RF.mean.binary) #This is a raster layer!
-str(values(projections.RF.mean.binary)) #These are only the binary values!
-summary(values(projections.RF.mean.binary))
+projections.EM.mean.binary <- BinaryTransformation(projections.EM.mean, 0.92)
+class(projections.EM.mean.binary) #This is a raster layer!
+str(values(projections.EM.mean.binary)) #These are only the binary values!      #If have an error here must follow these steps: #search() #Shows used packages
+                                                                                #value      #shows the package are using  "value"
+                                                                                #.rs.unloadPackage("tcltk2")     #Unloads the package
+summary(values(projections.EM.mean.binary))
 
 
 ## Calculate area of occupancy from binary unprojected area
 ## ********************************************************
 
-area_RF <- area(projections.RF.mean.binary)
-class(area_RF)
-str(values(area_RF))
-summary(values(area_RF))
+area_EM <- area(projections.EM.mean.binary)
+class(area_EM)
+str(values(area_EM))            
+summary(values(area_EM))
 
-area_total <- data.frame(values(projections.RF.mean.binary), values(area_RF)) #Combine binary and area info for each cell
+area_total <- data.frame(values(projections.EM.mean.binary), values(area_EM)) #Combine binary and area info for each cell
 names(area_total) <- c("Pres_Abs", "Area")
 head(area_total)
-area_current = tapply(area_total$Area, area_total$Pres_Abs, sum) #Area of occupancy = 2,041,151 km2 (will vary every time!)
+area_current = tapply(area_total$Area, area_total$Pres_Abs, sum) 
 area_current_presence = area_current[2]
-area_current_presence 
+area_current_presence                     #Area of occupancy = 2,129,557 km2 (will vary every time!)
 
+
+#Criar um mapa aqui e salvar um ASC...
 
 #########################################
 #### Model projection for the future ####
@@ -888,59 +915,196 @@ area_current_presence
 #### 2050 ####
 ##############
 
+
+##2050_rcp26##
+
 alternatus.projections <- BIOMOD_Projection(
-	modeling.output = alternatusModelOut_PA_equal,
-	new.env = env50_85.selected,
-	proj.name = "RF.2050_rcp85",
-	selected.models = "all")
+  modeling.output = alternatusModelOut_PA_equal,
+  new.env = env50_26.selected,
+  proj.name = "EM.2050_rcp26",
+  selected.models = "all")
 
-# Stack projections
-projections.RF_2050_rcp85 <- stack("/Users/vitorcavalcante1/Documents/GitHub/Extinction-risk-Micrablepharus-atticolus/Occurrence/proj_RF.2050_rcp85/proj_RF.2050_rcp85_Occurrence.grd")
-names(projections.RF_2050_rcp85)
-plot(projections.RF_2050_rcp85[[100]]) #Just an example
+# Stack projections                          
+projections.EM_2050_rcp26 <- stack("c:/Users/sukam/Dropbox/Doutorado/Gis/Modelado/Occurrence/proj_EM.2050_rcp26/proj_EM.2050_rcp26_Occurrence.grd")
+names(projections.EM_2050_rcp26)
+plot(projections.EM_2050_rcp26[[100]]) #Just an example
 
-# Plot average projections for RF
+# Plot average projections for EM
 alternatus.training.spdf <- SpatialPoints(coords = alternatus.training, proj4string = crs(environment))
 
-quartz(w=9, h=9) #macos only
-window(w=6, h=6) #Windows only
+#x11(w=6, h=6) #Windows only
+# projections.EM <- subset(projections, grep("EM", names(projections)))
+# names(projections.EM)
 
-# projections.RF <- subset(projections, grep("RF", names(projections)))
-# names(projections.RF)
-projections.RF_2050_rcp85.mean <- mean(projections.RF_2050_rcp85)/1000
-plot(projections.RF_2050_rcp85.mean, col = matlab.like(100), main = "RF 2050 rcp 85", las = 1)
+caa.col <- adjustcolor("#31a354", alpha.f=0.6)
+cerr.col <- adjustcolor("#74c476", alpha.f=0.7) 
+cha.col <- adjustcolor("#bae4b3", alpha=0.7)
+
+pdf("alternatus_2050_rcp26.pdf", width = 8.267, height= 11.692, paper="a4")
+projections.EM_2050_rcp26.mean <- mean(projections.EM_2050_rcp26)/1000
+plot(projections.EM_2050_rcp26.mean, col = matlab.like(100), main = "RF 2050 rcp 26", las = 1)
 plot(wrld_simpl, add = TRUE, col="transparent", border="white", lwd = 0.5)
-plot(dis.cerrado, col="transparent", border="black", lwd = 0.5, add=T)
-plot(alternatus.training.spdf, pch = 21, cex = 1.25, col = "gray20", bg = "green", add = T)
+plot(dis.caatinga, col=caa.col, border="#31a354", lwd = 0.5, add=T)
+plot(dis.cerrado, col=cerr.col, border="#74c476", lwd = 0.5, add=T)
+plot(dis.chaco, col=cha.col, border="#bae4b3", lwd = 0.5, add=T)
+points(alternatus$lon, alternatus$lat, pch = 21, cex = 0.7, col = "gray10", bg = "gray")
+dev.off()
+
 
 ## Convert to binary
 ## *****************
 
-projections.RF_2050_rcp85.mean.binary <- BinaryTransformation(projections.RF_2050_rcp85.mean, 0.66)
-class(projections.RF_2050_rcp85.mean.binary) #This is a raster layer!
-str(values(projections.RF_2050_rcp85.mean.binary)) #These are only the binary values!
-summary(values(projections.RF_2050_rcp85.mean.binary))
+projections.EM_2050_rcp26.mean.binary <- BinaryTransformation(projections.EM_2050_rcp26.mean, 0.92)
+class(projections.EM_2050_rcp26.mean.binary) #This is a raster layer!
+str(values(projections.EM_2050_rcp26.mean.binary)) #These are only the binary values!
+summary(values(projections.EM_2050_rcp26.mean.binary))
 
 
 ## Calculate area of occupancy from binary unprojected area
 ## ********************************************************
 
-area_RF_2050_rcp85 <- area(projections.RF_2050_rcp85.mean.binary)
-class(area_RF_2050_rcp85)
-str(values(area_RF_2050_rcp85))
-summary(values(area_RF_2050_rcp85))
+area_EM_2050_rcp26 <- area(projections.EM_2050_rcp26.mean.binary)
+class(area_EM_2050_rcp26)
+str(values(area_EM_2050_rcp26))
+summary(values(area_EM_2050_rcp26))
 
-area_total_RF_2050_rcp85 <- data.frame(values(projections.RF_2050_rcp85.mean.binary), values(area_RF_2050_rcp85)) #Combine binary and area info for each cell
-names(area_total_RF_2050_rcp85) <- c("Pres_Abs", "Area")
-head(area_total_RF_2050_rcp85)
-area_2050_rcp45 = tapply(area_total_RF_2050_rcp45$Area, area_total_RF_2050_rcp45$Pres_Abs, sum) #Area of occupancy = 2,008,969 km2 (will vary every time!)
+area_total_EM_2050_rcp26 <- data.frame(values(projections.EM_2050_rcp26.mean.binary), values(area_EM_2050_rcp26)) #Combine binary and area info for each cell
+names(area_total_EM_2050_rcp26) <- c("Pres_Abs", "Area")
+head(area_total_EM_2050_rcp26)
+area_2050_rcp26 = tapply(area_total_EM_2050_rcp26$Area, area_total_EM_2050_rcp26$Pres_Abs, sum) 
+area_2050_rcp26_presence = area_2050_rcp45[2]
+area_2050_rcp26_presence   #Area of occupancy = 1,192,400 km2 (will vary every time!)
+
+#Criar um mapa aqui e salvar um ASC...
+
+
+##2050_rcp45##
+
+alternatus.projections <- BIOMOD_Projection(
+  modeling.output = alternatusModelOut_PA_equal,
+  new.env = env50_45.selected,
+  proj.name = "EM.2050_rcp45",
+  selected.models = "all")
+
+# Stack projections                          
+projections.EM_2050_rcp45 <- stack("c:/Users/sukam/Dropbox/Doutorado/Gis/Modelado/Occurrence/proj_EM.2050_rcp45/proj_EM.2050_rcp45_Occurrence.grd")
+names(projections.EM_2050_rcp45)
+plot(projections.EM_2050_rcp45[[100]]) #Just an example
+
+# Plot average projections for EM
+alternatus.training.spdf <- SpatialPoints(coords = alternatus.training, proj4string = crs(environment))
+
+#x11(w=6, h=6) #Windows only
+# projections.EM <- subset(projections, grep("EM", names(projections)))
+# names(projections.EM)
+
+caa.col <- adjustcolor("#31a354", alpha.f=0.6)
+cerr.col <- adjustcolor("#74c476", alpha.f=0.7) 
+cha.col <- adjustcolor("#bae4b3", alpha=0.7)
+
+pdf("alternatus_2050_rcp45.pdf", width = 8.267, height= 11.692, paper="a4")
+projections.EM_2050_rcp45.mean <- mean(projections.EM_2050_rcp45)/1000
+plot(projections.EM_2050_rcp45.mean, col = matlab.like(100), main = "RF 2050 rcp 45", las = 1)
+plot(wrld_simpl, add = TRUE, col="transparent", border="white", lwd = 0.5)
+plot(dis.caatinga, col=caa.col, border="#31a354", lwd = 0.5, add=T)
+plot(dis.cerrado, col=cerr.col, border="#74c476", lwd = 0.5, add=T)
+plot(dis.chaco, col=cha.col, border="#bae4b3", lwd = 0.5, add=T)
+points(alternatus$lon, alternatus$lat, pch = 21, cex = 0.7, col = "gray10", bg = "gray")
+dev.off()
+
+
+## Convert to binary
+## *****************
+
+projections.EM_2050_rcp45.mean.binary <- BinaryTransformation(projections.EM_2050_rcp45.mean, 0.92)
+class(projections.EM_2050_rcp45.mean.binary) #This is a raster layer!
+str(values(projections.EM_2050_rcp45.mean.binary)) #These are only the binary values!
+summary(values(projections.EM_2050_rcp45.mean.binary))
+
+
+## Calculate area of occupancy from binary unprojected area
+## ********************************************************
+
+area_EM_2050_rcp45 <- area(projections.EM_2050_rcp45.mean.binary)
+class(area_EM_2050_rcp45)
+str(values(area_EM_2050_rcp45))
+summary(values(area_EM_2050_rcp45))
+
+area_total_EM_2050_rcp45 <- data.frame(values(projections.EM_2050_rcp45.mean.binary), values(area_EM_2050_rcp45)) #Combine binary and area info for each cell
+names(area_total_EM_2050_rcp45) <- c("Pres_Abs", "Area")
+head(area_total_EM_2050_rcp45)
+area_2050_rcp45 = tapply(area_total_EM_2050_rcp45$Area, area_total_EM_2050_rcp45$Pres_Abs, sum) 
 area_2050_rcp45_presence = area_2050_rcp45[2]
-area_2050_rcp45_presence
+area_2050_rcp45_presence  #Area of occupancy = 1,299,410 km2 (will vary every time!)
+
+#Criar um mapa aqui e salvar um ASC...
+
+##2050_rcp85##
+
+alternatus.projections <- BIOMOD_Projection(
+	modeling.output = alternatusModelOut_PA_equal,
+	new.env = env50_85.selected,
+	proj.name = "EM.2050_rcp85",
+	selected.models = "all")
+
+# Stack projections                          
+projections.EM_2050_rcp85 <- stack("c:/Users/sukam/Dropbox/Doutorado/Gis/Modelado/Occurrence/proj_EM.2050_rcp85/proj_EM.2050_rcp85_Occurrence.grd")
+names(projections.EM_2050_rcp85)
+plot(projections.EM_2050_rcp85[[100]]) #Just an example
+
+# Plot average projections for EM
+alternatus.training.spdf <- SpatialPoints(coords = alternatus.training, proj4string = crs(environment))
+
+#x11(w=6, h=6) #Windows only
+# projections.EM <- subset(projections, grep("EM", names(projections)))
+# names(projections.EM)
+
+caa.col <- adjustcolor("#31a354", alpha.f=0.6)
+cerr.col <- adjustcolor("#74c476", alpha.f=0.7) 
+cha.col <- adjustcolor("#bae4b3", alpha=0.7)
+
+pdf("alternatus_2050_rcp85.pdf", width = 8.267, height= 11.692, paper="a4")
+projections.EM_2050_rcp85.mean <- mean(projections.EM_2050_rcp85)/1000
+plot(projections.EM_2050_rcp85.mean, col = matlab.like(100), main = "RF 2050 rcp 85", las = 1)
+plot(wrld_simpl, add = TRUE, col="transparent", border="white", lwd = 0.5)
+plot(dis.caatinga, col=caa.col, border="#31a354", lwd = 0.5, add=T)
+plot(dis.cerrado, col=cerr.col, border="#74c476", lwd = 0.5, add=T)
+plot(dis.chaco, col=cha.col, border="#bae4b3", lwd = 0.5, add=T)
+points(alternatus$lon, alternatus$lat, pch = 21, cex = 0.7, col = "gray10", bg = "gray")
+dev.off()
+
+
+## Convert to binary
+## *****************
+
+projections.EM_2050_rcp85.mean.binary <- BinaryTransformation(projections.EM_2050_rcp85.mean, 0.92)
+class(projections.EM_2050_rcp85.mean.binary) #This is a raster layer!
+str(values(projections.EM_2050_rcp85.mean.binary)) #These are only the binary values!
+summary(values(projections.EM_2050_rcp85.mean.binary))
+
+
+## Calculate area of occupancy from binary unprojected area
+## ********************************************************
+
+area_EM_2050_rcp85 <- area(projections.EM_2050_rcp85.mean.binary)
+class(area_EM_2050_rcp85)
+str(values(area_EM_2050_rcp85))
+summary(values(area_EM_2050_rcp85))
+
+area_total_EM_2050_rcp85 <- data.frame(values(projections.EM_2050_rcp85.mean.binary), values(area_EM_2050_rcp85)) #Combine binary and area info for each cell
+names(area_total_EM_2050_rcp85) <- c("Pres_Abs", "Area")
+head(area_total_EM_2050_rcp85)
+area_2050_rcp85 = tapply(area_total_EM_2050_rcp85$Area, area_total_EM_2050_rcp85$Pres_Abs, sum) 
+area_2050_rcp85_presence = area_2050_rcp45[2]
+area_2050_rcp85_presence   #Area of occupancy = 1,192,400 km2 (will vary every time!)
+
+#Criar um mapa aqui e salvar um ASC...
+
 
 ## Calculating the diference between present and future areas 
 ## ********************************************************
 
-predict_area_2050_rcp85 =log(area_2050_rcp85_presence-area_current_presence)
+predict_area_2050_rcp85 =log(area_2050_rcp85_presence-area_current_presence)  #Aqui dá erro. É - ou /? Pq log?
 predict_area_2050_rcp26 # result = -0.01589181, -32181.2 km2
 predict_area_2050_rcp45 # result = -0.1000519,  -194337 km2
 predict_area_2050_rcp85 # result = -0.3275401,  -570104.8 km2
@@ -951,67 +1115,172 @@ predict_area_2050_rcp85 # result = -0.3275401,  -570104.8 km2
 #### 2070 ####
 ##############
 
-alternatus.projections_2070_45 <- BIOMOD_Projection(
+
+##2070_rcp26##
+
+alternatus.projections_2070_26 <- BIOMOD_Projection(
 	modeling.output = alternatusModelOut_PA_equal,
-	new.env = env70_45.selected,
+	new.env = env70_26.selected,
 	#If you wanted to predict to a different area, or different
 	#conditions you would change the above line
-	proj.name = "RF.2070_rcp45",
+	proj.name = "EM.2070_rcp26",
 	selected.models = "all")
 
 # Stack projections
-projections.RF_2070_rcp26 <- stack("C:/Users/izabellapaim/Documents/GitHub/Extinction-risk-Micrablepharus-atticolus/Occurrence/proj_Future_2070_rcp26/proj_Future_2070_rcp26_Occurrence")
-names(projections.RF_2070_rcp26)
-plot(projections.RF_2070_rcp26[[99]]) #Just an example
-
-projections.RF_2070_rcp45 <- stack("C:/Users/izabellapaim/Documents/GitHub/Extinction-risk-Micrablepharus-atticolus/Occurrence/proj_RF.2070_rcp45/proj_RF.2070_rcp45_Occurrence")
-names(projections.RF_2070_rcp45)
-
-projections.RF_2070_rcp85 <- stack("C:/Users/izabellapaim/Documents/GitHub/Extinction-risk-Micrablepharus-atticolus/Occurrence/proj_RF.2070_rcp85/proj_RF.2070_rcp85_Occurrence")
-names(projections.RF_2070_rcp85)
+projections.EM_2070_rcp26 <- stack("c:/Users/sukam/Dropbox/Doutorado/Gis/Modelado/Occurrence/proj_EM.2070_rcp26/proj_EM.2070_rcp26_Occurrence.grd")
+names(projections.EM_2070_rcp26)
+plot(projections.EM_2070_rcp26[[99]]) #Just an example
 
 
-# Plot average projections for RF 
+# Plot average projections for EM 
 alternatus.training.spdf <- SpatialPoints(coords = alternatus.training, proj4string = crs(environment))
 
-quartz(w=9, h=9) #macos only
-window(w=6, h=6) #Windows only
-
-projections.RF_2070_rcp85 <- subset(projections.RF_2070_rcp85, grep("RF", names(projections.RF_2070_rcp85)))
-names(projections.RF_2070_rcp85)
-projections.RF_2070_rcp85.mean <- mean(projections.RF_2070_rcp85)/1000
-plot(projections.RF_2070_rcp85.mean, col = matlab.like(100), main = "RF_2070_rcp85", las = 1)
+pdf("alternatus_2070_rcp26.pdf", width = 8.267, height= 11.692, paper="a4")
+projections.EM_2070_rcp26.mean <- mean(projections.EM_2070_rcp26)/1000
+plot(projections.EM_2070_rcp26.mean, col = matlab.like(100), main = "RF 2070 rcp 26", las = 1)
 plot(wrld_simpl, add = TRUE, col="transparent", border="white", lwd = 0.5)
-plot(dis.cerrado, col="transparent", border="black", lwd = 0.5, add=T)
-plot(alternatus.training.spdf, pch = 21, cex = 1.25, col = "gray20", bg = "green", add = T)
+plot(dis.caatinga, col=caa.col, border="#31a354", lwd = 0.5, add=T)
+plot(dis.cerrado, col=cerr.col, border="#74c476", lwd = 0.5, add=T)
+plot(dis.chaco, col=cha.col, border="#bae4b3", lwd = 0.5, add=T)
+points(alternatus$lon, alternatus$lat, pch = 21, cex = 0.7, col = "gray10", bg = "gray")
+dev.off()
 
 ## Convert to binary
 ## *****************
 
-projections.RF_2070_rcp85.mean.binary <- BinaryTransformation(projections.RF_2070_rcp85.mean, 0.66)
-class(projections.RF_2070_rcp85.mean.binary ) #This is a raster layer!
-str(values(projections.RF_2070_rcp85.mean.binary )) #These are only the binary values!
-summary(values(projections.RF_2070_rcp85.mean.binary ))
+projections.EM_2070_rcp26.mean.binary <- BinaryTransformation(projections.EM_2070_rcp26.mean, 0.92)
+class(projections.EM_2070_rcp26.mean.binary ) #This is a raster layer!
+str(values(projections.EM_2070_rcp26.mean.binary )) #These are only the binary values!
+summary(values(projections.EM_2070_rcp26.mean.binary ))
 
 ## Calculate area of occupancy from binary unprojected area
 ## ********************************************************
 
-area_RF_2070_rcp85 <- area(projections.RF_2070_rcp85.mean.binary )
-class(area_RF_2070_rcp85)
-str(values(area_RF_2070_rcp85))
-summary(values(area_RF_2070_rcp85))
+area_EM_2070_rcp26 <- area(projections.EM_2070_rcp26.mean.binary )
+class(area_EM_2070_rcp26)
+str(values(area_EM_2070_rcp26))
+summary(values(area_EM_2070_rcp26))
 
-area_total_RF_2070_rcp85 <- data.frame(values(projections.RF_2070_rcp85.mean.binary ), values(area_RF_2070_rcp85)) #Combine binary and area info for each cell
-names(area_total_RF_2070_rcp85) <- c("Pres_Abs", "Area")
-head(area_total_RF_2070_rcp85)
-area_2070_rcp85_total = tapply(area_total_RF_2070_rcp85$Area, area_total_RF_2070_rcp85$Pres_Abs, sum) #Area of occupancy = 2,041,151 km2 (will vary every time!)
+area_total_EM_2070_rcp26 <- data.frame(values(projections.EM_2070_rcp26.mean.binary ), values(area_EM_2070_rcp26)) #Combine binary and area info for each cell
+names(area_total_EM_2070_rcp26) <- c("Pres_Abs", "Area")
+head(area_total_EM_2070_rcp26)
+area_2070_rcp26_total = tapply(area_total_EM_2070_rcp26$Area, area_total_EM_2070_rcp26$Pres_Abs, sum) 
+area_2070_rcp26_total_presence = area_2070_rcp26_total[2]
+area_2070_rcp26_total_presence   #Area of occupancy = 1,640,932 km2 (will vary every time!)
+
+#Criar um mapa aqui e salvar um ASC...
+
+##2070_rcp45##
+
+alternatus.projections_2070_45 <- BIOMOD_Projection(
+  modeling.output = alternatusModelOut_PA_equal,
+  new.env = env70_45.selected,
+  #If you wanted to predict to a different area, or different
+  #conditions you would change the above line
+  proj.name = "EM.2070_rcp45",
+  selected.models = "all")
+
+# Stack projections
+projections.EM_2070_rcp45 <- stack("c:/Users/sukam/Dropbox/Doutorado/Gis/Modelado/Occurrence/proj_EM.2070_rcp45/proj_EM.2070_rcp45_Occurrence.grd")
+names(projections.EM_2070_rcp45)
+plot(projections.EM_2070_rcp45[[99]]) #Just an example
+
+
+# Plot average projections for EM 
+alternatus.training.spdf <- SpatialPoints(coords = alternatus.training, proj4string = crs(environment))
+
+pdf("alternatus_2070_rcp45.pdf", width = 8.267, height= 11.692, paper="a4")
+projections.EM_2070_rcp45.mean <- mean(projections.EM_2070_rcp45)/1000
+plot(projections.EM_2070_rcp45.mean, col = matlab.like(100), main = "RF 2070 rcp 45", las = 1)
+plot(wrld_simpl, add = TRUE, col="transparent", border="white", lwd = 0.5)
+plot(dis.caatinga, col=caa.col, border="#31a354", lwd = 0.5, add=T)
+plot(dis.cerrado, col=cerr.col, border="#74c476", lwd = 0.5, add=T)
+plot(dis.chaco, col=cha.col, border="#bae4b3", lwd = 0.5, add=T)
+points(alternatus$lon, alternatus$lat, pch = 21, cex = 0.7, col = "gray10", bg = "gray")
+dev.off()
+
+## Convert to binary
+## *****************
+
+projections.EM_2070_rcp45.mean.binary <- BinaryTransformation(projections.EM_2070_rcp45.mean, 0.92)
+class(projections.EM_2070_rcp45.mean.binary ) #This is a raster layer!
+str(values(projections.EM_2070_rcp45.mean.binary )) #These are only the binary values!
+summary(values(projections.EM_2070_rcp45.mean.binary ))
+
+## Calculate area of occupancy from binary unprojected area
+## ********************************************************
+
+area_EM_2070_rcp45 <- area(projections.EM_2070_rcp45.mean.binary )
+class(area_EM_2070_rcp45)
+str(values(area_EM_2070_rcp45))
+summary(values(area_EM_2070_rcp45))
+
+area_total_EM_2070_rcp45 <- data.frame(values(projections.EM_2070_rcp45.mean.binary ), values(area_EM_2070_rcp45)) #Combine binary and area info for each cell
+names(area_total_EM_2070_rcp45) <- c("Pres_Abs", "Area")
+head(area_total_EM_2070_rcp45)
+area_2070_rcp45_total = tapply(area_total_EM_2070_rcp45$Area, area_total_EM_2070_rcp45$Pres_Abs, sum) #Area of occupancy = 2,041,151 km2 (will vary every time!)
+area_2070_rcp45_total_presence = area_2070_rcp45_total[2]
+area_2070_rcp45_total_presence
+
+#Criar um mapa aqui e salvar um ASC...
+
+##2070_rcp85##
+
+alternatus.projections_2070_85 <- BIOMOD_Projection(
+  modeling.output = alternatusModelOut_PA_equal,
+  new.env = env70_85.selected,
+  #If you wanted to predict to a different area, or different
+  #conditions you would change the above line
+  proj.name = "EM.2070_rcp85",
+  selected.models = "all")
+
+# Stack projections
+projections.EM_2070_rcp85 <- stack("c:/Users/sukam/Dropbox/Doutorado/Gis/Modelado/Occurrence/proj_EM.2070_rcp85/proj_EM.2070_rcp85_Occurrence.grd")
+names(projections.EM_2070_rcp85)
+plot(projections.EM_2070_rcp85[[99]]) #Just an example
+
+
+# Plot average projections for EM 
+alternatus.training.spdf <- SpatialPoints(coords = alternatus.training, proj4string = crs(environment))
+
+pdf("alternatus_2070_rcp85.pdf", width = 8.267, height= 11.692, paper="a4")
+projections.EM_2070_rcp85.mean <- mean(projections.EM_2070_rcp85)/1000
+plot(projections.EM_2070_rcp85.mean, col = matlab.like(100), main = "RF 2070 rcp 85", las = 1)
+plot(wrld_simpl, add = TRUE, col="transparent", border="white", lwd = 0.5)
+plot(dis.caatinga, col=caa.col, border="#31a354", lwd = 0.5, add=T)
+plot(dis.cerrado, col=cerr.col, border="#74c476", lwd = 0.5, add=T)
+plot(dis.chaco, col=cha.col, border="#bae4b3", lwd = 0.5, add=T)
+points(alternatus$lon, alternatus$lat, pch = 21, cex = 0.7, col = "gray10", bg = "gray")
+dev.off()
+
+## Convert to binary
+## *****************
+
+projections.EM_2070_rcp85.mean.binary <- BinaryTransformation(projections.EM_2070_rcp85.mean, 0.92)
+class(projections.EM_2070_rcp85.mean.binary ) #This is a raster layer!
+str(values(projections.EM_2070_rcp85.mean.binary )) #These are only the binary values!
+summary(values(projections.EM_2070_rcp85.mean.binary ))
+
+## Calculate area of occupancy from binary unprojected area
+## ********************************************************
+
+area_EM_2070_rcp85 <- area(projections.EM_2070_rcp85.mean.binary )
+class(area_EM_2070_rcp85)
+str(values(area_EM_2070_rcp85))
+summary(values(area_EM_2070_rcp85))
+
+area_total_EM_2070_rcp85 <- data.frame(values(projections.EM_2070_rcp85.mean.binary ), values(area_EM_2070_rcp85)) #Combine binary and area info for each cell
+names(area_total_EM_2070_rcp85) <- c("Pres_Abs", "Area")
+head(area_total_EM_2070_rcp85)
+area_2070_rcp85_total = tapply(area_total_EM_2070_rcp85$Area, area_total_EM_2070_rcp85$Pres_Abs, sum) #Area of occupancy = 2,041,151 km2 (will vary every time!)
 area_2070_rcp85_total_presence = area_2070_rcp85_total[2]
 area_2070_rcp85_total_presence
 
+#Criar um mapa aqui e salvar um ASC...
 
 ## Calculating the diference between present and future areas 
 ## ********************************************************
-predict_area_2070_rcp85 =log(area_2070_rcp85_total_presence/area_current_presence )
+predict_area_2070_rcp26 =log(area_2070_rcp26_total_presence/area_current_presence )
 
 predict_area_2070_rcp26 # result = -0.05286374, - 107598.9 km2
 predict_area_2070_rcp45 # result = -0.3725469, - 649936 km2
