@@ -58,36 +58,455 @@ prec <- raster::getData("worldclim", var = "prec", res = 2.5)
 bio <- raster::getData("worldclim", var = "bio", res = 2.5)
 
 # 2050
-tmin50_26 <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 26, model = "MP", year = 50)
-tmax50_26 <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 26, model = "MP", year = 50)
-prec50_26 <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 26, model = "MP", year = 50)
-bio50_26 <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 26, model = "MP", year = 50)
 
-tmin50_45 <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 45, model = "MP", year = 50)
-tmax50_45 <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 45, model = "MP", year = 50)
-prec50_45 <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 45, model = "MP", year = 50)
-bio50_45 <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 45, model = "MP", year = 50)
+#BC
+tmin50_26_BC <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 26, model = "BC", year = 50)
+tmax50_26_BC <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 26, model = "BC", year = 50)
+prec50_26_BC <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 26, model = "BC", year = 50)
+bio50_26_BC <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 26, model = "BC", year = 50)
 
-tmin50_85 <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 85, model = "MP", year = 50)
-tmax50_85 <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 85, model = "MP", year = 50)
-prec50_85 <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 85, model = "MP", year = 50)
-bio50_85 <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 85, model = "MP", year = 50)
+tmin50_45_BC <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 45, model = "BC", year = 50)
+tmax50_45_BC <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 45, model = "BC", year = 50)
+prec50_45_BC <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 45, model = "BC", year = 50)
+bio50_45_BC <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 45, model = "BC", year = 50)
+
+tmin50_85_BC <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 85, model = "BC", year = 50)
+tmax50_85_BC <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 85, model = "BC", year = 50)
+prec50_85_BC <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 85, model = "BC", year = 50)
+bio50_85_BC <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 85, model = "BC", year = 50)
+
+#CC
+tmin50_26_CC <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 26, model = "CC", year = 50)
+tmax50_26_CC <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 26, model = "CC", year = 50)
+prec50_26_CC <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 26, model = "CC", year = 50)
+bio50_26_CC <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 26, model = "CC", year = 50)
+
+tmin50_45_CC <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 45, model = "CC", year = 50)
+tmax50_45_CC <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 45, model = "CC", year = 50)
+prec50_45_CC <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 45, model = "CC", year = 50)
+bio50_45_CC <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 45, model = "CC", year = 50)
+
+tmin50_85_CC <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 85, model = "CC", year = 50)
+tmax50_85_CC <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 85, model = "CC", year = 50)
+prec50_85_CC <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 85, model = "CC", year = 50)
+bio50_85_CC <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 85, model = "CC", year = 50)
+
+#CN
+tmin50_26_CN <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 26, model = "CN", year = 50)
+tmax50_26_CN <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 26, model = "CN", year = 50)
+prec50_26_CN <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 26, model = "CN", year = 50)
+bio50_26_CN <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 26, model = "CN", year = 50)
+
+tmin50_45_CN <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 45, model = "CN", year = 50)
+tmax50_45_CN <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 45, model = "CN", year = 50)
+prec50_45_CN <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 45, model = "CN", year = 50)
+bio50_45_CN <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 45, model = "CN", year = 50)
+
+tmin50_85_CN <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 85, model = "CN", year = 50)
+tmax50_85_CN <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 85, model = "CN", year = 50)
+prec50_85_CN <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 85, model = "CN", year = 50)
+bio50_85_CN <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 85, model = "CN", year = 50)
+
+#GF
+tmin50_26_GF <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 26, model = "GF", year = 50)
+tmax50_26_GF <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 26, model = "GF", year = 50)
+prec50_26_GF <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 26, model = "GF", year = 50)
+bio50_26_GF <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 26, model = "GF", year = 50)
+
+tmin50_45_GF <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 45, model = "GF", year = 50)
+tmax50_45_GF <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 45, model = "GF", year = 50)
+prec50_45_GF <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 45, model = "GF", year = 50)
+bio50_45_GF <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 45, model = "GF", year = 50)
+
+tmin50_85_GF <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 85, model = "GF", year = 50)
+tmax50_85_GF <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 85, model = "GF", year = 50)
+prec50_85_GF <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 85, model = "GF", year = 50)
+bio50_85_GF <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 85, model = "GF", year = 50)
+
+#GS
+tmin50_26_GS <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 26, model = "GS", year = 50)
+tmax50_26_GS <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 26, model = "GS", year = 50)
+prec50_26_GS <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 26, model = "GS", year = 50)
+bio50_26_GS <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 26, model = "GS", year = 50)
+
+tmin50_45_GS <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 45, model = "GS", year = 50)
+tmax50_45_GS <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 45, model = "GS", year = 50)
+prec50_45_GS <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 45, model = "GS", year = 50)
+bio50_45_GS <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 45, model = "GS", year = 50)
+
+tmin50_85_GS <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 85, model = "GS", year = 50)
+tmax50_85_GS <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 85, model = "GS", year = 50)
+prec50_85_GS <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 85, model = "GS", year = 50)
+bio50_85_GS <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 85, model = "GS", year = 50)
+
+#HD
+tmin50_26_HD <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 26, model = "HD", year = 50)
+tmax50_26_HD <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 26, model = "HD", year = 50)
+prec50_26_HD <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 26, model = "HD", year = 50)
+bio50_26_HD <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 26, model = "HD", year = 50)
+
+tmin50_45_HD <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 45, model = "HD", year = 50)
+tmax50_45_HD <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 45, model = "HD", year = 50)
+prec50_45_HD <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 45, model = "HD", year = 50)
+bio50_45_HD <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 45, model = "HD", year = 50)
+
+tmin50_85_HD <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 85, model = "HD", year = 50)
+tmax50_85_HD <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 85, model = "HD", year = 50)
+prec50_85_HD <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 85, model = "HD", year = 50)
+bio50_85_HD <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 85, model = "HD", year = 50)
+
+#HE
+tmin50_26_HE <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 26, model = "HE", year = 50)
+tmax50_26_HE <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 26, model = "HE", year = 50)
+prec50_26_HE <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 26, model = "HE", year = 50)
+bio50_26_HE <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 26, model = "HE", year = 50)
+
+tmin50_45_HE <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 45, model = "HE", year = 50)
+tmax50_45_HE <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 45, model = "HE", year = 50)
+prec50_45_HE <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 45, model = "HE", year = 50)
+bio50_45_HE <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 45, model = "HE", year = 50)
+
+tmin50_85_HE <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 85, model = "HE", year = 50)
+tmax50_85_HE <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 85, model = "HE", year = 50)
+prec50_85_HE <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 85, model = "HE", year = 50)
+bio50_85_HE <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 85, model = "HE", year = 50)
+
+#IP
+tmin50_26_IP <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 26, model = "IP", year = 50)
+tmax50_26_IP <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 26, model = "IP", year = 50)
+prec50_26_IP <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 26, model = "IP", year = 50)
+bio50_26_IP <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 26, model = "IP", year = 50)
+
+tmin50_45_IP <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 45, model = "IP", year = 50)
+tmax50_45_IP <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 45, model = "IP", year = 50)
+prec50_45_IP <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 45, model = "IP", year = 50)
+bio50_45_IP <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 45, model = "IP", year = 50)
+
+tmin50_85_IP <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 85, model = "IP", year = 50)
+tmax50_85_IP <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 85, model = "IP", year = 50)
+prec50_85_IP <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 85, model = "IP", year = 50)
+bio50_85_IP <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 85, model = "IP", year = 50)
+
+#MI
+tmin50_26_MI <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 26, model = "MI", year = 50)
+tmax50_26_MI <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 26, model = "MI", year = 50)
+prec50_26_MI <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 26, model = "MI", year = 50)
+bio50_26_MI <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 26, model = "MI", year = 50)
+
+tmin50_45_MI <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 45, model = "MI", year = 50)
+tmax50_45_MI <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 45, model = "MI", year = 50)
+prec50_45_MI <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 45, model = "MI", year = 50)
+bio50_45_MI <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 45, model = "MI", year = 50)
+
+tmin50_85_MI <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 85, model = "MI", year = 50)
+tmax50_85_MI <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 85, model = "MI", year = 50)
+prec50_85_MI <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 85, model = "MI", year = 50)
+bio50_85_MI <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 85, model = "MI", year = 50)
+
+#MR
+tmin50_26_MR <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 26, model = "MR", year = 50)
+tmax50_26_MR <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 26, model = "MR", year = 50)
+prec50_26_MR <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 26, model = "MR", year = 50)
+bio50_26_MR <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 26, model = "MR", year = 50)
+
+tmin50_45_MR <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 45, model = "MR", year = 50)
+tmax50_45_MR <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 45, model = "MR", year = 50)
+prec50_45_MR <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 45, model = "MR", year = 50)
+bio50_45_MR <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 45, model = "MR", year = 50)
+
+tmin50_85_MR <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 85, model = "MR", year = 50)
+tmax50_85_MR <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 85, model = "MR", year = 50)
+prec50_85_MR <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 85, model = "MR", year = 50)
+bio50_85_MR <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 85, model = "MR", year = 50)
+
+#MC
+tmin50_26_MC <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 26, model = "MC", year = 50)
+tmax50_26_MC <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 26, model = "MC", year = 50)
+prec50_26_MC <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 26, model = "MC", year = 50)
+bio50_26_MC <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 26, model = "MC", year = 50)
+
+tmin50_45_MC <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 45, model = "MC", year = 50)
+tmax50_45_MC <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 45, model = "MC", year = 50)
+prec50_45_MC <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 45, model = "MC", year = 50)
+bio50_45_MC <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 45, model = "MC", year = 50)
+
+tmin50_85_MC <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 85, model = "MC", year = 50)
+tmax50_85_MC <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 85, model = "MC", year = 50)
+prec50_85_MC <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 85, model = "MC", year = 50)
+bio50_85_MC <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 85, model = "MC", year = 50)
+
+#MP
+tmin50_26_MP <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 26, model = "MP", year = 50)
+tmax50_26_MP <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 26, model = "MP", year = 50)
+prec50_26_MP <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 26, model = "MP", year = 50)
+bio50_26_MP <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 26, model = "MP", year = 50)
+
+tmin50_45_MP <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 45, model = "MP", year = 50)
+tmax50_45_MP <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 45, model = "MP", year = 50)
+prec50_45_MP <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 45, model = "MP", year = 50)
+bio50_45_MP <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 45, model = "MP", year = 50)
+
+tmin50_85_MP <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 85, model = "MP", year = 50)
+tmax50_85_MP <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 85, model = "MP", year = 50)
+prec50_85_MP <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 85, model = "MP", year = 50)
+bio50_85_MP <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 85, model = "MP", year = 50)
+
+#MG
+tmin50_26_MG <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 26, model = "MG", year = 50)
+tmax50_26_MG <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 26, model = "MG", year = 50)
+prec50_26_MG <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 26, model = "MG", year = 50)
+bio50_26_MG <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 26, model = "MG", year = 50)
+
+tmin50_45_MG <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 45, model = "MG", year = 50)
+tmax50_45_MG <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 45, model = "MG", year = 50)
+prec50_45_MG <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 45, model = "MG", year = 50)
+bio50_45_MG <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 45, model = "MG", year = 50)
+
+tmin50_85_MG <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 85, model = "MG", year = 50)
+tmax50_85_MG <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 85, model = "MG", year = 50)
+prec50_85_MG <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 85, model = "MG", year = 50)
+bio50_85_MG <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 85, model = "MG", year = 50)
+
+#NO
+tmin50_26_NO <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 26, model = "NO", year = 50)
+tmax50_26_NO <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 26, model = "NO", year = 50)
+prec50_26_NO <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 26, model = "NO", year = 50)
+bio50_26_NO <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 26, model = "NO", year = 50)
+
+tmin50_45_NO <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 45, model = "NO", year = 50)
+tmax50_45_NO <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 45, model = "NO", year = 50)
+prec50_45_NO <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 45, model = "NO", year = 50)
+bio50_45_NO <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 45, model = "NO", year = 50)
+
+tmin50_85_NO <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 85, model = "NO", year = 50)
+tmax50_85_NO <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 85, model = "NO", year = 50)
+prec50_85_NO <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 85, model = "NO", year = 50)
+bio50_85_NO <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 85, model = "NO", year = 50)
 
 # 2070
-tmin70_26 <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 26, model = "MP", year = 70)
-tmax70_26 <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 26, model = "MP", year = 70)
-prec70_26 <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 26, model = "MP", year = 70)
-bio70_26 <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 26, model = "MP", year = 70)
+#BC
+tmin70_26_BC <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 26, model = "BC", year = 70)
+tmax70_26_BC <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 26, model = "BC", year = 70)
+prec70_26_BC <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 26, model = "BC", year = 70)
+bio70_26_BC <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 26, model = "BC", year = 70)
 
-tmin70_45 <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 45, model = "MP", year = 70)
-tmax70_45 <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 45, model = "MP", year = 70)
-prec70_45 <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 45, model = "MP", year = 70)
-bio70_45 <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 45, model = "MP", year = 70)
+tmin70_45_BC <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 45, model = "BC", year = 70)
+tmax70_45_BC <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 45, model = "BC", year = 70)
+prec70_45_BC <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 45, model = "BC", year = 70)
+bio70_45_BC <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 45, model = "BC", year = 70)
 
-tmin70_85 <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 85, model = "MP", year = 70)
-tmax70_85 <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 85, model = "MP", year = 70)
-prec70_85 <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 85, model = "MP", year = 70)
-bio70_85 <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 85, model = "MP", year = 70)
+tmin70_85_BC <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 85, model = "BC", year = 70)
+tmax70_85_BC <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 85, model = "BC", year = 70)
+prec70_85_BC <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 85, model = "BC", year = 70)
+bio70_85_BC <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 85, model = "BC", year = 70)
+
+#CC
+tmin70_26_CC <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 26, model = "CC", year = 70)
+tmax70_26_CC <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 26, model = "CC", year = 70)
+prec70_26_CC <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 26, model = "CC", year = 70)
+bio70_26_CC <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 26, model = "CC", year = 70)
+
+tmin70_45_CC <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 45, model = "CC", year = 70)
+tmax70_45_CC <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 45, model = "CC", year = 70)
+prec70_45_CC <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 45, model = "CC", year = 70)
+bio70_45_CC <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 45, model = "CC", year = 70)
+
+tmin70_85_CC <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 85, model = "CC", year = 70)
+tmax70_85_CC <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 85, model = "CC", year = 70)
+prec70_85_CC <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 85, model = "CC", year = 70)
+bio70_85_CC <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 85, model = "CC", year = 70)
+
+#CN
+tmin70_26_CN <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 26, model = "CN", year = 70)
+tmax70_26_CN <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 26, model = "CN", year = 70)
+prec70_26_CN <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 26, model = "CN", year = 70)
+bio70_26_CN <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 26, model = "CN", year = 70)
+
+tmin70_45_CN <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 45, model = "CN", year = 70)
+tmax70_45_CN <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 45, model = "CN", year = 70)
+prec70_45_CN <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 45, model = "CN", year = 70)
+bio70_45_CN <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 45, model = "CN", year = 70)
+
+tmin70_85_CN <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 85, model = "CN", year = 70)
+tmax70_85_CN <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 85, model = "CN", year = 70)
+prec70_85_CN <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 85, model = "CN", year = 70)
+bio70_85_CN <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 85, model = "CN", year = 70)
+
+#GF
+tmin70_26_GF <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 26, model = "GF", year = 70)
+tmax70_26_GF <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 26, model = "GF", year = 70)
+prec70_26_GF <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 26, model = "GF", year = 70)
+bio70_26_GF <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 26, model = "GF", year = 70)
+
+tmin70_45_GF <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 45, model = "GF", year = 70)
+tmax70_45_GF <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 45, model = "GF", year = 70)
+prec70_45_GF <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 45, model = "GF", year = 70)
+bio70_45_GF <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 45, model = "GF", year = 70)
+
+tmin70_85_GF <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 85, model = "GF", year = 70)
+tmax70_85_GF <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 85, model = "GF", year = 70)
+prec70_85_GF <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 85, model = "GF", year = 70)
+bio70_85_GF <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 85, model = "GF", year = 70)
+
+#GS
+tmin70_26_GS <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 26, model = "GS", year = 70)
+tmax70_26_GS <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 26, model = "GS", year = 70)
+prec70_26_GS <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 26, model = "GS", year = 70)
+bio70_26_GS <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 26, model = "GS", year = 70)
+
+tmin70_45_GS <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 45, model = "GS", year = 70)
+tmax70_45_GS <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 45, model = "GS", year = 70)
+prec70_45_GS <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 45, model = "GS", year = 70)
+bio70_45_GS <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 45, model = "GS", year = 70)
+
+tmin70_85_GS <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 85, model = "GS", year = 70)
+tmax70_85_GS <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 85, model = "GS", year = 70)
+prec70_85_GS <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 85, model = "GS", year = 70)
+bio70_85_GS <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 85, model = "GS", year = 70)
+
+#HD
+tmin70_26_HD <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 26, model = "HD", year = 70)
+tmax70_26_HD <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 26, model = "HD", year = 70)
+prec70_26_HD <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 26, model = "HD", year = 70)
+bio70_26_HD <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 26, model = "HD", year = 70)
+
+tmin70_45_HD <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 45, model = "HD", year = 70)
+tmax70_45_HD <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 45, model = "HD", year = 70)
+prec70_45_HD <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 45, model = "HD", year = 70)
+bio70_45_HD <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 45, model = "HD", year = 70)
+
+tmin70_85_HD <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 85, model = "HD", year = 70)
+tmax70_85_HD <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 85, model = "HD", year = 70)
+prec70_85_HD <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 85, model = "HD", year = 70)
+bio70_85_HD <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 85, model = "HD", year = 70)
+
+#HE
+tmin70_26_HE <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 26, model = "HE", year = 70)
+tmax70_26_HE <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 26, model = "HE", year = 70)
+prec70_26_HE <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 26, model = "HE", year = 70)
+bio70_26_HE <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 26, model = "HE", year = 70)
+
+tmin70_45_HE <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 45, model = "HE", year = 70)
+tmax70_45_HE <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 45, model = "HE", year = 70)
+prec70_45_HE <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 45, model = "HE", year = 70)
+bio70_45_HE <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 45, model = "HE", year = 70)
+
+tmin70_85_HE <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 85, model = "HE", year = 70)
+tmax70_85_HE <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 85, model = "HE", year = 70)
+prec70_85_HE <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 85, model = "HE", year = 70)
+bio70_85_HE <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 85, model = "HE", year = 70)
+
+#IP
+tmin70_26_IP <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 26, model = "IP", year = 70)
+tmax70_26_IP <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 26, model = "IP", year = 70)
+prec70_26_IP <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 26, model = "IP", year = 70)
+bio70_26_IP <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 26, model = "IP", year = 70)
+
+tmin70_45_IP <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 45, model = "IP", year = 70)
+tmax70_45_IP <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 45, model = "IP", year = 70)
+prec70_45_IP <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 45, model = "IP", year = 70)
+bio70_45_IP <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 45, model = "IP", year = 70)
+
+tmin70_85_IP <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 85, model = "IP", year = 70)
+tmax70_85_IP <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 85, model = "IP", year = 70)
+prec70_85_IP <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 85, model = "IP", year = 70)
+bio70_85_IP <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 85, model = "IP", year = 70)
+
+#MI
+tmin70_26_MI <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 26, model = "MI", year = 70)
+tmax70_26_MI <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 26, model = "MI", year = 70)
+prec70_26_MI <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 26, model = "MI", year = 70)
+bio70_26_MI <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 26, model = "MI", year = 70)
+
+tmin70_45_MI <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 45, model = "MI", year = 70)
+tmax70_45_MI <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 45, model = "MI", year = 70)
+prec70_45_MI <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 45, model = "MI", year = 70)
+bio70_45_MI <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 45, model = "MI", year = 70)
+
+tmin70_85_MI <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 85, model = "MI", year = 70)
+tmax70_85_MI <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 85, model = "MI", year = 70)
+prec70_85_MI <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 85, model = "MI", year = 70)
+bio70_85_MI <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 85, model = "MI", year = 70)
+
+#MR
+tmin70_26_MR <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 26, model = "MR", year = 70)
+tmax70_26_MR <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 26, model = "MR", year = 70)
+prec70_26_MR <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 26, model = "MR", year = 70)
+bio70_26_MR <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 26, model = "MR", year = 70)
+
+tmin70_45_MR <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 45, model = "MR", year = 70)
+tmax70_45_MR <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 45, model = "MR", year = 70)
+prec70_45_MR <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 45, model = "MR", year = 70)
+bio70_45_MR <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 45, model = "MR", year = 70)
+
+tmin70_85_MR <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 85, model = "MR", year = 70)
+tmax70_85_MR <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 85, model = "MR", year = 70)
+prec70_85_MR <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 85, model = "MR", year = 70)
+bio70_85_MR <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 85, model = "MR", year = 70)
+
+#MC
+tmin70_26_MC <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 26, model = "MC", year = 70)
+tmax70_26_MC <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 26, model = "MC", year = 70)
+prec70_26_MC <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 26, model = "MC", year = 70)
+bio70_26_MC <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 26, model = "MC", year = 70)
+
+tmin70_45_MC <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 45, model = "MC", year = 70)
+tmax70_45_MC <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 45, model = "MC", year = 70)
+prec70_45_MC <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 45, model = "MC", year = 70)
+bio70_45_MC <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 45, model = "MC", year = 70)
+
+tmin70_85_MC <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 85, model = "MC", year = 70)
+tmax70_85_MC <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 85, model = "MC", year = 70)
+prec70_85_MC <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 85, model = "MC", year = 70)
+bio70_85_MC <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 85, model = "MC", year = 70)
+
+#MP
+tmin70_26_MP <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 26, model = "MP", year = 70)
+tmax70_26_MP <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 26, model = "MP", year = 70)
+prec70_26_MP <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 26, model = "MP", year = 70)
+bio70_26_MP <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 26, model = "MP", year = 70)
+
+tmin70_45_MP <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 45, model = "MP", year = 70)
+tmax70_45_MP <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 45, model = "MP", year = 70)
+prec70_45_MP <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 45, model = "MP", year = 70)
+bio70_45_MP <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 45, model = "MP", year = 70)
+
+tmin70_85_MP <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 85, model = "MP", year = 70)
+tmax70_85_MP <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 85, model = "MP", year = 70)
+prec70_85_MP <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 85, model = "MP", year = 70)
+bio70_85_MP <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 85, model = "MP", year = 70)
+
+#MG
+tmin70_26_MG <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 26, model = "MG", year = 70)
+tmax70_26_MG <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 26, model = "MG", year = 70)
+prec70_26_MG <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 26, model = "MG", year = 70)
+bio70_26_MG <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 26, model = "MG", year = 70)
+
+tmin70_45_MG <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 45, model = "MG", year = 70)
+tmax70_45_MG <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 45, model = "MG", year = 70)
+prec70_45_MG <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 45, model = "MG", year = 70)
+bio70_45_MG <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 45, model = "MG", year = 70)
+
+tmin70_85_MG <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 85, model = "MG", year = 70)
+tmax70_85_MG <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 85, model = "MG", year = 70)
+prec70_85_MG <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 85, model = "MG", year = 70)
+bio70_85_MG <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 85, model = "MG", year = 70)
+
+#NO
+tmin70_26_NO <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 26, model = "NO", year = 70)
+tmax70_26_NO <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 26, model = "NO", year = 70)
+prec70_26_NO <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 26, model = "NO", year = 70)
+bio70_26_NO <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 26, model = "NO", year = 70)
+
+tmin70_45_NO <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 45, model = "NO", year = 70)
+tmax70_45_NO <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 45, model = "NO", year = 70)
+prec70_45_NO <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 45, model = "NO", year = 70)
+bio70_45_NO <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 45, model = "NO", year = 70)
+
+tmin70_85_NO <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 85, model = "NO", year = 70)
+tmax70_85_NO <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 85, model = "NO", year = 70)
+prec70_85_NO <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 85, model = "NO", year = 70)
+bio70_85_NO <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 85, model = "NO", year = 70)
 
 
 ## Crop WorldClim layers
@@ -126,46 +545,600 @@ prec.crop <- crop(prec, ext)
 bio.crop <- crop(bio, ext)
 
 # Crop layers (2050)
-tmin50_26.crop <- crop(tmin50_26, ext)
-tmax50_26.crop <- crop(tmax50_26, ext)
-prec50_26.crop <- crop(prec50_26, ext)
-bio50_26.crop <- crop(bio50_26, ext)
+#BC
+tmin50_26_BC.crop <- crop(tmin50_26_BC, ext)
+tmax50_26_BC.crop <- crop(tmax50_26_BC, ext)
+prec50_26_BC.crop <- crop(prec50_26_BC, ext)
+bio50_26_BC.crop <- crop(bio50_26_BC, ext)
 
-tmin50_45.crop <- crop(tmin50_45, ext)
-tmax50_45.crop <- crop(tmax50_45, ext)
-prec50_45.crop <- crop(prec50_45, ext)
-bio50_45.crop <- crop(bio50_45, ext)
+tmin50_45_BC.crop <- crop(tmin50_45_BC, ext)
+tmax50_45_BC.crop <- crop(tmax50_45_BC, ext)
+prec50_45_BC.crop <- crop(prec50_45_BC, ext)
+bio50_45_BC.crop <- crop(bio50_45_BC, ext)
 
-tmin50_85.crop <- crop(tmin50_85, ext)
-tmax50_85.crop <- crop(tmax50_85, ext)
-prec50_85.crop <- crop(prec50_85, ext)
-bio50_85.crop <- crop(bio50_85, ext)
+tmin50_85_BC.crop <- crop(tmin50_85_BC, ext)
+tmax50_85_BC.crop <- crop(tmax50_85_BC, ext)
+prec50_85_BC.crop <- crop(prec50_85_BC, ext)
+bio50_85_BC.crop <- crop(bio50_85_BC, ext)
+
+#CC
+tmin50_26_CC.crop <- crop(tmin50_26_CC, ext)
+tmax50_26_CC.crop <- crop(tmax50_26_CC, ext)
+prec50_26_CC.crop <- crop(prec50_26_CC, ext)
+bio50_26_CC.crop <- crop(bio50_26_CC, ext)
+
+tmin50_45_CC.crop <- crop(tmin50_45_CC, ext)
+tmax50_45_CC.crop <- crop(tmax50_45_CC, ext)
+prec50_45_CC.crop <- crop(prec50_45_CC, ext)
+bio50_45_CC.crop <- crop(bio50_45_CC, ext)
+
+tmin50_85_CC.crop <- crop(tmin50_85_CC, ext)
+tmax50_85_CC.crop <- crop(tmax50_85_CC, ext)
+prec50_85_CC.crop <- crop(prec50_85_CC, ext)
+bio50_85_CC.crop <- crop(bio50_85_CC, ext)
+
+#CN
+tmin50_26_CN.crop <- crop(tmin50_26_CN, ext)
+tmax50_26_CN.crop <- crop(tmax50_26_CN, ext)
+prec50_26_CN.crop <- crop(prec50_26_CN, ext)
+bio50_26_CN.crop <- crop(bio50_26_CN, ext)
+
+tmin50_45_CN.crop <- crop(tmin50_45_CN, ext)
+tmax50_45_CN.crop <- crop(tmax50_45_CN, ext)
+prec50_45_CN.crop <- crop(prec50_45_CN, ext)
+bio50_45_CN.crop <- crop(bio50_45_CN, ext)
+
+tmin50_85_CN.crop <- crop(tmin50_85_CN, ext)
+tmax50_85_CN.crop <- crop(tmax50_85_CN, ext)
+prec50_85_CN.crop <- crop(prec50_85_CN, ext)
+bio50_85_CN.crop <- crop(bio50_85_CN, ext)
+
+#GF
+tmin50_26_GF.crop <- crop(tmin50_26_GF, ext)
+tmax50_26_GF.crop <- crop(tmax50_26_GF, ext)
+prec50_26_GF.crop <- crop(prec50_26_GF, ext)
+bio50_26_GF.crop <- crop(bio50_26_GF, ext)
+
+tmin50_45_GF.crop <- crop(tmin50_45_GF, ext)
+tmax50_45_GF.crop <- crop(tmax50_45_GF, ext)
+prec50_45_GF.crop <- crop(prec50_45_GF, ext)
+bio50_45_GF.crop <- crop(bio50_45_GF, ext)
+
+tmin50_85_GF.crop <- crop(tmin50_85_GF, ext)
+tmax50_85_GF.crop <- crop(tmax50_85_GF, ext)
+prec50_85_GF.crop <- crop(prec50_85_GF, ext)
+bio50_85_GF.crop <- crop(bio50_85_GF, ext)
+
+#GS
+tmin50_26_GS.crop <- crop(tmin50_26_GS, ext)
+tmax50_26_GS.crop <- crop(tmax50_26_GS, ext)
+prec50_26_GS.crop <- crop(prec50_26_GS, ext)
+bio50_26_GS.crop <- crop(bio50_26_GS, ext)
+
+tmin50_45_GS.crop <- crop(tmin50_45_GS, ext)
+tmax50_45_GS.crop <- crop(tmax50_45_GS, ext)
+prec50_45_GS.crop <- crop(prec50_45_GS, ext)
+bio50_45_GS.crop <- crop(bio50_45_GS, ext)
+
+tmin50_85_GS.crop <- crop(tmin50_85_GS, ext)
+tmax50_85_GS.crop <- crop(tmax50_85_GS, ext)
+prec50_85_GS.crop <- crop(prec50_85_GS, ext)
+bio50_85_GS.crop <- crop(bio50_85_GS, ext)
+
+#HD
+tmin50_26_HD.crop <- crop(tmin50_26_HD, ext)
+tmax50_26_HD.crop <- crop(tmax50_26_HD, ext)
+prec50_26_HD.crop <- crop(prec50_26_HD, ext)
+bio50_26_HD.crop <- crop(bio50_26_HD, ext)
+
+tmin50_45_HD.crop <- crop(tmin50_45_HD, ext)
+tmax50_45_HD.crop <- crop(tmax50_45_HD, ext)
+prec50_45_HD.crop <- crop(prec50_45_HD, ext)
+bio50_45_HD.crop <- crop(bio50_45_HD, ext)
+
+tmin50_85_HD.crop <- crop(tmin50_85_HD, ext)
+tmax50_85_HD.crop <- crop(tmax50_85_HD, ext)
+prec50_85_HD.crop <- crop(prec50_85_HD, ext)
+bio50_85_HD.crop <- crop(bio50_85_HD, ext)
+
+#HE
+tmin50_26_HE.crop <- crop(tmin50_26_HE, ext)
+tmax50_26_HE.crop <- crop(tmax50_26_HE, ext)
+prec50_26_HE.crop <- crop(prec50_26_HE, ext)
+bio50_26_HE.crop <- crop(bio50_26_HE, ext)
+
+tmin50_45_HE.crop <- crop(tmin50_45_HE, ext)
+tmax50_45_HE.crop <- crop(tmax50_45_HE, ext)
+prec50_45_HE.crop <- crop(prec50_45_HE, ext)
+bio50_45_HE.crop <- crop(bio50_45_HE, ext)
+
+tmin50_85_HE.crop <- crop(tmin50_85_HE, ext)
+tmax50_85_HE.crop <- crop(tmax50_85_HE, ext)
+prec50_85_HE.crop <- crop(prec50_85_HE, ext)
+bio50_85_HE.crop <- crop(bio50_85_HE, ext)
+
+#IP
+tmin50_26_IP.crop <- crop(tmin50_26_IP, ext)
+tmax50_26_IP.crop <- crop(tmax50_26_IP, ext)
+prec50_26_IP.crop <- crop(prec50_26_IP, ext)
+bio50_26_IP.crop <- crop(bio50_26_IP, ext)
+
+tmin50_45_IP.crop <- crop(tmin50_45_IP, ext)
+tmax50_45_IP.crop <- crop(tmax50_45_IP, ext)
+prec50_45_IP.crop <- crop(prec50_45_IP, ext)
+bio50_45_IP.crop <- crop(bio50_45_IP, ext)
+
+tmin50_85_IP.crop <- crop(tmin50_85_IP, ext)
+tmax50_85_IP.crop <- crop(tmax50_85_IP, ext)
+prec50_85_IP.crop <- crop(prec50_85_IP, ext)
+bio50_85_IP.crop <- crop(bio50_85_IP, ext)
+
+#MI
+tmin50_26_MI.crop <- crop(tmin50_26_MI, ext)
+tmax50_26_MI.crop <- crop(tmax50_26_MI, ext)
+prec50_26_MI.crop <- crop(prec50_26_MI, ext)
+bio50_26_MI.crop <- crop(bio50_26_MI, ext)
+
+tmin50_45_MI.crop <- crop(tmin50_45_MI, ext)
+tmax50_45_MI.crop <- crop(tmax50_45_MI, ext)
+prec50_45_MI.crop <- crop(prec50_45_MI, ext)
+bio50_45_MI.crop <- crop(bio50_45_MI, ext)
+
+tmin50_85_MI.crop <- crop(tmin50_85_MI, ext)
+tmax50_85_MI.crop <- crop(tmax50_85_MI, ext)
+prec50_85_MI.crop <- crop(prec50_85_MI, ext)
+bio50_85_MI.crop <- crop(bio50_85_MI, ext)
+
+#MR
+tmin50_26_MR.crop <- crop(tmin50_26_MR, ext)
+tmax50_26_MR.crop <- crop(tmax50_26_MR, ext)
+prec50_26_MR.crop <- crop(prec50_26_MR, ext)
+bio50_26_MR.crop <- crop(bio50_26_MR, ext)
+
+tmin50_45_MR.crop <- crop(tmin50_45_MR, ext)
+tmax50_45_MR.crop <- crop(tmax50_45_MR, ext)
+prec50_45_MR.crop <- crop(prec50_45_MR, ext)
+bio50_45_MR.crop <- crop(bio50_45_MR, ext)
+
+tmin50_85_MR.crop <- crop(tmin50_85_MR, ext)
+tmax50_85_MR.crop <- crop(tmax50_85_MR, ext)
+prec50_85_MR.crop <- crop(prec50_85_MR, ext)
+bio50_85_MR.crop <- crop(bio50_85_MR, ext)
+
+#MC
+tmin50_26_MC.crop <- crop(tmin50_26_MC, ext)
+tmax50_26_MC.crop <- crop(tmax50_26_MC, ext)
+prec50_26_MC.crop <- crop(prec50_26_MC, ext)
+bio50_26_MC.crop <- crop(bio50_26_MC, ext)
+
+tmin50_45_MC.crop <- crop(tmin50_45_MC, ext)
+tmax50_45_MC.crop <- crop(tmax50_45_MC, ext)
+prec50_45_MC.crop <- crop(prec50_45_MC, ext)
+bio50_45_MC.crop <- crop(bio50_45_MC, ext)
+
+tmin50_85_MC.crop <- crop(tmin50_85_MC, ext)
+tmax50_85_MC.crop <- crop(tmax50_85_MC, ext)
+prec50_85_MC.crop <- crop(prec50_85_MC, ext)
+bio50_85_MC.crop <- crop(bio50_85_MC, ext)
+
+#MP
+tmin50_26_MP.crop <- crop(tmin50_26_MP, ext)
+tmax50_26_MP.crop <- crop(tmax50_26_MP, ext)
+prec50_26_MP.crop <- crop(prec50_26_MP, ext)
+bio50_26_MP.crop <- crop(bio50_26_MP, ext)
+
+tmin50_45_MP.crop <- crop(tmin50_45_MP, ext)
+tmax50_45_MP.crop <- crop(tmax50_45_MP, ext)
+prec50_45_MP.crop <- crop(prec50_45_MP, ext)
+bio50_45_MP.crop <- crop(bio50_45_MP, ext)
+
+tmin50_85_MP.crop <- crop(tmin50_85_MP, ext)
+tmax50_85_MP.crop <- crop(tmax50_85_MP, ext)
+prec50_85_MP.crop <- crop(prec50_85_MP, ext)
+bio50_85_MP.crop <- crop(bio50_85_MP, ext)
+
+#MG
+tmin50_26_MG.crop <- crop(tmin50_26_MG, ext)
+tmax50_26_MG.crop <- crop(tmax50_26_MG, ext)
+prec50_26_MG.crop <- crop(prec50_26_MG, ext)
+bio50_26_MG.crop <- crop(bio50_26_MG, ext)
+
+tmin50_45_MG.crop <- crop(tmin50_45_MG, ext)
+tmax50_45_MG.crop <- crop(tmax50_45_MG, ext)
+prec50_45_MG.crop <- crop(prec50_45_MG, ext)
+bio50_45_MG.crop <- crop(bio50_45_MG, ext)
+
+tmin50_85_MG.crop <- crop(tmin50_85_MG, ext)
+tmax50_85_MG.crop <- crop(tmax50_85_MG, ext)
+prec50_85_MG.crop <- crop(prec50_85_MG, ext)
+bio50_85_MG.crop <- crop(bio50_85_MG, ext)
+
+#NO
+tmin50_26_NO.crop <- crop(tmin50_26_NO, ext)
+tmax50_26_NO.crop <- crop(tmax50_26_NO, ext)
+prec50_26_NO.crop <- crop(prec50_26_NO, ext)
+bio50_26_NO.crop <- crop(bio50_26_NO, ext)
+
+tmin50_45_NO.crop <- crop(tmin50_45_NO, ext)
+tmax50_45_NO.crop <- crop(tmax50_45_NO, ext)
+prec50_45_NO.crop <- crop(prec50_45_NO, ext)
+bio50_45_NO.crop <- crop(bio50_45_NO, ext)
+
+tmin50_85_NO.crop <- crop(tmin50_85_NO, ext)
+tmax50_85_NO.crop <- crop(tmax50_85_NO, ext)
+prec50_85_NO.crop <- crop(prec50_85_NO, ext)
+bio50_85_NO.crop <- crop(bio50_85_NO, ext)
+
 
 # Crop layers (2070)
-tmin70_26.crop <- crop(tmin70_26, ext)
-tmax70_26.crop <- crop(tmax70_26, ext)
-prec70_26.crop <- crop(prec70_26, ext)
-bio70_26.crop <- crop(bio70_26, ext)
+#BC
+tmin70_26_BC.crop <- crop(tmin70_26_BC, ext)
+tmax70_26_BC.crop <- crop(tmax70_26_BC, ext)
+prec70_26_BC.crop <- crop(prec70_26_BC, ext)
+bio70_26_BC.crop <- crop(bio70_26_BC, ext)
 
-tmin70_45.crop <- crop(tmin70_45, ext)
-tmax70_45.crop <- crop(tmax70_45, ext)
-prec70_45.crop <- crop(prec70_45, ext)
-bio70_45.crop <- crop(bio70_45, ext)
+tmin70_45_BC.crop <- crop(tmin70_45_BC, ext)
+tmax70_45_BC.crop <- crop(tmax70_45_BC, ext)
+prec70_45_BC.crop <- crop(prec70_45_BC, ext)
+bio70_45_BC.crop <- crop(bio70_45_BC, ext)
 
-tmin70_85.crop <- crop(tmin70_85, ext)
-tmax70_85.crop <- crop(tmax70_85, ext)
-prec70_85.crop <- crop(prec70_85, ext)
-bio70_85.crop <- crop(bio70_85, ext)
+tmin70_85_BC.crop <- crop(tmin70_85_BC, ext)
+tmax70_85_BC.crop <- crop(tmax70_85_BC, ext)
+prec70_85_BC.crop <- crop(prec70_85_BC, ext)
+bio70_85_BC.crop <- crop(bio70_85_BC, ext)
+
+#CC
+tmin70_26_CC.crop <- crop(tmin70_26_CC, ext)
+tmax70_26_CC.crop <- crop(tmax70_26_CC, ext)
+prec70_26_CC.crop <- crop(prec70_26_CC, ext)
+bio70_26_CC.crop <- crop(bio70_26_CC, ext)
+
+tmin70_45_CC.crop <- crop(tmin70_45_CC, ext)
+tmax70_45_CC.crop <- crop(tmax70_45_CC, ext)
+prec70_45_CC.crop <- crop(prec70_45_CC, ext)
+bio70_45_CC.crop <- crop(bio70_45_CC, ext)
+
+tmin70_85_CC.crop <- crop(tmin70_85_CC, ext)
+tmax70_85_CC.crop <- crop(tmax70_85_CC, ext)
+prec70_85_CC.crop <- crop(prec70_85_CC, ext)
+bio70_85_CC.crop <- crop(bio70_85_CC, ext)
+
+#CN
+tmin70_26_CN.crop <- crop(tmin70_26_CN, ext)
+tmax70_26_CN.crop <- crop(tmax70_26_CN, ext)
+prec70_26_CN.crop <- crop(prec70_26_CN, ext)
+bio70_26_CN.crop <- crop(bio70_26_CN, ext)
+
+tmin70_45_CN.crop <- crop(tmin70_45_CN, ext)
+tmax70_45_CN.crop <- crop(tmax70_45_CN, ext)
+prec70_45_CN.crop <- crop(prec70_45_CN, ext)
+bio70_45_CN.crop <- crop(bio70_45_CN, ext)
+
+tmin70_85_CN.crop <- crop(tmin70_85_CN, ext)
+tmax70_85_CN.crop <- crop(tmax70_85_CN, ext)
+prec70_85_CN.crop <- crop(prec70_85_CN, ext)
+bio70_85_CN.crop <- crop(bio70_85_CN, ext)
+
+#GF
+tmin70_26_GF.crop <- crop(tmin70_26_GF, ext)
+tmax70_26_GF.crop <- crop(tmax70_26_GF, ext)
+prec70_26_GF.crop <- crop(prec70_26_GF, ext)
+bio70_26_GF.crop <- crop(bio70_26_GF, ext)
+
+tmin70_45_GF.crop <- crop(tmin70_45_GF, ext)
+tmax70_45_GF.crop <- crop(tmax70_45_GF, ext)
+prec70_45_GF.crop <- crop(prec70_45_GF, ext)
+bio70_45_GF.crop <- crop(bio70_45_GF, ext)
+
+tmin70_85_GF.crop <- crop(tmin70_85_GF, ext)
+tmax70_85_GF.crop <- crop(tmax70_85_GF, ext)
+prec70_85_GF.crop <- crop(prec70_85_GF, ext)
+bio70_85_GF.crop <- crop(bio70_85_GF, ext)
+
+#GS
+tmin70_26_GS.crop <- crop(tmin70_26_GS, ext)
+tmax70_26_GS.crop <- crop(tmax70_26_GS, ext)
+prec70_26_GS.crop <- crop(prec70_26_GS, ext)
+bio70_26_GS.crop <- crop(bio70_26_GS, ext)
+
+tmin70_45_GS.crop <- crop(tmin70_45_GS, ext)
+tmax70_45_GS.crop <- crop(tmax70_45_GS, ext)
+prec70_45_GS.crop <- crop(prec70_45_GS, ext)
+bio70_45_GS.crop <- crop(bio70_45_GS, ext)
+
+tmin70_85_GS.crop <- crop(tmin70_85_GS, ext)
+tmax70_85_GS.crop <- crop(tmax70_85_GS, ext)
+prec70_85_GS.crop <- crop(prec70_85_GS, ext)
+bio70_85_GS.crop <- crop(bio70_85_GS, ext)
+
+#HD
+tmin70_26_HD.crop <- crop(tmin70_26_HD, ext)
+tmax70_26_HD.crop <- crop(tmax70_26_HD, ext)
+prec70_26_HD.crop <- crop(prec70_26_HD, ext)
+bio70_26_HD.crop <- crop(bio70_26_HD, ext)
+
+tmin70_45_HD.crop <- crop(tmin70_45_HD, ext)
+tmax70_45_HD.crop <- crop(tmax70_45_HD, ext)
+prec70_45_HD.crop <- crop(prec70_45_HD, ext)
+bio70_45_HD.crop <- crop(bio70_45_HD, ext)
+
+tmin70_85_HD.crop <- crop(tmin70_85_HD, ext)
+tmax70_85_HD.crop <- crop(tmax70_85_HD, ext)
+prec70_85_HD.crop <- crop(prec70_85_HD, ext)
+bio70_85_HD.crop <- crop(bio70_85_HD, ext)
+
+#HE
+tmin70_26_HE.crop <- crop(tmin70_26_HE, ext)
+tmax70_26_HE.crop <- crop(tmax70_26_HE, ext)
+prec70_26_HE.crop <- crop(prec70_26_HE, ext)
+bio70_26_HE.crop <- crop(bio70_26_HE, ext)
+
+tmin70_45_HE.crop <- crop(tmin70_45_HE, ext)
+tmax70_45_HE.crop <- crop(tmax70_45_HE, ext)
+prec70_45_HE.crop <- crop(prec70_45_HE, ext)
+bio70_45_HE.crop <- crop(bio70_45_HE, ext)
+
+tmin70_85_HE.crop <- crop(tmin70_85_HE, ext)
+tmax70_85_HE.crop <- crop(tmax70_85_HE, ext)
+prec70_85_HE.crop <- crop(prec70_85_HE, ext)
+bio70_85_HE.crop <- crop(bio70_85_HE, ext)
+
+#IP
+tmin70_26_IP.crop <- crop(tmin70_26_IP, ext)
+tmax70_26_IP.crop <- crop(tmax70_26_IP, ext)
+prec70_26_IP.crop <- crop(prec70_26_IP, ext)
+bio70_26_IP.crop <- crop(bio70_26_IP, ext)
+
+tmin70_45_IP.crop <- crop(tmin70_45_IP, ext)
+tmax70_45_IP.crop <- crop(tmax70_45_IP, ext)
+prec70_45_IP.crop <- crop(prec70_45_IP, ext)
+bio70_45_IP.crop <- crop(bio70_45_IP, ext)
+
+tmin70_85_IP.crop <- crop(tmin70_85_IP, ext)
+tmax70_85_IP.crop <- crop(tmax70_85_IP, ext)
+prec70_85_IP.crop <- crop(prec70_85_IP, ext)
+bio70_85_IP.crop <- crop(bio70_85_IP, ext)
+
+#MI
+tmin70_26_MI.crop <- crop(tmin70_26_MI, ext)
+tmax70_26_MI.crop <- crop(tmax70_26_MI, ext)
+prec70_26_MI.crop <- crop(prec70_26_MI, ext)
+bio70_26_MI.crop <- crop(bio70_26_MI, ext)
+
+tmin70_45_MI.crop <- crop(tmin70_45_MI, ext)
+tmax70_45_MI.crop <- crop(tmax70_45_MI, ext)
+prec70_45_MI.crop <- crop(prec70_45_MI, ext)
+bio70_45_MI.crop <- crop(bio70_45_MI, ext)
+
+tmin70_85_MI.crop <- crop(tmin70_85_MI, ext)
+tmax70_85_MI.crop <- crop(tmax70_85_MI, ext)
+prec70_85_MI.crop <- crop(prec70_85_MI, ext)
+bio70_85_MI.crop <- crop(bio70_85_MI, ext)
+
+#MR
+tmin70_26_MR.crop <- crop(tmin70_26_MR, ext)
+tmax70_26_MR.crop <- crop(tmax70_26_MR, ext)
+prec70_26_MR.crop <- crop(prec70_26_MR, ext)
+bio70_26_MR.crop <- crop(bio70_26_MR, ext)
+
+tmin70_45_MR.crop <- crop(tmin70_45_MR, ext)
+tmax70_45_MR.crop <- crop(tmax70_45_MR, ext)
+prec70_45_MR.crop <- crop(prec70_45_MR, ext)
+bio70_45_MR.crop <- crop(bio70_45_MR, ext)
+
+tmin70_85_MR.crop <- crop(tmin70_85_MR, ext)
+tmax70_85_MR.crop <- crop(tmax70_85_MR, ext)
+prec70_85_MR.crop <- crop(prec70_85_MR, ext)
+bio70_85_MR.crop <- crop(bio70_85_MR, ext)
+
+#MC
+tmin70_26_MC.crop <- crop(tmin70_26_MC, ext)
+tmax70_26_MC.crop <- crop(tmax70_26_MC, ext)
+prec70_26_MC.crop <- crop(prec70_26_MC, ext)
+bio70_26_MC.crop <- crop(bio70_26_MC, ext)
+
+tmin70_45_MC.crop <- crop(tmin70_45_MC, ext)
+tmax70_45_MC.crop <- crop(tmax70_45_MC, ext)
+prec70_45_MC.crop <- crop(prec70_45_MC, ext)
+bio70_45_MC.crop <- crop(bio70_45_MC, ext)
+
+tmin70_85_MC.crop <- crop(tmin70_85_MC, ext)
+tmax70_85_MC.crop <- crop(tmax70_85_MC, ext)
+prec70_85_MC.crop <- crop(prec70_85_MC, ext)
+bio70_85_MC.crop <- crop(bio70_85_MC, ext)
+
+#MP
+tmin70_26_MP.crop <- crop(tmin70_26_MP, ext)
+tmax70_26_MP.crop <- crop(tmax70_26_MP, ext)
+prec70_26_MP.crop <- crop(prec70_26_MP, ext)
+bio70_26_MP.crop <- crop(bio70_26_MP, ext)
+
+tmin70_45_MP.crop <- crop(tmin70_45_MP, ext)
+tmax70_45_MP.crop <- crop(tmax70_45_MP, ext)
+prec70_45_MP.crop <- crop(prec70_45_MP, ext)
+bio70_45_MP.crop <- crop(bio70_45_MP, ext)
+
+tmin70_85_MP.crop <- crop(tmin70_85_MP, ext)
+tmax70_85_MP.crop <- crop(tmax70_85_MP, ext)
+prec70_85_MP.crop <- crop(prec70_85_MP, ext)
+bio70_85_MP.crop <- crop(bio70_85_MP, ext)
+
+#MG
+tmin70_26_MG.crop <- crop(tmin70_26_MG, ext)
+tmax70_26_MG.crop <- crop(tmax70_26_MG, ext)
+prec70_26_MG.crop <- crop(prec70_26_MG, ext)
+bio70_26_MG.crop <- crop(bio70_26_MG, ext)
+
+tmin70_45_MG.crop <- crop(tmin70_45_MG, ext)
+tmax70_45_MG.crop <- crop(tmax70_45_MG, ext)
+prec70_45_MG.crop <- crop(prec70_45_MG, ext)
+bio70_45_MG.crop <- crop(bio70_45_MG, ext)
+
+tmin70_85_MG.crop <- crop(tmin70_85_MG, ext)
+tmax70_85_MG.crop <- crop(tmax70_85_MG, ext)
+prec70_85_MG.crop <- crop(prec70_85_MG, ext)
+bio70_85_MG.crop <- crop(bio70_85_MG, ext)
+
+#NO
+tmin70_26_NO.crop <- crop(tmin70_26_NO, ext)
+tmax70_26_NO.crop <- crop(tmax70_26_NO, ext)
+prec70_26_NO.crop <- crop(prec70_26_NO, ext)
+bio70_26_NO.crop <- crop(bio70_26_NO, ext)
+
+tmin70_45_NO.crop <- crop(tmin70_45_NO, ext)
+tmax70_45_NO.crop <- crop(tmax70_45_NO, ext)
+prec70_45_NO.crop <- crop(prec70_45_NO, ext)
+bio70_45_NO.crop <- crop(bio70_45_NO, ext)
+
+tmin70_85_NO.crop <- crop(tmin70_85_NO, ext)
+tmax70_85_NO.crop <- crop(tmax70_85_NO, ext)
+prec70_85_NO.crop <- crop(prec70_85_NO, ext)
+bio70_85_NO.crop <- crop(bio70_85_NO, ext)
 
 # Stack environmental layers
 environment <- stack(alt.crop, mean(tmin.crop), mean(tmax.crop), mean(tmean.crop), mean(prec.crop), bio.crop)
-environment50_26 <- stack(alt.crop, mean(tmin50_26.crop), mean(tmax50_26.crop), mean(prec50_26.crop), bio50_26.crop)
-environment50_45 <- stack(alt.crop, mean(tmin50_45.crop), mean(tmax50_45.crop), mean(prec50_45.crop), bio50_45.crop)
-environment50_85 <- stack(alt.crop, mean(tmin50_85.crop), mean(tmax50_85.crop), mean(prec50_85.crop), bio50_85.crop)
 
-environment70_26 <- stack(alt.crop, mean(tmin70_26.crop), mean(tmax70_26.crop), mean(prec70_26.crop), bio70_26.crop)
-environment70_45 <- stack(alt.crop, mean(tmin70_45.crop), mean(tmax70_45.crop), mean(prec70_45.crop), bio70_45.crop)
-environment70_85 <- stack(alt.crop, mean(tmin70_85.crop), mean(tmax70_85.crop), mean(prec70_85.crop), bio70_85.crop)
+#2050
+#BC
+environment50_26_BC <- stack(alt.crop, mean(tmin50_26_BC.crop), mean(tmax50_26_BC.crop), mean(prec50_26_BC.crop), bio50_26_BC.crop)
+environment50_45_BC <- stack(alt.crop, mean(tmin50_45_BC.crop), mean(tmax50_45_BC.crop), mean(prec50_45_BC.crop), bio50_45_BC.crop)
+environment50_85_BC <- stack(alt.crop, mean(tmin50_85_BC.crop), mean(tmax50_85_BC.crop), mean(prec50_85_BC.crop), bio50_85_BC.crop)
+
+#CC
+environment50_26_CC <- stack(alt.crop, mean(tmin50_26_CC.crop), mean(tmax50_26_CC.crop), mean(prec50_26_CC.crop), bio50_26_CC.crop)
+environment50_45_CC <- stack(alt.crop, mean(tmin50_45_CC.crop), mean(tmax50_45_CC.crop), mean(prec50_45_CC.crop), bio50_45_CC.crop)
+environment50_85_CC <- stack(alt.crop, mean(tmin50_85_CC.crop), mean(tmax50_85_CC.crop), mean(prec50_85_CC.crop), bio50_85_CC.crop)
+
+#CN
+environment50_26_CN <- stack(alt.crop, mean(tmin50_26_CN.crop), mean(tmax50_26_CN.crop), mean(prec50_26_CN.crop), bio50_26_CN.crop)
+environment50_45_CN <- stack(alt.crop, mean(tmin50_45_CN.crop), mean(tmax50_45_CN.crop), mean(prec50_45_CN.crop), bio50_45_CN.crop)
+environment50_85_CN <- stack(alt.crop, mean(tmin50_85_CN.crop), mean(tmax50_85_CN.crop), mean(prec50_85_CN.crop), bio50_85_CN.crop)
+
+#GF
+environment50_26_GF <- stack(alt.crop, mean(tmin50_26_GF.crop), mean(tmax50_26_GF.crop), mean(prec50_26_GF.crop), bio50_26_GF.crop)
+environment50_45_GF <- stack(alt.crop, mean(tmin50_45_GF.crop), mean(tmax50_45_GF.crop), mean(prec50_45_GF.crop), bio50_45_GF.crop)
+environment50_85_GF <- stack(alt.crop, mean(tmin50_85_GF.crop), mean(tmax50_85_GF.crop), mean(prec50_85_GF.crop), bio50_85_GF.crop)
+
+#GS
+environment50_26_GS <- stack(alt.crop, mean(tmin50_26_GS.crop), mean(tmax50_26_GS.crop), mean(prec50_26_GS.crop), bio50_26_GS.crop)
+environment50_45_GS <- stack(alt.crop, mean(tmin50_45_GS.crop), mean(tmax50_45_GS.crop), mean(prec50_45_GS.crop), bio50_45_GS.crop)
+environment50_85_GS <- stack(alt.crop, mean(tmin50_85_GS.crop), mean(tmax50_85_GS.crop), mean(prec50_85_GS.crop), bio50_85_GS.crop)
+
+#HD
+environment50_26_HD <- stack(alt.crop, mean(tmin50_26_HD.crop), mean(tmax50_26_HD.crop), mean(prec50_26_HD.crop), bio50_26_HD.crop)
+environment50_45_HD <- stack(alt.crop, mean(tmin50_45_HD.crop), mean(tmax50_45_HD.crop), mean(prec50_45_HD.crop), bio50_45_HD.crop)
+environment50_85_HD <- stack(alt.crop, mean(tmin50_85_HD.crop), mean(tmax50_85_HD.crop), mean(prec50_85_HD.crop), bio50_85_HD.crop)
+
+#HE
+environment50_26_HE <- stack(alt.crop, mean(tmin50_26_HE.crop), mean(tmax50_26_HE.crop), mean(prec50_26_HE.crop), bio50_26_HE.crop)
+environment50_45_HE <- stack(alt.crop, mean(tmin50_45_HE.crop), mean(tmax50_45_HE.crop), mean(prec50_45_HE.crop), bio50_45_HE.crop)
+environment50_85_HE <- stack(alt.crop, mean(tmin50_85_HE.crop), mean(tmax50_85_HE.crop), mean(prec50_85_HE.crop), bio50_85_HE.crop)
+
+#IP
+environment50_26_IP <- stack(alt.crop, mean(tmin50_26_IP.crop), mean(tmax50_26_IP.crop), mean(prec50_26_IP.crop), bio50_26_IP.crop)
+environment50_45_IP <- stack(alt.crop, mean(tmin50_45_IP.crop), mean(tmax50_45_IP.crop), mean(prec50_45_IP.crop), bio50_45_IP.crop)
+environment50_85_IP <- stack(alt.crop, mean(tmin50_85_IP.crop), mean(tmax50_85_IP.crop), mean(prec50_85_IP.crop), bio50_85_IP.crop)
+
+#MI
+environment50_26_MI <- stack(alt.crop, mean(tmin50_26_MI.crop), mean(tmax50_26_MI.crop), mean(prec50_26_MI.crop), bio50_26_MI.crop)
+environment50_45_MI <- stack(alt.crop, mean(tmin50_45_MI.crop), mean(tmax50_45_MI.crop), mean(prec50_45_MI.crop), bio50_45_MI.crop)
+environment50_85_MI <- stack(alt.crop, mean(tmin50_85_MI.crop), mean(tmax50_85_MI.crop), mean(prec50_85_MI.crop), bio50_85_MI.crop)
+
+#MR
+environment50_26_MR <- stack(alt.crop, mean(tmin50_26_MR.crop), mean(tmax50_26_MR.crop), mean(prec50_26_MR.crop), bio50_26_MR.crop)
+environment50_45_MR <- stack(alt.crop, mean(tmin50_45_MR.crop), mean(tmax50_45_MR.crop), mean(prec50_45_MR.crop), bio50_45_MR.crop)
+environment50_85_MR <- stack(alt.crop, mean(tmin50_85_MR.crop), mean(tmax50_85_MR.crop), mean(prec50_85_MR.crop), bio50_85_MR.crop)
+
+#MC
+environment50_26_MC <- stack(alt.crop, mean(tmin50_26_MC.crop), mean(tmax50_26_MC.crop), mean(prec50_26_MC.crop), bio50_26_MC.crop)
+environment50_45_MC <- stack(alt.crop, mean(tmin50_45_MC.crop), mean(tmax50_45_MC.crop), mean(prec50_45_MC.crop), bio50_45_MC.crop)
+environment50_85_MC <- stack(alt.crop, mean(tmin50_85_MC.crop), mean(tmax50_85_MC.crop), mean(prec50_85_MC.crop), bio50_85_MC.crop)
+
+#MP
+environment50_26_MP <- stack(alt.crop, mean(tmin50_26_MP.crop), mean(tmax50_26_MP.crop), mean(prec50_26_MP.crop), bio50_26_MP.crop)
+environment50_45_MP <- stack(alt.crop, mean(tmin50_45_MP.crop), mean(tmax50_45_MP.crop), mean(prec50_45_MP.crop), bio50_45_MP.crop)
+environment50_85_MP <- stack(alt.crop, mean(tmin50_85_MP.crop), mean(tmax50_85_MP.crop), mean(prec50_85_MP.crop), bio50_85_MP.crop)
+
+#MG
+environment50_26_MG <- stack(alt.crop, mean(tmin50_26_MG.crop), mean(tmax50_26_MG.crop), mean(prec50_26_MG.crop), bio50_26_MG.crop)
+environment50_45_MG <- stack(alt.crop, mean(tmin50_45_MG.crop), mean(tmax50_45_MG.crop), mean(prec50_45_MG.crop), bio50_45_MG.crop)
+environment50_85_MG <- stack(alt.crop, mean(tmin50_85_MG.crop), mean(tmax50_85_MG.crop), mean(prec50_85_MG.crop), bio50_85_MG.crop)
+
+#NO
+environment50_26_NO <- stack(alt.crop, mean(tmin50_26_NO.crop), mean(tmax50_26_NO.crop), mean(prec50_26_NO.crop), bio50_26_NO.crop)
+environment50_45_NO <- stack(alt.crop, mean(tmin50_45_NO.crop), mean(tmax50_45_NO.crop), mean(prec50_45_NO.crop), bio50_45_NO.crop)
+environment50_85_NO <- stack(alt.crop, mean(tmin50_85_NO.crop), mean(tmax50_85_NO.crop), mean(prec50_85_NO.crop), bio50_85_NO.crop)
+
+#2070
+#BC
+environment70_26_BC <- stack(alt.crop, mean(tmin70_26_BC.crop), mean(tmax70_26_BC.crop), mean(prec70_26_BC.crop), bio70_26_BC.crop)
+environment70_45_BC <- stack(alt.crop, mean(tmin70_45_BC.crop), mean(tmax70_45_BC.crop), mean(prec70_45_BC.crop), bio70_45_BC.crop)
+environment70_85_BC <- stack(alt.crop, mean(tmin70_85_BC.crop), mean(tmax70_85_BC.crop), mean(prec70_85_BC.crop), bio70_85_BC.crop)
+
+#CC
+environment70_26_CC <- stack(alt.crop, mean(tmin70_26_CC.crop), mean(tmax70_26_CC.crop), mean(prec70_26_CC.crop), bio70_26_CC.crop)
+environment70_45_CC <- stack(alt.crop, mean(tmin70_45_CC.crop), mean(tmax70_45_CC.crop), mean(prec70_45_CC.crop), bio70_45_CC.crop)
+environment70_85_CC <- stack(alt.crop, mean(tmin70_85_CC.crop), mean(tmax70_85_CC.crop), mean(prec70_85_CC.crop), bio70_85_CC.crop)
+
+#CN
+environment70_26_CN <- stack(alt.crop, mean(tmin70_26_CN.crop), mean(tmax70_26_CN.crop), mean(prec70_26_CN.crop), bio70_26_CN.crop)
+environment70_45_CN <- stack(alt.crop, mean(tmin70_45_CN.crop), mean(tmax70_45_CN.crop), mean(prec70_45_CN.crop), bio70_45_CN.crop)
+environment70_85_CN <- stack(alt.crop, mean(tmin70_85_CN.crop), mean(tmax70_85_CN.crop), mean(prec70_85_CN.crop), bio70_85_CN.crop)
+
+#GF
+environment70_26_GF <- stack(alt.crop, mean(tmin70_26_GF.crop), mean(tmax70_26_GF.crop), mean(prec70_26_GF.crop), bio70_26_GF.crop)
+environment70_45_GF <- stack(alt.crop, mean(tmin70_45_GF.crop), mean(tmax70_45_GF.crop), mean(prec70_45_GF.crop), bio70_45_GF.crop)
+environment70_85_GF <- stack(alt.crop, mean(tmin70_85_GF.crop), mean(tmax70_85_GF.crop), mean(prec70_85_GF.crop), bio70_85_GF.crop)
+
+#GS
+environment70_26_GS <- stack(alt.crop, mean(tmin70_26_GS.crop), mean(tmax70_26_GS.crop), mean(prec70_26_GS.crop), bio70_26_GS.crop)
+environment70_45_GS <- stack(alt.crop, mean(tmin70_45_GS.crop), mean(tmax70_45_GS.crop), mean(prec70_45_GS.crop), bio70_45_GS.crop)
+environment70_85_GS <- stack(alt.crop, mean(tmin70_85_GS.crop), mean(tmax70_85_GS.crop), mean(prec70_85_GS.crop), bio70_85_GS.crop)
+
+#HD
+environment70_26_HD <- stack(alt.crop, mean(tmin70_26_HD.crop), mean(tmax70_26_HD.crop), mean(prec70_26_HD.crop), bio70_26_HD.crop)
+environment70_45_HD <- stack(alt.crop, mean(tmin70_45_HD.crop), mean(tmax70_45_HD.crop), mean(prec70_45_HD.crop), bio70_45_HD.crop)
+environment70_85_HD <- stack(alt.crop, mean(tmin70_85_HD.crop), mean(tmax70_85_HD.crop), mean(prec70_85_HD.crop), bio70_85_HD.crop)
+
+#HE
+environment70_26_HE <- stack(alt.crop, mean(tmin70_26_HE.crop), mean(tmax70_26_HE.crop), mean(prec70_26_HE.crop), bio70_26_HE.crop)
+environment70_45_HE <- stack(alt.crop, mean(tmin70_45_HE.crop), mean(tmax70_45_HE.crop), mean(prec70_45_HE.crop), bio70_45_HE.crop)
+environment70_85_HE <- stack(alt.crop, mean(tmin70_85_HE.crop), mean(tmax70_85_HE.crop), mean(prec70_85_HE.crop), bio70_85_HE.crop)
+
+#IP
+environment70_26_IP <- stack(alt.crop, mean(tmin70_26_IP.crop), mean(tmax70_26_IP.crop), mean(prec70_26_IP.crop), bio70_26_IP.crop)
+environment70_45_IP <- stack(alt.crop, mean(tmin70_45_IP.crop), mean(tmax70_45_IP.crop), mean(prec70_45_IP.crop), bio70_45_IP.crop)
+environment70_85_IP <- stack(alt.crop, mean(tmin70_85_IP.crop), mean(tmax70_85_IP.crop), mean(prec70_85_IP.crop), bio70_85_IP.crop)
+
+#MI
+environment70_26_MI <- stack(alt.crop, mean(tmin70_26_MI.crop), mean(tmax70_26_MI.crop), mean(prec70_26_MI.crop), bio70_26_MI.crop)
+environment70_45_MI <- stack(alt.crop, mean(tmin70_45_MI.crop), mean(tmax70_45_MI.crop), mean(prec70_45_MI.crop), bio70_45_MI.crop)
+environment70_85_MI <- stack(alt.crop, mean(tmin70_85_MI.crop), mean(tmax70_85_MI.crop), mean(prec70_85_MI.crop), bio70_85_MI.crop)
+
+#MR
+environment70_26_MR <- stack(alt.crop, mean(tmin70_26_MR.crop), mean(tmax70_26_MR.crop), mean(prec70_26_MR.crop), bio70_26_MR.crop)
+environment70_45_MR <- stack(alt.crop, mean(tmin70_45_MR.crop), mean(tmax70_45_MR.crop), mean(prec70_45_MR.crop), bio70_45_MR.crop)
+environment70_85_MR <- stack(alt.crop, mean(tmin70_85_MR.crop), mean(tmax70_85_MR.crop), mean(prec70_85_MR.crop), bio70_85_MR.crop)
+
+#MC
+environment70_26_MC <- stack(alt.crop, mean(tmin70_26_MC.crop), mean(tmax70_26_MC.crop), mean(prec70_26_MC.crop), bio70_26_MC.crop)
+environment70_45_MC <- stack(alt.crop, mean(tmin70_45_MC.crop), mean(tmax70_45_MC.crop), mean(prec70_45_MC.crop), bio70_45_MC.crop)
+environment70_85_MC <- stack(alt.crop, mean(tmin70_85_MC.crop), mean(tmax70_85_MC.crop), mean(prec70_85_MC.crop), bio70_85_MC.crop)
+
+#MP
+environment70_26_MP <- stack(alt.crop, mean(tmin70_26_MP.crop), mean(tmax70_26_MP.crop), mean(prec70_26_MP.crop), bio70_26_MP.crop)
+environment70_45_MP <- stack(alt.crop, mean(tmin70_45_MP.crop), mean(tmax70_45_MP.crop), mean(prec70_45_MP.crop), bio70_45_MP.crop)
+environment70_85_MP <- stack(alt.crop, mean(tmin70_85_MP.crop), mean(tmax70_85_MP.crop), mean(prec70_85_MP.crop), bio70_85_MP.crop)
+
+#MG
+environment70_26_MG <- stack(alt.crop, mean(tmin70_26_MG.crop), mean(tmax70_26_MG.crop), mean(prec70_26_MG.crop), bio70_26_MG.crop)
+environment70_45_MG <- stack(alt.crop, mean(tmin70_45_MG.crop), mean(tmax70_45_MG.crop), mean(prec70_45_MG.crop), bio70_45_MG.crop)
+environment70_85_MG <- stack(alt.crop, mean(tmin70_85_MG.crop), mean(tmax70_85_MG.crop), mean(prec70_85_MG.crop), bio70_85_MG.crop)
+
+#NO
+environment70_26_NO <- stack(alt.crop, mean(tmin70_26_NO.crop), mean(tmax70_26_NO.crop), mean(prec70_26_NO.crop), bio70_26_NO.crop)
+environment70_45_NO <- stack(alt.crop, mean(tmin70_45_NO.crop), mean(tmax70_45_NO.crop), mean(prec70_45_NO.crop), bio70_45_NO.crop)
+environment70_85_NO <- stack(alt.crop, mean(tmin70_85_NO.crop), mean(tmax70_85_NO.crop), mean(prec70_85_NO.crop), bio70_85_NO.crop)
 
 
 # Name variables (present)
@@ -176,37 +1149,456 @@ names(environment)
 
 # Make sure the layer Names (rasterStack) perfectly
 # match with the names of variables used to build the models
-# Name variables (2050) 
-names(environment50_26) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
-	"bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
-	"bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
-names(environment50_26)
 
-names(environment50_45) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
-	"bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
-	"bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
-names(environment50_45)
+# Name variables (2050)
+#BC
+names(environment50_26_BC) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
+                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
+                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
+names(environment50_26_BC)
 
-names(environment50_85) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
-	"bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
-	"bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
-names(environment50_85)
+names(environment50_45_BC) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
+                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
+                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
+names(environment50_45_BC)
+
+names(environment50_85_BC) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
+                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
+                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
+names(environment50_85_BC)
+
+#CC
+names(environment50_26_CC) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
+                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
+                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
+names(environment50_26_CC)
+
+names(environment50_45_CC) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
+                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
+                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
+names(environment50_45_CC)
+
+names(environment50_85_CC) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
+                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
+                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
+names(environment50_85_CC)
+
+#CN
+names(environment50_26_CN) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
+                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
+                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
+names(environment50_26_CN)
+
+names(environment50_45_CN) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
+                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
+                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
+names(environment50_45_CN)
+
+names(environment50_85_CN) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
+                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
+                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
+names(environment50_85_CN)
+
+#GF
+names(environment50_26_GF) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
+                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
+                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
+names(environment50_26_GF)
+
+names(environment50_45_GF) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
+                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
+                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
+names(environment50_45_GF)
+
+names(environment50_85_GF) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
+                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
+                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
+names(environment50_85_GF)
+
+#GS
+names(environment50_26_GS) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
+                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
+                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
+names(environment50_26_GS)
+
+names(environment50_45_GS) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
+                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
+                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
+names(environment50_45_GS)
+
+names(environment50_85_GS) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
+                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
+                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
+names(environment50_85_GS)
+
+#HD
+names(environment50_26_HD) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
+                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
+                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
+names(environment50_26_HD)
+
+names(environment50_45_HD) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
+                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
+                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
+names(environment50_45_HD)
+
+names(environment50_85_HD) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
+                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
+                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
+names(environment50_85_HD)
+
+#HE
+names(environment50_26_HE) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
+                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
+                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
+names(environment50_26_HE)
+
+names(environment50_45_HE) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
+                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
+                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
+names(environment50_45_HE)
+
+names(environment50_85_HE) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
+                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
+                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
+names(environment50_85_HE)
+
+#IP
+names(environment50_26_IP) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
+                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
+                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
+names(environment50_26_IP)
+
+names(environment50_45_IP) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
+                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
+                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
+names(environment50_45_IP)
+
+names(environment50_85_IP) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
+                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
+                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
+names(environment50_85_IP)
+
+#MI
+names(environment50_26_MI) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
+                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
+                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
+names(environment50_26_MI)
+
+names(environment50_45_MI) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
+                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
+                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
+names(environment50_45_MI)
+
+names(environment50_85_MI) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
+                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
+                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
+names(environment50_85_MI)
+
+#MR
+names(environment50_26_MR) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
+                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
+                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
+names(environment50_26_MR)
+
+names(environment50_45_MR) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
+                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
+                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
+names(environment50_45_MR)
+
+names(environment50_85_MR) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
+                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
+                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
+names(environment50_85_MR)
+
+#MC
+names(environment50_26_MC) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
+                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
+                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
+names(environment50_26_MC)
+
+names(environment50_45_MC) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
+                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
+                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
+names(environment50_45_MC)
+
+names(environment50_85_MC) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
+                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
+                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
+names(environment50_85_MC)
+
+#MP
+names(environment50_26_MP) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
+                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
+                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
+names(environment50_26_MP)
+
+names(environment50_45_MP) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
+                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
+                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
+names(environment50_45_MP)
+
+names(environment50_85_MP) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
+                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
+                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
+names(environment50_85_MP)
+
+#MG
+names(environment50_26_MG) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
+                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
+                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
+names(environment50_26_MG)
+
+names(environment50_45_MG) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
+                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
+                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
+names(environment50_45_MG)
+
+names(environment50_85_MG) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
+                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
+                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
+names(environment50_85_MG)
+
+#NO
+names(environment50_26_NO) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
+                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
+                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
+names(environment50_26_NO)
+
+names(environment50_45_NO) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
+                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
+                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
+names(environment50_45_NO)
+
+names(environment50_85_NO) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
+                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
+                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
+names(environment50_85_NO)
 
 # Name variables (2070)
-names(environment70_26) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
-	"bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
-	"bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
-names(environment70_26)
+#BC
+names(environment70_26_BC) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
+                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
+                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
+names(environment70_26_BC)
 
-names(environment70_45) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
-	"bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
-	"bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
-names(environment70_45)
+names(environment70_45_BC) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
+                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
+                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
+names(environment70_45_BC)
 
-names(environment70_85) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
-	"bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
-	"bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
-names(environment70_85)
+names(environment70_85_BC) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
+                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
+                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
+names(environment70_85_BC)
+
+#CC
+names(environment70_26_CC) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
+                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
+                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
+names(environment70_26_CC)
+
+names(environment70_45_CC) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
+                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
+                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
+names(environment70_45_CC)
+
+names(environment70_85_CC) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
+                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
+                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
+names(environment70_85_CC)
+
+#CN
+names(environment70_26_CN) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
+                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
+                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
+names(environment70_26_CN)
+
+names(environment70_45_CN) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
+                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
+                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
+names(environment70_45_CN)
+
+names(environment70_85_CN) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
+                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
+                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
+names(environment70_85_CN)
+
+#GF
+names(environment70_26_GF) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
+                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
+                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
+names(environment70_26_GF)
+
+names(environment70_45_GF) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
+                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
+                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
+names(environment70_45_GF)
+
+names(environment70_85_GF) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
+                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
+                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
+names(environment70_85_GF)
+
+#GS
+names(environment70_26_GS) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
+                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
+                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
+names(environment70_26_GS)
+
+names(environment70_45_GS) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
+                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
+                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
+names(environment70_45_GS)
+
+names(environment70_85_GS) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
+                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
+                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
+names(environment70_85_GS)
+
+#HD
+names(environment70_26_HD) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
+                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
+                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
+names(environment70_26_HD)
+
+names(environment70_45_HD) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
+                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
+                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
+names(environment70_45_HD)
+
+names(environment70_85_HD) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
+                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
+                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
+names(environment70_85_HD)
+
+#HE
+names(environment70_26_HE) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
+                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
+                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
+names(environment70_26_HE)
+
+names(environment70_45_HE) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
+                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
+                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
+names(environment70_45_HE)
+
+names(environment70_85_HE) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
+                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
+                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
+names(environment70_85_HE)
+
+#IP
+names(environment70_26_IP) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
+                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
+                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
+names(environment70_26_IP)
+
+names(environment70_45_IP) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
+                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
+                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
+names(environment70_45_IP)
+
+names(environment70_85_IP) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
+                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
+                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
+names(environment70_85_IP)
+
+#MI
+names(environment70_26_MI) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
+                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
+                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
+names(environment70_26_MI)
+
+names(environment70_45_MI) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
+                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
+                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
+names(environment70_45_MI)
+
+names(environment70_85_MI) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
+                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
+                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
+names(environment70_85_MI)
+
+#MR
+names(environment70_26_MR) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
+                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
+                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
+names(environment70_26_MR)
+
+names(environment70_45_MR) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
+                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
+                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
+names(environment70_45_MR)
+
+names(environment70_85_MR) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
+                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
+                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
+names(environment70_85_MR)
+
+#MC
+names(environment70_26_MC) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
+                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
+                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
+names(environment70_26_MC)
+
+names(environment70_45_MC) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
+                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
+                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
+names(environment70_45_MC)
+
+names(environment70_85_MC) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
+                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
+                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
+names(environment70_85_MC)
+
+#MP
+names(environment70_26_MP) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
+                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
+                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
+names(environment70_26_MP)
+
+names(environment70_45_MP) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
+                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
+                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
+names(environment70_45_MP)
+
+names(environment70_85_MP) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
+                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
+                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
+names(environment70_85_MP)
+
+#MG
+names(environment70_26_MG) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
+                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
+                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
+names(environment70_26_MG)
+
+names(environment70_45_MG) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
+                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
+                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
+names(environment70_45_MG)
+
+names(environment70_85_MG) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
+                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
+                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
+names(environment70_85_MG)
+
+#NO
+names(environment70_26_NO) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
+                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
+                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
+names(environment70_26_NO)
+
+names(environment70_45_NO) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
+                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
+                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
+names(environment70_45_NO)
+
+names(environment70_85_NO) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
+                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
+                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
+names(environment70_85_NO)
 
 # Optional: add NDVI raster to stack
 # ndvi.raster <- raster("ndvi2010_5kmwgs84.asc")
@@ -260,23 +1652,291 @@ corrplot.mixed(B, upper="ellipse", lower="number")
 
 
 # Subset environmental stack for future scenarios
-env50_26.selected <- subset(environment50_26, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env50_26.selected <- subset(environment50_26_BC, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
 env50_26.selected
 
-env50_45.selected <- subset(environment50_45, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
-env50_45.selected
 
-env50_85.selected <- subset(environment50_85, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
-env50_85.selected
+# Name variables (2050)
+#BC
+env50_26_BC.selected <- subset(environment50_26_BC, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env50_26_BC.selected
 
-env70_26.selected <- subset(environment70_26, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
-env70_26.selected
+env50_45_BC.selected <- subset(environment50_45_BC, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env50_45_BC.selected
 
-env70_45.selected <- subset(environment70_45, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
-env70_45.selected
+env50_85_BC.selected <- subset(environment50_85_BC, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env50_85_BC.selected
 
-env70_85.selected <- subset(environment70_85, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
-env70_85.selected
+#CC
+env50_26_CC.selected <- subset(environment50_26_CC, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env50_26_CC.selected
+
+env50_45_CC.selected <- subset(environment50_45_CC, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env50_45_CC.selected
+
+env50_85_CC.selected <- subset(environment50_85_CC, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env50_85_CC.selected
+
+#CN
+env50_26_CN.selected <- subset(environment50_26_CN, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env50_26_CN.selected
+
+env50_45_CN.selected <- subset(environment50_45_CN, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env50_45_CN.selected
+
+env50_85_CN.selected <- subset(environment50_85_CN, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env50_85_CN.selected
+
+#GF
+env50_26_GF.selected <- subset(environment50_26_GF, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env50_26_GF.selected
+
+env50_45_GF.selected <- subset(environment50_45_GF, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env50_45_GF.selected
+
+env50_85_GF.selected <- subset(environment50_85_GF, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env50_85_GF.selected
+
+#GS
+env50_26_GS.selected <- subset(environment50_26_GS, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env50_26_GS.selected
+
+env50_45_GS.selected <- subset(environment50_45_GS, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env50_45_GS.selected
+
+env50_85_GS.selected <- subset(environment50_85_GS, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env50_85_GS.selected
+
+#HD
+env50_26_HD.selected <- subset(environment50_26_HD, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env50_26_HD.selected
+
+env50_45_HD.selected <- subset(environment50_45_HD, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env50_45_HD.selected
+
+env50_85_HD.selected <- subset(environment50_85_HD, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env50_85_HD.selected
+
+#HE
+env50_26_HE.selected <- subset(environment50_26_HE, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env50_26_HE.selected
+
+env50_45_HE.selected <- subset(environment50_45_HE, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env50_45_HE.selected
+
+env50_85_HE.selected <- subset(environment50_85_HE, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env50_85_HE.selected
+
+#IP
+env50_26_IP.selected <- subset(environment50_26_IP, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env50_26_IP.selected
+
+env50_45_IP.selected <- subset(environment50_45_IP, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env50_45_IP.selected
+
+env50_85_IP.selected <- subset(environment50_85_IP, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env50_85_IP.selected
+
+#MI
+env50_26_MI.selected <- subset(environment50_26_MI, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env50_26_MI.selected
+
+env50_45_MI.selected <- subset(environment50_45_MI, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env50_45_MI.selected
+
+env50_85_MI.selected <- subset(environment50_85_MI, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env50_85_MI.selected
+
+#MR
+env50_26_MR.selected <- subset(environment50_26_MR, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env50_26_MR.selected
+
+env50_45_MR.selected <- subset(environment50_45_MR, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env50_45_MR.selected
+
+env50_85_MR.selected <- subset(environment50_85_MR, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env50_85_MR.selected
+
+#MC
+env50_26_MC.selected <- subset(environment50_26_MC, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env50_26_MC.selected
+
+env50_45_MC.selected <- subset(environment50_45_MC, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env50_45_MC.selected
+
+env50_85_MC.selected <- subset(environment50_85_MC, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env50_85_MC.selected
+
+#MP
+env50_26_MP.selected <- subset(environment50_26_MP, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env50_26_MP.selected
+
+env50_45_MP.selected <- subset(environment50_45_MP, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env50_45_MP.selected
+
+env50_85_MP.selected <- subset(environment50_85_MP, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env50_85_MP.selected
+
+#MG
+env50_26_MG.selected <- subset(environment50_26_MG, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env50_26_MG.selected
+
+env50_45_MG.selected <- subset(environment50_45_MG, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env50_45_MG.selected
+
+env50_85_MG.selected <- subset(environment50_85_MG, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env50_85_MG.selected
+
+#NO
+env50_26_NO.selected <- subset(environment50_26_NO, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env50_26_NO.selected
+
+env50_45_NO.selected <- subset(environment50_45_NO, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env50_45_NO.selected
+
+env50_85_NO.selected <- subset(environment50_85_NO, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env50_85_NO.selected
+
+# Name variables (2070)
+#BC
+env70_26_BC.selected <- subset(environment70_26_BC, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env70_26_BC.selected
+
+env70_45_BC.selected <- subset(environment70_45_BC, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env70_45_BC.selected
+
+env70_85_BC.selected <- subset(environment70_85_BC, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env70_85_BC.selected
+
+#CC
+env70_26_CC.selected <- subset(environment70_26_CC, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env70_26_CC.selected
+
+env70_45_CC.selected <- subset(environment70_45_CC, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env70_45_CC.selected
+
+env70_85_CC.selected <- subset(environment70_85_CC, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env70_85_CC.selected
+
+#CN
+env70_26_CN.selected <- subset(environment70_26_CN, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env70_26_CN.selected
+
+env70_45_CN.selected <- subset(environment70_45_CN, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env70_45_CN.selected
+
+env70_85_CN.selected <- subset(environment70_85_CN, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env70_85_CN.selected
+
+#GF
+env70_26_GF.selected <- subset(environment70_26_GF, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env70_26_GF.selected
+
+env70_45_GF.selected <- subset(environment70_45_GF, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env70_45_GF.selected
+
+env70_85_GF.selected <- subset(environment70_85_GF, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env70_85_GF.selected
+
+#GS
+env70_26_GS.selected <- subset(environment70_26_GS, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env70_26_GS.selected
+
+env70_45_GS.selected <- subset(environment70_45_GS, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env70_45_GS.selected
+
+env70_85_GS.selected <- subset(environment70_85_GS, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env70_85_GS.selected
+
+#HD
+env70_26_HD.selected <- subset(environment70_26_HD, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env70_26_HD.selected
+
+env70_45_HD.selected <- subset(environment70_45_HD, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env70_45_HD.selected
+
+env70_85_HD.selected <- subset(environment70_85_HD, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env70_85_HD.selected
+
+#HE
+env70_26_HE.selected <- subset(environment70_26_HE, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env70_26_HE.selected
+
+env70_45_HE.selected <- subset(environment70_45_HE, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env70_45_HE.selected
+
+env70_85_HE.selected <- subset(environment70_85_HE, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env70_85_HE.selected
+
+#IP
+env70_26_IP.selected <- subset(environment70_26_IP, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env70_26_IP.selected
+
+env70_45_IP.selected <- subset(environment70_45_IP, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env70_45_IP.selected
+
+env70_85_IP.selected <- subset(environment70_85_IP, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env70_85_IP.selected
+
+#MI
+env70_26_MI.selected <- subset(environment70_26_MI, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env70_26_MI.selected
+
+env70_45_MI.selected <- subset(environment70_45_MI, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env70_45_MI.selected
+
+env70_85_MI.selected <- subset(environment70_85_MI, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env70_85_MI.selected
+
+#MR
+env70_26_MR.selected <- subset(environment70_26_MR, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env70_26_MR.selected
+
+env70_45_MR.selected <- subset(environment70_45_MR, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env70_45_MR.selected
+
+env70_85_MR.selected <- subset(environment70_85_MR, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env70_85_MR.selected
+
+#MC
+env70_26_MC.selected <- subset(environment70_26_MC, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env70_26_MC.selected
+
+env70_45_MC.selected <- subset(environment70_45_MC, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env70_45_MC.selected
+
+env70_85_MC.selected <- subset(environment70_85_MC, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env70_85_MC.selected
+
+#MP
+env70_26_MP.selected <- subset(environment70_26_MP, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env70_26_MP.selected
+
+env70_45_MP.selected <- subset(environment70_45_MP, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env70_45_MP.selected
+
+env70_85_MP.selected <- subset(environment70_85_MP, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env70_85_MP.selected
+
+#MG
+env70_26_MG.selected <- subset(environment70_26_MG, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env70_26_MG.selected
+
+env70_45_MG.selected <- subset(environment70_45_MG, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env70_45_MG.selected
+
+env70_85_MG.selected <- subset(environment70_85_MG, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env70_85_MG.selected
+
+#NO
+env70_26_NO.selected <- subset(environment70_26_NO, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env70_26_NO.selected
+
+env70_45_NO.selected <- subset(environment70_45_NO, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env70_45_NO.selected
+
+env70_85_NO.selected <- subset(environment70_85_NO, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
+env70_85_NO.selected
 
 
 
@@ -285,7 +1945,7 @@ env70_85.selected
 #### INPUT AND PLOT DISTRIBUTION DATA ####
 ##########################################
 
-# My directory
+# Change directory
 setwd("C:/Users/sukam/Dropbox/Doutorado/Gis/Modelado/alternatus")
 
 # Read data
@@ -447,10 +2107,6 @@ envSample<- function (coord, filters, res, do.plot=TRUE){
   coord_filter
 }
 
-
-library(tcltk2)  #me deu uma mensagem de erro ao aplicar o filtro abaixo e dizia p instalar este pacote
-                 #Agora funciona, mas ainda me da essa mensagem: 
-                 #Warning message: Quoted identifiers should have class SQL, use DBI::SQL() if the caller performs the quoting.    
 
 # Apply environmental filter to create training data set
 env.data <- extract(env.selected, alternatus)
@@ -661,19 +2317,6 @@ xtabs(summary.eval.10000$Mean ~ summary.eval.10000$Model + summary.eval.10000$Me
 #### PRODUCE ENSEMBLE MODEL ####
 ################################
 
-##Finding the  eval.metric.quality.threshold??? Li muito sobre isso, mas não consegui encontrar uma boa explicação de como calcular este número
-## extract TSS scores
-(scores_all <- get_evaluations(alternatusModelOut_PA_equal))
-scores_TSS <- as.numeric(scores_all["TSS","Testing.data",,,])
-scores_TSS
-mean(scores_TSS)
-
-## select a threshold to keep a single model
-score_thresh <- mean(tail(sort(scores_TSS),3))   #não consegui encontrar nenhuma explicação de que numero colocar. Escolhi 300 pq é o total de corridas.
-score_thresh                                     #Mas com 300 é o mesmo que a média, acho q não faz sentido. No exemplo que encontrei tinha um 2.
-                                                 #e usava 2 models com 2 corridas, mas se eu coloco qualquer valor menos que 10 da = 1 pq muitos TSS foram iguais a 1
-
-
 
 ##BIOMOD_Modeling Again###   
 ##Run again only with the selected models ("GBM","RF")  #não sei se era necessário, mas me pareceu lógico ter que fazer isso e sem isso nem funcionava a parte do ensemble
@@ -692,13 +2335,12 @@ alternatusModelOut_PA_equal <- BIOMOD_Modeling(alternatusBiomodData_PA_equal,
 
 
 ##ENSEMBLE MODEL##
-#Essa parte dava erros e só consegui quando coloquei "all" para chosen.models e NULL para eval.metric.quality.threshold
 alternatusModelEnsemble <- BIOMOD_EnsembleModeling(
   modeling.output = alternatusModelOut_PA_equal,
   chosen.models = grep("GBM","RF", names(alternatusModelOut_PA_equal)),
   em.by = "PA_dataset+repet",
   eval.metric = "all",
-  eval.metric.quality.threshold = NULL,  # This must be calculated BEFORE this step!
+  eval.metric.quality.threshold = NULL,
   prob.mean = TRUE,
   prob.cv = FALSE,
   prob.ci = FALSE,
@@ -764,7 +2406,7 @@ dev.off()
 ###############################################
 
 # The function "extract" will get the values from the projection raster for the actual data points
-EvalData <- data.frame(extract(projections.EM.mean, alternatus.training.spdf))      #Remember to create the "alternatus.training.spdf" again in case of error    
+EvalData <- data.frame(extract(projections.EM.mean, alternatus.training.spdf)) #Remember to create the "alternatus.training.spdf" again in case of error    
 
 # Combine the original data and the predictions into a single data frame
 EvalData <- cbind(alternatus.training.spdf@data[, 1], EvalData)  
@@ -825,7 +2467,7 @@ Kappa(ConfMat)
 ## ************************************************************************
 
 # The function "extract" will get the values from the projection raster for the actual data points
-FitData <- extract(projections.EM.mean, alternatus.training.spdf)    #Remember to create the "alternatus.training.spdf" again in case of error
+FitData <- extract(projections.EM.mean, alternatus.training.spdf) #Remember to create the "alternatus.training.spdf" again in case of error
 head(FitData)
 summary(FitData)
 
@@ -883,9 +2525,7 @@ optim.thresh(ObsData, FitData, threshold = 101)
 
 projections.EM.mean.binary <- BinaryTransformation(projections.EM.mean, 0.92)
 class(projections.EM.mean.binary) #This is a raster layer!
-str(values(projections.EM.mean.binary)) #These are only the binary values!      #If have an error here must follow these steps: #search() #Shows used packages
-                                                                                #value      #shows the package are using  "value"
-                                                                                #.rs.unloadPackage("tcltk2")     #Unloads the package
+str(values(projections.EM.mean.binary)) #These are only the binary values!
 summary(values(projections.EM.mean.binary))
 
 
@@ -915,6 +2555,7 @@ area_current_presence                     #Area of occupancy = 2,129,557 km2 (wi
 #### 2050 ####
 ##############
 
+#Fazer um loop aqui para rodar os 14 GCM's com os 3 cenários escolhidos (26/45/85)
 
 ##2050_rcp26##
 
@@ -1104,7 +2745,7 @@ area_2050_rcp85_presence   #Area of occupancy = 1,192,400 km2 (will vary every t
 ## Calculating the diference between present and future areas 
 ## ********************************************************
 
-predict_area_2050_rcp85 =log(area_2050_rcp85_presence-area_current_presence)  #Aqui dá erro. É - ou /? Pq log?
+predict_area_2050_rcp85 =log(area_2050_rcp85_presence/area_current_presence)  #Aqui dá erro. É - ou /? Pq log?
 predict_area_2050_rcp26 # result = -0.01589181, -32181.2 km2
 predict_area_2050_rcp45 # result = -0.1000519,  -194337 km2
 predict_area_2050_rcp85 # result = -0.3275401,  -570104.8 km2
@@ -1115,6 +2756,7 @@ predict_area_2050_rcp85 # result = -0.3275401,  -570104.8 km2
 #### 2070 ####
 ##############
 
+#Fazer um loop aqui para rodar os 14 GCM's com os 3 cenários escolhidos (26/45/85)
 
 ##2070_rcp26##
 
