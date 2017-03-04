@@ -107,22 +107,6 @@ tmax50_85_CN <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 85, mode
 prec50_85_CN <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 85, model = "CN", year = 50)
 bio50_85_CN <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 85, model = "CN", year = 50)
 
-#GF
-tmin50_26_GF <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 26, model = "GF", year = 50)
-tmax50_26_GF <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 26, model = "GF", year = 50)
-prec50_26_GF <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 26, model = "GF", year = 50)
-bio50_26_GF <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 26, model = "GF", year = 50)
-
-tmin50_45_GF <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 45, model = "GF", year = 50)
-tmax50_45_GF <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 45, model = "GF", year = 50)
-prec50_45_GF <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 45, model = "GF", year = 50)
-bio50_45_GF <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 45, model = "GF", year = 50)
-
-tmin50_85_GF <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 85, model = "GF", year = 50)
-tmax50_85_GF <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 85, model = "GF", year = 50)
-prec50_85_GF <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 85, model = "GF", year = 50)
-bio50_85_GF <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 85, model = "GF", year = 50)
-
 #GS
 tmin50_26_GS <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 26, model = "GS", year = 50)
 tmax50_26_GS <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 26, model = "GS", year = 50)
@@ -154,22 +138,6 @@ tmin50_85_HD <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 85, mode
 tmax50_85_HD <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 85, model = "HD", year = 50)
 prec50_85_HD <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 85, model = "HD", year = 50)
 bio50_85_HD <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 85, model = "HD", year = 50)
-
-#HE
-tmin50_26_HE <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 26, model = "HE", year = 50)
-tmax50_26_HE <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 26, model = "HE", year = 50)
-prec50_26_HE <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 26, model = "HE", year = 50)
-bio50_26_HE <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 26, model = "HE", year = 50)
-
-tmin50_45_HE <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 45, model = "HE", year = 50)
-tmax50_45_HE <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 45, model = "HE", year = 50)
-prec50_45_HE <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 45, model = "HE", year = 50)
-bio50_45_HE <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 45, model = "HE", year = 50)
-
-tmin50_85_HE <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 85, model = "HE", year = 50)
-tmax50_85_HE <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 85, model = "HE", year = 50)
-prec50_85_HE <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 85, model = "HE", year = 50)
-bio50_85_HE <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 85, model = "HE", year = 50)
 
 #IP
 tmin50_26_IP <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 26, model = "IP", year = 50)
@@ -332,22 +300,6 @@ tmax70_85_CN <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 85, mode
 prec70_85_CN <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 85, model = "CN", year = 70)
 bio70_85_CN <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 85, model = "CN", year = 70)
 
-#GF
-tmin70_26_GF <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 26, model = "GF", year = 70)
-tmax70_26_GF <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 26, model = "GF", year = 70)
-prec70_26_GF <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 26, model = "GF", year = 70)
-bio70_26_GF <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 26, model = "GF", year = 70)
-
-tmin70_45_GF <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 45, model = "GF", year = 70)
-tmax70_45_GF <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 45, model = "GF", year = 70)
-prec70_45_GF <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 45, model = "GF", year = 70)
-bio70_45_GF <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 45, model = "GF", year = 70)
-
-tmin70_85_GF <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 85, model = "GF", year = 70)
-tmax70_85_GF <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 85, model = "GF", year = 70)
-prec70_85_GF <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 85, model = "GF", year = 70)
-bio70_85_GF <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 85, model = "GF", year = 70)
-
 #GS
 tmin70_26_GS <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 26, model = "GS", year = 70)
 tmax70_26_GS <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 26, model = "GS", year = 70)
@@ -379,22 +331,6 @@ tmin70_85_HD <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 85, mode
 tmax70_85_HD <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 85, model = "HD", year = 70)
 prec70_85_HD <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 85, model = "HD", year = 70)
 bio70_85_HD <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 85, model = "HD", year = 70)
-
-#HE
-tmin70_26_HE <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 26, model = "HE", year = 70)
-tmax70_26_HE <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 26, model = "HE", year = 70)
-prec70_26_HE <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 26, model = "HE", year = 70)
-bio70_26_HE <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 26, model = "HE", year = 70)
-
-tmin70_45_HE <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 45, model = "HE", year = 70)
-tmax70_45_HE <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 45, model = "HE", year = 70)
-prec70_45_HE <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 45, model = "HE", year = 70)
-bio70_45_HE <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 45, model = "HE", year = 70)
-
-tmin70_85_HE <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 85, model = "HE", year = 70)
-tmax70_85_HE <- raster::getData("CMIP5", var = "tmax", res = 2.5, rcp = 85, model = "HE", year = 70)
-prec70_85_HE <- raster::getData("CMIP5", var = "prec", res = 2.5, rcp = 85, model = "HE", year = 70)
-bio70_85_HE <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 85, model = "HE", year = 70)
 
 #IP
 tmin70_26_IP <- raster::getData("CMIP5", var = "tmin", res = 2.5, rcp = 26, model = "IP", year = 70)
@@ -593,22 +529,6 @@ tmax50_85_CN.crop <- crop(tmax50_85_CN, ext)
 prec50_85_CN.crop <- crop(prec50_85_CN, ext)
 bio50_85_CN.crop <- crop(bio50_85_CN, ext)
 
-#GF
-tmin50_26_GF.crop <- crop(tmin50_26_GF, ext)
-tmax50_26_GF.crop <- crop(tmax50_26_GF, ext)
-prec50_26_GF.crop <- crop(prec50_26_GF, ext)
-bio50_26_GF.crop <- crop(bio50_26_GF, ext)
-
-tmin50_45_GF.crop <- crop(tmin50_45_GF, ext)
-tmax50_45_GF.crop <- crop(tmax50_45_GF, ext)
-prec50_45_GF.crop <- crop(prec50_45_GF, ext)
-bio50_45_GF.crop <- crop(bio50_45_GF, ext)
-
-tmin50_85_GF.crop <- crop(tmin50_85_GF, ext)
-tmax50_85_GF.crop <- crop(tmax50_85_GF, ext)
-prec50_85_GF.crop <- crop(prec50_85_GF, ext)
-bio50_85_GF.crop <- crop(bio50_85_GF, ext)
-
 #GS
 tmin50_26_GS.crop <- crop(tmin50_26_GS, ext)
 tmax50_26_GS.crop <- crop(tmax50_26_GS, ext)
@@ -640,22 +560,6 @@ tmin50_85_HD.crop <- crop(tmin50_85_HD, ext)
 tmax50_85_HD.crop <- crop(tmax50_85_HD, ext)
 prec50_85_HD.crop <- crop(prec50_85_HD, ext)
 bio50_85_HD.crop <- crop(bio50_85_HD, ext)
-
-#HE
-tmin50_26_HE.crop <- crop(tmin50_26_HE, ext)
-tmax50_26_HE.crop <- crop(tmax50_26_HE, ext)
-prec50_26_HE.crop <- crop(prec50_26_HE, ext)
-bio50_26_HE.crop <- crop(bio50_26_HE, ext)
-
-tmin50_45_HE.crop <- crop(tmin50_45_HE, ext)
-tmax50_45_HE.crop <- crop(tmax50_45_HE, ext)
-prec50_45_HE.crop <- crop(prec50_45_HE, ext)
-bio50_45_HE.crop <- crop(bio50_45_HE, ext)
-
-tmin50_85_HE.crop <- crop(tmin50_85_HE, ext)
-tmax50_85_HE.crop <- crop(tmax50_85_HE, ext)
-prec50_85_HE.crop <- crop(prec50_85_HE, ext)
-bio50_85_HE.crop <- crop(bio50_85_HE, ext)
 
 #IP
 tmin50_26_IP.crop <- crop(tmin50_26_IP, ext)
@@ -819,22 +723,6 @@ tmax70_85_CN.crop <- crop(tmax70_85_CN, ext)
 prec70_85_CN.crop <- crop(prec70_85_CN, ext)
 bio70_85_CN.crop <- crop(bio70_85_CN, ext)
 
-#GF
-tmin70_26_GF.crop <- crop(tmin70_26_GF, ext)
-tmax70_26_GF.crop <- crop(tmax70_26_GF, ext)
-prec70_26_GF.crop <- crop(prec70_26_GF, ext)
-bio70_26_GF.crop <- crop(bio70_26_GF, ext)
-
-tmin70_45_GF.crop <- crop(tmin70_45_GF, ext)
-tmax70_45_GF.crop <- crop(tmax70_45_GF, ext)
-prec70_45_GF.crop <- crop(prec70_45_GF, ext)
-bio70_45_GF.crop <- crop(bio70_45_GF, ext)
-
-tmin70_85_GF.crop <- crop(tmin70_85_GF, ext)
-tmax70_85_GF.crop <- crop(tmax70_85_GF, ext)
-prec70_85_GF.crop <- crop(prec70_85_GF, ext)
-bio70_85_GF.crop <- crop(bio70_85_GF, ext)
-
 #GS
 tmin70_26_GS.crop <- crop(tmin70_26_GS, ext)
 tmax70_26_GS.crop <- crop(tmax70_26_GS, ext)
@@ -866,22 +754,6 @@ tmin70_85_HD.crop <- crop(tmin70_85_HD, ext)
 tmax70_85_HD.crop <- crop(tmax70_85_HD, ext)
 prec70_85_HD.crop <- crop(prec70_85_HD, ext)
 bio70_85_HD.crop <- crop(bio70_85_HD, ext)
-
-#HE
-tmin70_26_HE.crop <- crop(tmin70_26_HE, ext)
-tmax70_26_HE.crop <- crop(tmax70_26_HE, ext)
-prec70_26_HE.crop <- crop(prec70_26_HE, ext)
-bio70_26_HE.crop <- crop(bio70_26_HE, ext)
-
-tmin70_45_HE.crop <- crop(tmin70_45_HE, ext)
-tmax70_45_HE.crop <- crop(tmax70_45_HE, ext)
-prec70_45_HE.crop <- crop(prec70_45_HE, ext)
-bio70_45_HE.crop <- crop(bio70_45_HE, ext)
-
-tmin70_85_HE.crop <- crop(tmin70_85_HE, ext)
-tmax70_85_HE.crop <- crop(tmax70_85_HE, ext)
-prec70_85_HE.crop <- crop(prec70_85_HE, ext)
-bio70_85_HE.crop <- crop(bio70_85_HE, ext)
 
 #IP
 tmin70_26_IP.crop <- crop(tmin70_26_IP, ext)
@@ -1014,11 +886,6 @@ environment50_26_CN <- stack(alt.crop, mean(tmin50_26_CN.crop), mean(tmax50_26_C
 environment50_45_CN <- stack(alt.crop, mean(tmin50_45_CN.crop), mean(tmax50_45_CN.crop), mean(prec50_45_CN.crop), bio50_45_CN.crop)
 environment50_85_CN <- stack(alt.crop, mean(tmin50_85_CN.crop), mean(tmax50_85_CN.crop), mean(prec50_85_CN.crop), bio50_85_CN.crop)
 
-#GF
-environment50_26_GF <- stack(alt.crop, mean(tmin50_26_GF.crop), mean(tmax50_26_GF.crop), mean(prec50_26_GF.crop), bio50_26_GF.crop)
-environment50_45_GF <- stack(alt.crop, mean(tmin50_45_GF.crop), mean(tmax50_45_GF.crop), mean(prec50_45_GF.crop), bio50_45_GF.crop)
-environment50_85_GF <- stack(alt.crop, mean(tmin50_85_GF.crop), mean(tmax50_85_GF.crop), mean(prec50_85_GF.crop), bio50_85_GF.crop)
-
 #GS
 environment50_26_GS <- stack(alt.crop, mean(tmin50_26_GS.crop), mean(tmax50_26_GS.crop), mean(prec50_26_GS.crop), bio50_26_GS.crop)
 environment50_45_GS <- stack(alt.crop, mean(tmin50_45_GS.crop), mean(tmax50_45_GS.crop), mean(prec50_45_GS.crop), bio50_45_GS.crop)
@@ -1028,11 +895,6 @@ environment50_85_GS <- stack(alt.crop, mean(tmin50_85_GS.crop), mean(tmax50_85_G
 environment50_26_HD <- stack(alt.crop, mean(tmin50_26_HD.crop), mean(tmax50_26_HD.crop), mean(prec50_26_HD.crop), bio50_26_HD.crop)
 environment50_45_HD <- stack(alt.crop, mean(tmin50_45_HD.crop), mean(tmax50_45_HD.crop), mean(prec50_45_HD.crop), bio50_45_HD.crop)
 environment50_85_HD <- stack(alt.crop, mean(tmin50_85_HD.crop), mean(tmax50_85_HD.crop), mean(prec50_85_HD.crop), bio50_85_HD.crop)
-
-#HE
-environment50_26_HE <- stack(alt.crop, mean(tmin50_26_HE.crop), mean(tmax50_26_HE.crop), mean(prec50_26_HE.crop), bio50_26_HE.crop)
-environment50_45_HE <- stack(alt.crop, mean(tmin50_45_HE.crop), mean(tmax50_45_HE.crop), mean(prec50_45_HE.crop), bio50_45_HE.crop)
-environment50_85_HE <- stack(alt.crop, mean(tmin50_85_HE.crop), mean(tmax50_85_HE.crop), mean(prec50_85_HE.crop), bio50_85_HE.crop)
 
 #IP
 environment50_26_IP <- stack(alt.crop, mean(tmin50_26_IP.crop), mean(tmax50_26_IP.crop), mean(prec50_26_IP.crop), bio50_26_IP.crop)
@@ -1085,11 +947,6 @@ environment70_26_CN <- stack(alt.crop, mean(tmin70_26_CN.crop), mean(tmax70_26_C
 environment70_45_CN <- stack(alt.crop, mean(tmin70_45_CN.crop), mean(tmax70_45_CN.crop), mean(prec70_45_CN.crop), bio70_45_CN.crop)
 environment70_85_CN <- stack(alt.crop, mean(tmin70_85_CN.crop), mean(tmax70_85_CN.crop), mean(prec70_85_CN.crop), bio70_85_CN.crop)
 
-#GF
-environment70_26_GF <- stack(alt.crop, mean(tmin70_26_GF.crop), mean(tmax70_26_GF.crop), mean(prec70_26_GF.crop), bio70_26_GF.crop)
-environment70_45_GF <- stack(alt.crop, mean(tmin70_45_GF.crop), mean(tmax70_45_GF.crop), mean(prec70_45_GF.crop), bio70_45_GF.crop)
-environment70_85_GF <- stack(alt.crop, mean(tmin70_85_GF.crop), mean(tmax70_85_GF.crop), mean(prec70_85_GF.crop), bio70_85_GF.crop)
-
 #GS
 environment70_26_GS <- stack(alt.crop, mean(tmin70_26_GS.crop), mean(tmax70_26_GS.crop), mean(prec70_26_GS.crop), bio70_26_GS.crop)
 environment70_45_GS <- stack(alt.crop, mean(tmin70_45_GS.crop), mean(tmax70_45_GS.crop), mean(prec70_45_GS.crop), bio70_45_GS.crop)
@@ -1099,11 +956,6 @@ environment70_85_GS <- stack(alt.crop, mean(tmin70_85_GS.crop), mean(tmax70_85_G
 environment70_26_HD <- stack(alt.crop, mean(tmin70_26_HD.crop), mean(tmax70_26_HD.crop), mean(prec70_26_HD.crop), bio70_26_HD.crop)
 environment70_45_HD <- stack(alt.crop, mean(tmin70_45_HD.crop), mean(tmax70_45_HD.crop), mean(prec70_45_HD.crop), bio70_45_HD.crop)
 environment70_85_HD <- stack(alt.crop, mean(tmin70_85_HD.crop), mean(tmax70_85_HD.crop), mean(prec70_85_HD.crop), bio70_85_HD.crop)
-
-#HE
-environment70_26_HE <- stack(alt.crop, mean(tmin70_26_HE.crop), mean(tmax70_26_HE.crop), mean(prec70_26_HE.crop), bio70_26_HE.crop)
-environment70_45_HE <- stack(alt.crop, mean(tmin70_45_HE.crop), mean(tmax70_45_HE.crop), mean(prec70_45_HE.crop), bio70_45_HE.crop)
-environment70_85_HE <- stack(alt.crop, mean(tmin70_85_HE.crop), mean(tmax70_85_HE.crop), mean(prec70_85_HE.crop), bio70_85_HE.crop)
 
 #IP
 environment70_26_IP <- stack(alt.crop, mean(tmin70_26_IP.crop), mean(tmax70_26_IP.crop), mean(prec70_26_IP.crop), bio70_26_IP.crop)
@@ -1199,22 +1051,6 @@ names(environment50_85_CN) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "
                                 "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
 names(environment50_85_CN)
 
-#GF
-names(environment50_26_GF) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
-                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
-                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
-names(environment50_26_GF)
-
-names(environment50_45_GF) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
-                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
-                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
-names(environment50_45_GF)
-
-names(environment50_85_GF) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
-                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
-                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
-names(environment50_85_GF)
-
 #GS
 names(environment50_26_GS) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
                                 "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
@@ -1246,22 +1082,6 @@ names(environment50_85_HD) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "
                                 "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
                                 "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
 names(environment50_85_HD)
-
-#HE
-names(environment50_26_HE) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
-                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
-                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
-names(environment50_26_HE)
-
-names(environment50_45_HE) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
-                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
-                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
-names(environment50_45_HE)
-
-names(environment50_85_HE) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
-                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
-                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
-names(environment50_85_HE)
 
 #IP
 names(environment50_26_IP) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
@@ -1424,22 +1244,6 @@ names(environment70_85_CN) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "
                                 "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
 names(environment70_85_CN)
 
-#GF
-names(environment70_26_GF) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
-                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
-                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
-names(environment70_26_GF)
-
-names(environment70_45_GF) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
-                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
-                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
-names(environment70_45_GF)
-
-names(environment70_85_GF) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
-                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
-                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
-names(environment70_85_GF)
-
 #GS
 names(environment70_26_GS) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
                                 "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
@@ -1471,22 +1275,6 @@ names(environment70_85_HD) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "
                                 "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
                                 "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
 names(environment70_85_HD)
-
-#HE
-names(environment70_26_HE) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
-                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
-                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
-names(environment70_26_HE)
-
-names(environment70_45_HE) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
-                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
-                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
-names(environment70_45_HE)
-
-names(environment70_85_HE) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
-                                "bio4", "bio5", "bio6", "bio7", 	"bio8", "bio9", "bio10", "bio11", "bio12", "bio13",
-                                "bio14", "bio15", "bio16", "bio17", "bio18", "bio19")
-names(environment70_85_HE)
 
 #IP
 names(environment70_26_IP) <- c("alt", "tmin", "tmax", "prec", "bio1", "bio2", "bio3",
@@ -1632,7 +1420,7 @@ biplot(pca.env.data, pc.biplot = T)
 summary(pca.env.data)
 pca.env.data$loadings[, 1:3]
 
-# Variance Inflation Factors (VIF) of environmental variables    # Aqui só não entendi ainda pq escolher o v2 (VIF) ao invés do v1? É pq o v2 é mais conservador?
+# Variance Inflation Factors (VIF) of environmental variables
                                                                  
 library(usdm)
 v1 <- vifcor(environment, th=0.9) #correlation
@@ -1687,16 +1475,6 @@ env50_45_CN.selected
 env50_85_CN.selected <- subset(environment50_85_CN, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
 env50_85_CN.selected
 
-#GF
-env50_26_GF.selected <- subset(environment50_26_GF, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
-env50_26_GF.selected
-
-env50_45_GF.selected <- subset(environment50_45_GF, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
-env50_45_GF.selected
-
-env50_85_GF.selected <- subset(environment50_85_GF, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
-env50_85_GF.selected
-
 #GS
 env50_26_GS.selected <- subset(environment50_26_GS, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
 env50_26_GS.selected
@@ -1716,16 +1494,6 @@ env50_45_HD.selected
 
 env50_85_HD.selected <- subset(environment50_85_HD, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
 env50_85_HD.selected
-
-#HE
-env50_26_HE.selected <- subset(environment50_26_HE, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
-env50_26_HE.selected
-
-env50_45_HE.selected <- subset(environment50_45_HE, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
-env50_45_HE.selected
-
-env50_85_HE.selected <- subset(environment50_85_HE, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
-env50_85_HE.selected
 
 #IP
 env50_26_IP.selected <- subset(environment50_26_IP, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
@@ -1828,16 +1596,6 @@ env70_45_CN.selected
 env70_85_CN.selected <- subset(environment70_85_CN, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
 env70_85_CN.selected
 
-#GF
-env70_26_GF.selected <- subset(environment70_26_GF, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
-env70_26_GF.selected
-
-env70_45_GF.selected <- subset(environment70_45_GF, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
-env70_45_GF.selected
-
-env70_85_GF.selected <- subset(environment70_85_GF, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
-env70_85_GF.selected
-
 #GS
 env70_26_GS.selected <- subset(environment70_26_GS, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
 env70_26_GS.selected
@@ -1857,16 +1615,6 @@ env70_45_HD.selected
 
 env70_85_HD.selected <- subset(environment70_85_HD, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
 env70_85_HD.selected
-
-#HE
-env70_26_HE.selected <- subset(environment70_26_HE, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
-env70_26_HE.selected
-
-env70_45_HE.selected <- subset(environment70_45_HE, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
-env70_45_HE.selected
-
-env70_85_HE.selected <- subset(environment70_85_HE, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
-env70_85_HE.selected
 
 #IP
 env70_26_IP.selected <- subset(environment70_26_IP, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
@@ -1949,7 +1697,7 @@ env70_85_NO.selected
 setwd("C:/Users/sukam/Dropbox/Doutorado/Gis/Modelado/alternatus")
 
 # Read data
-alternatus <- read.csv("alternatus.csv", h = T)
+alternatus <- read.csv("alternatus.csv", h = T, sep=";")
 str(alternatus)
 head(alternatus)
 
@@ -1966,26 +1714,27 @@ library(RColorBrewer)
 library(rgdal)
 
 
-plot(environment[[1]], col = rev(brewer.pal(11, "RdYlBu")), main = "Altitude") #RColorBrewer
-plot(environment[[1]], col = SAGA_pal[[1]], main = "Altitude") #plotKML
-plot(environment[[1]], col = rev(magenta2green(100)), main = "Altitude") #colorRamps
-plot(environment[[1]], col = blue2red(100), main = "Altitude") #colorRamps
-plot(environment[[1]], col = matlab.like2(100), main = "Altitude") #colorRamps
+#plot(environment[[1]], col = rev(brewer.pal(11, "RdYlBu")), main = "Altitude") #RColorBrewer
+#plot(environment[[1]], col = SAGA_pal[[1]], main = "Altitude") #plotKML
+#plot(environment[[1]], col = rev(magenta2green(100)), main = "Altitude") #colorRamps
+#plot(environment[[1]], col = blue2red(100), main = "Altitude") #colorRamps
+#plot(environment[[1]], col = matlab.like2(100), main = "Altitude") #colorRamps
 
 
-dis.cerrado <- readOGR("C:/Users/sukam/Dropbox/Doutorado/Gis/Modelado","Cerrado")
-dis.caatinga <- readOGR("C:/Users/sukam/Dropbox/Doutorado/Gis/Modelado","Caatinga")
-dis.chaco <- readOGR("C:/Users/sukam/Dropbox/Doutorado/Gis/Modelado","Chaco")
+dis.cerrado <- readOGR("C:/Users/sukam/Dropbox/Doutorado/Gis/Modelado/Shapes","Cerrado")
+dis.caatinga <- readOGR("C:/Users/sukam/Dropbox/Doutorado/Gis/Modelado/Shapes","Caatinga")
+dis.chaco <- readOGR("C:/Users/sukam/Dropbox/Doutorado/Gis/Modelado/Shapes","Chaco")
 
 
 #x11(w=6, h=6) #Windows only
+pdf("alternatus1.pdf", width = 8.267, height= 11.692, paper="a4")
 plot(environment[[1]], col = matlab.like(100), main = "Altitude", las=1) #colorRamps
 plot(wrld_simpl, add = TRUE, col="transparent", border="gray70", lwd = 0.25)
 plot(dis.cerrado, col=rgb(1,1,1,0.2), border="gray80", lwd = 0.5, add=T)
 plot(dis.caatinga, col=rgb(1,1,1,0.2), border="gray80", lwd = 0.5, add=T)
 plot(dis.chaco, col=rgb(1,1,1,0.2), border="gray80", lwd = 0.5, add=T)
-points(alternatus$lon, alternatus$lat, pch = 21, cex = 1, col = "gray20", bg = "black")
-
+points(alternatus$lon, alternatus$lat, pch = 21, cex = 0.7, col = "gray20", bg = "black")
+dev.off()
 
 
 
@@ -2111,8 +1860,8 @@ envSample<- function (coord, filters, res, do.plot=TRUE){
 # Apply environmental filter to create training data set
 env.data <- extract(env.selected, alternatus)
 env.data <- as.data.frame(env.data)
-(alternatus.training <- envSample(alternatus, filters=list(env.data$bio2, env.data$bio8, env.data$bio15,
-	env.data$bio18), res=list(20, 20, 20, 20), do.plot=TRUE)) # 4 predictors with smallest VIF
+(alternatus.training <- envSample(alternatus, filters=list(env.data$bio2, env.data$bio15, env.data$bio18,
+	env.data$bio8), res=list(20, 20, 20, 20), do.plot=TRUE)) # 4 predictors with smallest VIF
                                                                                                  
 
 # Reserve remaining (filtered out) points for testing data set   
@@ -2216,7 +1965,7 @@ alternatusModelOut_PA_equal <- BIOMOD_Modeling(alternatusBiomodData_PA_equal,
 	NbRunEval = 10,
 	DataSplit = 75, 
 	Prevalence = NULL, 
-	VarImport = 0,
+	VarImport = 5,
 	models.eval.meth = c("KAPPA","TSS","ROC","ACCURACY","BIAS"),
 	SaveObj = TRUE,
 	rescal.all.models = FALSE,
@@ -2240,7 +1989,7 @@ alternatusModelOut_PA_10000 <- BIOMOD_Modeling(
 	NbRunEval = 10,
 	DataSplit = 75, 
 	Prevalence = NULL, 
-	VarImport = 0,
+	VarImport = 5,
 	models.eval.meth = c("KAPPA","TSS","ROC","ACCURACY","BIAS"),
 	SaveObj = TRUE,
 	rescal.all.models = FALSE,
@@ -2253,6 +2002,19 @@ alternatusModelOut_PA_10000 <- BIOMOD_Modeling(
 #######################################
 #### EVALUATE MODELS USING BIOMOD2 ####
 #######################################
+
+#Relative importance of the explanatory variables
+#Get Variables Importance
+imp.var_PA_equal <- get_variables_importance(alternatusModelOut_PA_equal)
+sink("imp.var_PA_equal.txt")
+imp.var_PA_equal
+sink()
+
+imp.var_PA_10000 <- get_variables_importance(alternatusModelOut_PA_10000)
+sink("imp.var_PA_10000.txt")
+imp.var_PA_10000
+sink()
+
 
 # Get evaluations
 alternatusModelEval_PA_equal <- get_evaluations(alternatusModelOut_PA_equal)
@@ -2267,11 +2029,11 @@ MAXENT.Tsuruoka_Eval<- alternatusModelEval_PA_10000["TSS","Testing.data","MAXENT
 mean(MAXENT.Tsuruoka_Eval)
 
 # Get summaries (mean) of model evaluation: one model (GLM), all methods
-mean(alternatusModelEval_PA_10000["KAPPA","Testing.data","GLM",,])
-mean(alternatusModelEval_PA_10000["TSS","Testing.data","GLM",,])
-mean(alternatusModelEval_PA_10000["ROC","Testing.data","GLM",,])
-mean(alternatusModelEval_PA_10000["ACCURACY","Testing.data","GLM",,])
-mean(alternatusModelEval_PA_10000["BIAS","Testing.data","GLM",,])
+mean(alternatusModelEval_PA_10000["KAPPA","Testing.data","MAXENT.Tsuruoka",,])
+mean(alternatusModelEval_PA_10000["TSS","Testing.data","MAXENT.Tsuruoka",,])
+mean(alternatusModelEval_PA_10000["ROC","Testing.data","MAXENT.Tsuruoka",,])
+mean(alternatusModelEval_PA_10000["ACCURACY","Testing.data","MAXENT.Tsuruoka",,])
+mean(alternatusModelEval_PA_10000["BIAS","Testing.data","MAXENT.Tsuruoka",,])
 
 
 # Get summaries (mean) of model evaluation: machine-learning models, all methods
@@ -2291,8 +2053,10 @@ for (i in 1:3){
 summary.eval.equal <- data.frame(rep(sdm.models,each=5), rep(eval.methods,3), means.i)
 names(summary.eval.equal) <- c("Model", "Method", "Mean")
 summary.eval.equal
-xtabs(summary.eval.equal$Mean ~ summary.eval.equal$Model + summary.eval.equal$Method) #RF and GBM with best performance
-
+xtabs(summary.eval.equal$Mean ~ summary.eval.equal$Model + summary.eval.equal$Method) # RF, CTA, GBM with best performance
+sink("alternatus.summary.eval.equal.txt")
+summary.eval.equal
+sink()
 
 # Get summaries (mean) of model evaluation: regression models, all methods
 sdm.models <- c("GLM","GAM","ANN","SRE","FDA","MARS","MAXENT.Phillips","MAXENT.Tsuruoka") #8 models
@@ -2311,7 +2075,9 @@ summary.eval.10000 <- data.frame(rep(sdm.models,each=5), rep(eval.methods,8), me
 names(summary.eval.10000) <- c("Model", "Method", "Mean")
 summary.eval.10000
 xtabs(summary.eval.10000$Mean ~ summary.eval.10000$Model + summary.eval.10000$Method) 
-
+sink("alternatus.summary.eval.10000.txt")
+summary.eval.10000
+sink()
 
 ################################
 #### PRODUCE ENSEMBLE MODEL ####
@@ -2319,9 +2085,9 @@ xtabs(summary.eval.10000$Mean ~ summary.eval.10000$Model + summary.eval.10000$Me
 
 
 ##BIOMOD_Modeling Again###   
-##Run again only with the selected models ("GBM","RF")  #não sei se era necessário, mas me pareceu lógico ter que fazer isso e sem isso nem funcionava a parte do ensemble
+##Run again only with the selected models ("GBM","CTA",RF")
 alternatusModelOut_PA_equal <- BIOMOD_Modeling(alternatusBiomodData_PA_equal, 
-                                               models = c("GBM","RF"), 
+                                               models = c("GBM","CTA", "RF"), 
                                                models.options = myBiomodOption, 
                                                NbRunEval = 10,
                                                DataSplit = 75, 
@@ -2337,7 +2103,7 @@ alternatusModelOut_PA_equal <- BIOMOD_Modeling(alternatusBiomodData_PA_equal,
 ##ENSEMBLE MODEL##
 alternatusModelEnsemble <- BIOMOD_EnsembleModeling(
   modeling.output = alternatusModelOut_PA_equal,
-  chosen.models = grep("GBM","RF", names(alternatusModelOut_PA_equal)),
+  chosen.models = grep("GBM","CTA","RF", names(alternatusModelOut_PA_equal)),
   em.by = "PA_dataset+repet",
   eval.metric = "all",
   eval.metric.quality.threshold = NULL,
@@ -2348,9 +2114,21 @@ alternatusModelEnsemble <- BIOMOD_EnsembleModeling(
   prob.median = FALSE,
   committee.averaging = FALSE,
   prob.mean.weight = FALSE,
+  VarImport = 5,
   prob.mean.weight.decay = 'proportional')
 
-get_evaluations(alternatusModelEnsemble)
+
+#Get Variables Importance EM
+imp.var_EM <- get_variables_importance(alternatusModelEnsemble)
+sink("imp.var_EM.txt")
+imp.var_EM
+sink()
+
+#Get evaluation EM
+alternatus.EM.evaluations <- get_evaluations(alternatusModelEnsemble)
+sink("alternatus.EM.evaluations.txt")
+alternatus.EM.evaluations
+sink()
 
 
 
@@ -2373,29 +2151,65 @@ alternatus_EnsembleForecasting<- BIOMOD_EnsembleForecasting( alternatusModelEnse
                                                             selected.models = 'all')
 
 # Stack projections
-projections <- stack("C:/Users/sukam/Dropbox/Doutorado/Gis/Modelado/Occurrence/proj_Current/proj_Current_Occurrence_ensemble.grd")
+projections <- stack("C:/Users/sukam/Dropbox/Doutorado/Gis/Modelado/alternatus/Occurrence/proj_Current/proj_Current_Occurrence_ensemble.grd")
 names(projections)
 plot(projections[[499]]) #Just an example
 
-# Plot average projections for RF and GBM
-alternatus.training.spdf <- SpatialPoints(coords = alternatus.training, proj4string = crs(environment))
+# Plot average projections for RF, CTA, GBM
+#alternatus.training.spdf <- SpatialPoints(coords = alternatus.training, proj4string = crs(environment))
 
 #x11(w=6, h=6) #Windows only
 projections.EM <- subset(projections, grep("EM", names(projections)))
 names(projections.EM)
 projections.EM.mean <- mean(projections.EM)/1000
 
-caa.col <- adjustcolor("#31a354", alpha.f=0.6)
-cerr.col <- adjustcolor("#74c476", alpha.f=0.7) 
-cha.col <- adjustcolor("#bae4b3", alpha=0.7)
 
-pdf("alternatus.pdf", width = 8.267, height= 11.692, paper="a4")
+##For northarrow##
+
+northarrow <- function(loc,size,bearing=0,cols,cex=1,...) {
+  # checking arguments
+  if(missing(loc)) stop("loc is missing")
+  if(missing(size)) stop("size is missing")
+  # default colors are white and black
+  if(missing(cols)) cols <- rep(c("white","black"),8)
+  # calculating coordinates of polygons
+  radii <- rep(size/c(1,4,2,4),4)
+  x <- radii[(0:15)+1]*cos((0:15)*pi/8+bearing)+loc[1]
+  y <- radii[(0:15)+1]*sin((0:15)*pi/8+bearing)+loc[2]
+  # drawing polygons
+  for (i in 1:15) {
+    x1 <- c(x[i],x[i+1],loc[1])
+    y1 <- c(y[i],y[i+1],loc[2])
+    polygon(x1,y1,col=cols[i])
+  }
+  # drawing the last polygon
+  polygon(c(x[16],x[1],loc[1]),c(y[16],y[1],loc[2]),col=cols[16])
+  # drawing letters
+  b <- c("E","N","W","S")
+  for (i in 0:3) text((size+par("cxy")[1])*cos(bearing+i*pi/2)+loc[1],
+                      (size+par("cxy")[2])*sin(bearing+i*pi/2)+loc[2],b[i+1],
+                      cex=cex)
+}
+
+############################################################################
+
+#Shapes
+caa.col <- adjustcolor("#c7e9c0", alpha.f=0.6)
+cerr.col <- adjustcolor("#41ab5d", alpha.f=0.7) 
+cha.col <- adjustcolor("#a1d99b", alpha=0.7)
+
+#Map
+pdf("alternatus.EM.pdf", width = 8.267, height= 11.692, paper="a4")
 plot(projections.EM.mean, col = matlab.like(100), main = "EM_Current", las = 1)
 plot(wrld_simpl, add = TRUE, col="transparent", border="white", lwd = 0.5)
-plot(dis.caatinga, col=caa.col, border="#31a354", lwd = 0.5, add=T)
-plot(dis.cerrado, col=cerr.col, border="#74c476", lwd = 0.5, add=T)
-plot(dis.chaco, col=cha.col, border="#bae4b3", lwd = 0.5, add=T)
+plot(dis.caatinga, col=caa.col, border="#c7e9c0", lwd = 0.5, add=T)
+plot(dis.cerrado, col=cerr.col, border="#41ab5d", lwd = 0.5, add=T)
+plot(dis.chaco, col=cha.col, border="#a1d99b", lwd = 0.5, add=T)
 points(alternatus$lon, alternatus$lat, pch = 21, cex = 0.7, col = "gray10", bg = "gray")
+par(new=TRUE)
+northarrow(loc= c(-40,5),size= 2)
+par(new=TRUE)
+scalebar(1000, xy = c(-60,-50), type = 'bar', divs = 4, below = "km", lonlat = NULL)
 dev.off()
 
 
@@ -2439,11 +2253,11 @@ optimal.thresholds(EvalData) # Calculate optimal thresholds          #Warning me
 # Create a column "Class" with the Predicted Probabilities
 EvalData$Class <- EvalData$Pred
 
-# Assign all values of "Class" that are greater than or equal to 0.9200000
-# (optimal threshold MaxSens+Spec = 0.9200000) to 1 (i.e., predicted presence), and
-# all values less than 0.9200000 to 0 (i.e, predicted absence)
-EvalData$Class[EvalData$Class >= 0.9200000] <- 1
-EvalData$Class[EvalData$Class < 0.9200000] <- 0
+# Assign all values of "Class" that are greater than or equal to 0.4800000
+# (optimal threshold MaxSens+Spec = 0.4800000) to 1 (i.e., predicted presence), and
+# all values less than 0.4900000 to 0 (i.e, predicted absence)
+EvalData$Class[EvalData$Class >= 0.4800000] <- 1
+EvalData$Class[EvalData$Class < 0.4800000] <- 0
 
 # Calculate confusion matrix and threshold dependent metrics of model fit
 # Calculate the Confusion Matrix
@@ -2523,10 +2337,28 @@ optim.thresh(ObsData, FitData, threshold = 101)
 ## Convert to binary
 ## *****************
 
-projections.EM.mean.binary <- BinaryTransformation(projections.EM.mean, 0.92)
+projections.EM.mean.binary <- BinaryTransformation(projections.EM.mean, 0.48)
 class(projections.EM.mean.binary) #This is a raster layer!
 str(values(projections.EM.mean.binary)) #These are only the binary values!
 summary(values(projections.EM.mean.binary))
+
+##Create GRID and ASC Files
+library(raster)
+writeRaster(projections.EM.mean.binary,filename='Occurrence/proj_Current/alternatus.EM.Binary.grd',overwrite=TRUE) #grid
+writeRaster(projections.EM.mean.binary,filename='Occurrence/proj_Current/alternatus.EM.Binary.asc',overwrite=TRUE) #Asc
+
+##Create Map
+
+#Map
+pdf("alternatus.EM.Binary.pdf", width = 8.267, height= 11.692, paper="a4")
+plot(projections.EM.mean.binary,main = "alternatus.EM.Binary", col=colorRampPalette(c("white","red"))(255))
+plot(wrld_simpl, add = TRUE, col="transparent", border="Black", lwd = 0.5)
+points(alternatus$lon, alternatus$lat, pch = 21, cex = 0.7, col = "gray10", bg = "gray")
+par(new=TRUE)
+northarrow(loc= c(-40,5),size= 2)
+par(new=TRUE)
+scalebar(1000, xy = c(-60,-50), type = 'bar', divs = 4, below = "km", lonlat = NULL)
+dev.off()
 
 
 ## Calculate area of occupancy from binary unprojected area
@@ -2542,20 +2374,195 @@ names(area_total) <- c("Pres_Abs", "Area")
 head(area_total)
 area_current = tapply(area_total$Area, area_total$Pres_Abs, sum) 
 area_current_presence = area_current[2]
-area_current_presence                     #Area of occupancy = 2,129,557 km2 (will vary every time!)
+area_current_presence                     #Area of occupancy = 3,247,257 km2 (will vary every time!)
 
 
-#Criar um mapa aqui e salvar um ASC...
+
 
 #########################################
 #### Model projection for the future ####
 #########################################
 
+weathermod <- c(env50_26_BC.selected, env50_45_BC.selected, env50_85_BC.selected,
+                env50_26_CC.selected, env50_45_CC.selected, env50_85_CC.selected,
+                env50_26_CN.selected, env50_45_CN.selected, env50_85_CN.selected,
+                env50_26_GS.selected, env50_45_GS.selected, env50_85_GS.selected,
+                env50_26_HD.selected, env50_45_HD.selected, env50_85_HD.selected,
+                env50_26_IP.selected, env50_45_IP.selected, env50_85_IP.selected,
+                env50_26_MI.selected, env50_45_MI.selected, env50_85_MI.selected,
+                env50_26_MR.selected, env50_45_MR.selected, env50_85_MR.selected,
+                env50_26_MC.selected, env50_45_MC.selected, env50_85_MC.selected,
+                env50_26_MP.selected, env50_45_MP.selected, env50_85_MP.selected,
+                env50_26_MG.selected, env50_45_MG.selected, env50_85_MG.selected,
+                env50_26_NO.selected, env50_45_NO.selected, env50_85_NO.selected,
+                env70_26_BC.selected, env70_45_BC.selected, env70_85_BC.selected,
+                env70_26_CC.selected, env70_45_CC.selected, env70_85_CC.selected,
+                env70_26_CN.selected, env70_45_CN.selected, env70_85_CN.selected,
+                env70_26_GS.selected, env70_45_GS.selected, env70_85_GS.selected,
+                env70_26_HD.selected, env70_45_HD.selected, env70_85_HD.selected,
+                env70_26_IP.selected, env70_45_IP.selected, env70_85_IP.selected,
+                env70_26_MI.selected, env70_45_MI.selected, env70_85_MI.selected,
+                env70_26_MR.selected, env70_45_MR.selected, env70_85_MR.selected,
+                env70_26_MC.selected, env70_45_MC.selected, env70_85_MC.selected,
+                env70_26_MP.selected, env70_45_MP.selected, env70_85_MP.selected,
+                env70_26_MG.selected, env70_45_MG.selected, env70_85_MG.selected,
+                env70_26_NO.selected, env70_45_NO.selected, env70_85_NO.selected)
+
+
+short <- c("_50_26_BC", "_50_45_BC", "_50_85_BC",
+           "_50_26_CC", "_50_45_CC", "_50_85_CC",
+           "_50_26_CN", "_50_45_CN", "_50_85_CN",
+           "_50_26_GS", "_50_45_GS", "_50_85_GS",
+           "_50_26_HD", "_50_45_HD", "_50_85_HD",
+           "_50_26_IP", "_50_45_IP", "_50_85_IP",
+           "_50_26_MI", "_50_45_MI", "_50_85_MI",
+           "_50_26_MR", "_50_45_MR", "_50_85_MR",
+           "_50_26_MC", "_50_45_MC", "_50_85_MC",
+           "_50_26_MP", "_50_45_MP", "_50_85_MP",
+           "_50_26_MG", "_50_45_MG", "_50_85_MG",
+           "_50_26_NO", "_50_45_NO", "_50_85_NO",
+           "_70_26_BC", "_70_45_BC", "_70_85_BC",
+           "_70_26_CC", "_70_45_CC", "_70_85_CC",
+           "_70_26_CN", "_70_45_CN", "_70_85_CN",
+           "_70_26_GS", "_70_45_GS", "_70_85_GS",
+           "_70_26_HD", "_70_45_HD", "_70_85_HD",
+           "_70_26_IP", "_70_45_IP", "_70_85_IP",
+           "_70_26_MI", "_70_45_MI", "_70_85_MI",
+           "_70_26_MR", "_70_45_MR", "_70_85_MR",
+           "_70_26_MC", "_70_45_MC", "_70_85_MC",
+           "_70_26_MP", "_70_45_MP", "_70_85_MP",
+           "_70_26_MG", "_70_45_MG", "_70_85_MG",
+           "_70_26_NO", "_70_45_NO", "_70_85_NO")
+
+
+
+
+#########################################
+#### Model projection for the future ####
+#########################################
+
+#Loop Step 1
+for(i in weathermod){
+  for(j in short){
+    for(k in 1:length(short)){
+    
+      nam <- paste0("alternatus.proj", j, sep = "")
+      nam1 <- paste0("alternatus.fut", j, sep="")
+      assign(nam, BIOMOD_Projection(
+        modeling.output = alternatusModelOut_PA_equal,
+        new.env = i,
+        proj.name = nam1[k],
+        selected.models = "all"))
+    }
+  }
+}
+
+ 
+#Loop Step 2    
+# Stack projections  
+for(i in weathermod){
+  for(j in short){
+    for(k in 1:length(short)){
+    source("northarrow.R") 
+      
+    nam2 <- paste("projections",j, sep="")
+    assign(nam2, stack(paste0("c:/Users/sukam/Dropbox/Doutorado/Gis/Modelado/Occurrence/proj_fut/proj",j,"_Occurrence.grd", sep="")))
+    
+    #Shapes
+    caa.col <- adjustcolor("#c7e9c0", alpha.f=0.6)
+    cerr.col <- adjustcolor("#41ab5d", alpha.f=0.7) 
+    cha.col <- adjustcolor("#a1d99b", alpha=0.7)
+    
+    #Maps
+    pdf(paste0("alternatus",j,sep=""), width = 8.267, height= 11.692, paper="a4")
+    nam3 <- paste0("projections",j,".mean", sep="")
+    assign(nam3, mean(nam2)/1000)
+    plot(nam3, col = matlab.like(100), main = j, las = 1)
+    plot(wrld_simpl, add = TRUE, col="transparent", border="white", lwd = 0.5)
+    plot(dis.caatinga, col=caa.col, border="#c7e9c0", lwd = 0.5, add=T)
+    plot(dis.cerrado, col=cerr.col, border="#41ab5d", lwd = 0.5, add=T)
+    plot(dis.chaco, col=cha.col, border="#a1d99b", lwd = 0.5, add=T)
+    points(alternatus$lon, alternatus$lat, pch = 21, cex = 0.7, col = "gray10", bg = "gray")
+    par(new=TRUE)
+    northarrow(loc= c(-40,5),size= 2)
+    par(new=TRUE)
+    scalebar(1000, xy = c(-60,-50), type = 'bar', divs = 4, below = "km", lonlat = NULL)
+    dev.off()
+    }
+  }
+}
+    
+#Loop Step 3
+    ## Convert to binary
+    ## *****************
+for(i in weathermod){
+  for(j in short){
+    for(k in 1:length(short)){
+      source("northarrow.R") 
+    nam4 <- paste0("projections", j, ".binary", sep="")
+    assign(nam4, BinaryTransformation(nam3, 0.92))
+    #class(projections.EM_2050_rcp26.mean.binary) #This is a raster layer!
+    #str(values(projections.EM_2050_rcp26.mean.binary)) #These are only the binary values!
+    #summary(values(projections.EM_2050_rcp26.mean.binary))
+    
+    ##Create GRID and ASC Files
+    library(raster)
+    writeRaster(paste0("projections",j, ".binary", sep=""), filename= paste0("alternatus.Binary.",j,".grd", sep=""), overwrite=TRUE) #grid
+    writeRaster(paste0("projections",j, ".binary", sep=""),filename= paste0("alternatus.Binary.",j,".asc", sep=""),overwrite=TRUE) #Asc
+    
+    ##Create Map
+    
+    #Map
+    pdf(paste0("alternatus.Binary",j,sep=""), width = 8.267, height= 11.692, paper="a4")
+    plot(paste0("projections", j, ".binary", sep=""),main = paste0("alternatus", j, ".Binary", sep=""), col=colorRampPalette(c("white","red"))(255))
+    plot(wrld_simpl, add = TRUE, col="transparent", border="Black", lwd = 0.5)
+    points(alternatus$lon, alternatus$lat, pch = 21, cex = 0.7, col = "gray10", bg = "gray")
+    par(new=TRUE)
+    northarrow(loc= c(-40,5),size= 2)
+    par(new=TRUE)
+    scalebar(1000, xy = c(-60,-50), type = 'bar', divs = 4, below = "km", lonlat = NULL)
+    dev.off()
+    }
+  }
+}
+    
+#Loop Step 4
+for(i in weathermod){
+  for(j in short){
+    for(k in 1:length(short)){
+    ## Calculate area of occupancy from binary unprojected area
+    ## ********************************************************
+    nam5 <- paste0("area",j, sep="")
+    assign(nam5, area(nam4))
+    #class(area_EM_2050_rcp26)
+    #str(values(area_EM_2050_rcp26))
+    #summary(values(area_EM_2050_rcp26))
+    
+    nam6 <- paste0("area_total", j, sep="")
+    assign(nam6, data.frame(values(nam4), values(nam5))) #Combine binary and area info for each cell
+    names(nam6) <- c("Pres_Abs", "Area")
+    head(nam6)
+    
+    nam7 <- paste0("area", j, sep="")
+    assign(nam7, tapply(paste0("area_total", j, sep="")$Area, paste0("area_total", j, sep="")$Pres_Abs, sum))
+    
+    nam8 <- paste0("area", j, "_presence")
+    assign(nam8, paste0("area",j, sep="")[2])
+    #area_2050_rcp26_presence   #Area of occupancy = 1,192,400 km2 (will vary every time!)
+
+    }
+  }
+}
+
+
+
+
+##############################################################################################################################
 ##############
 #### 2050 ####
 ##############
 
-#Fazer um loop aqui para rodar os 14 GCM's com os 3 cenários escolhidos (26/45/85)
+#Fazer um loop aqui para rodar os 12 GCM's com os 3 cenários escolhidos (26/45/85)
 
 ##2050_rcp26##
 
