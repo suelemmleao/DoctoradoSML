@@ -5,10 +5,13 @@
 # Clean everything that was loaded before
 rm(list=ls())
 
+
+#Don't need to rotate this part anymore
+###########################################################################################################################
+###########################################################################################################################
+
 # My directory
 setwd("C:/Users/sukam/Dropbox/Doutorado/Gis/Modelado")
-
-
 
 
 ###################################
@@ -449,10 +452,6 @@ bio70_85_NO <- raster::getData("CMIP5", var = "bio", res = 2.5, rcp = 85, model 
 #  *********************
 
 library(maptools)
-
-# Visualize boundaries
-data(wrld_simpl)
-plot(wrld_simpl, xlim = c(-85, -30), ylim = c(-60, 15), axes = TRUE, col = "light grey")
 
 
 #All my date
@@ -1440,10 +1439,6 @@ corrplot.mixed(B, upper="ellipse", lower="number")
 
 
 # Subset environmental stack for future scenarios
-env50_26.selected <- subset(environment50_26_BC, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
-env50_26.selected
-
-
 # Name variables (2050)
 #BC
 env50_26_BC.selected <- subset(environment50_26_BC, c("alt", "bio2", "bio3", "bio8", "bio9", "bio13", "bio14", "bio15", "bio18", "bio19"))
@@ -1687,14 +1682,229 @@ env70_85_NO.selected <- subset(environment70_85_NO, c("alt", "bio2", "bio3", "bi
 env70_85_NO.selected
 
 
+#Save Final Rasters Present
+writeRaster(environment, filename="cmip5/environment", overwrite=TRUE)
+writeRaster(env.selected, filename="cmip5/env_saved", overwrite=TRUE)
+
+#Save Final Rasters 2050
+writeRaster(env50_26_BC.selected, filename="cmip5/env50_26_BC", overwrite=TRUE)
+writeRaster(env50_45_BC.selected, filename="cmip5/env50_45_BC", overwrite=TRUE)
+writeRaster(env50_85_BC.selected, filename="cmip5/env50_85_BC", overwrite=TRUE)
+
+writeRaster(env50_26_CC.selected, filename="cmip5/env50_26_CC", overwrite=TRUE)
+writeRaster(env50_45_CC.selected, filename="cmip5/env50_45_CC", overwrite=TRUE)
+writeRaster(env50_85_CC.selected, filename="cmip5/env50_85_CC", overwrite=TRUE)
+
+writeRaster(env50_26_CN.selected, filename="cmip5/env50_26_CN", overwrite=TRUE)
+writeRaster(env50_45_CN.selected, filename="cmip5/env50_45_CN", overwrite=TRUE)
+writeRaster(env50_85_CN.selected, filename="cmip5/env50_85_CN", overwrite=TRUE)
+
+writeRaster(env50_26_GS.selected, filename="cmip5/env50_26_GS", overwrite=TRUE)
+writeRaster(env50_45_GS.selected, filename="cmip5/env50_45_GS", overwrite=TRUE)
+writeRaster(env50_85_GS.selected, filename="cmip5/env50_85_GS", overwrite=TRUE)
+
+writeRaster(env50_26_HD.selected, filename="cmip5/env50_26_HD", overwrite=TRUE)
+writeRaster(env50_45_HD.selected, filename="cmip5/env50_45_HD", overwrite=TRUE)
+writeRaster(env50_85_HD.selected, filename="cmip5/env50_85_HD", overwrite=TRUE)
+
+writeRaster(env50_26_IP.selected, filename="cmip5/env50_26_IP", overwrite=TRUE)
+writeRaster(env50_45_IP.selected, filename="cmip5/env50_45_IP", overwrite=TRUE)
+writeRaster(env50_85_IP.selected, filename="cmip5/env50_85_IP", overwrite=TRUE)
+
+writeRaster(env50_26_MI.selected, filename="cmip5/env50_26_MI", overwrite=TRUE)
+writeRaster(env50_45_MI.selected, filename="cmip5/env50_45_MI", overwrite=TRUE)
+writeRaster(env50_85_MI.selected, filename="cmip5/env50_85_MI", overwrite=TRUE)
+
+writeRaster(env50_26_MR.selected, filename="cmip5/env50_26_MR", overwrite=TRUE)
+writeRaster(env50_45_MR.selected, filename="cmip5/env50_45_MR", overwrite=TRUE)
+writeRaster(env50_85_MR.selected, filename="cmip5/env50_85_MR", overwrite=TRUE)
+
+writeRaster(env50_26_MC.selected, filename="cmip5/env50_26_MC", overwrite=TRUE)
+writeRaster(env50_45_MC.selected, filename="cmip5/env50_45_MC", overwrite=TRUE)
+writeRaster(env50_85_MC.selected, filename="cmip5/env50_85_MC", overwrite=TRUE)
+
+writeRaster(env50_26_MP.selected, filename="cmip5/env50_26_MP", overwrite=TRUE)
+writeRaster(env50_45_MP.selected, filename="cmip5/env50_45_MP", overwrite=TRUE)
+writeRaster(env50_85_MP.selected, filename="cmip5/env50_85_MP", overwrite=TRUE)
+
+writeRaster(env50_26_MG.selected, filename="cmip5/env50_26_MG", overwrite=TRUE)
+writeRaster(env50_45_MG.selected, filename="cmip5/env50_45_MG", overwrite=TRUE)
+writeRaster(env50_85_MG.selected, filename="cmip5/env50_85_MG", overwrite=TRUE)
+
+writeRaster(env50_26_NO.selected, filename="cmip5/env50_26_NO", overwrite=TRUE)
+writeRaster(env50_45_NO.selected, filename="cmip5/env50_45_NO", overwrite=TRUE)
+writeRaster(env50_85_NO.selected, filename="cmip5/env50_85_NO", overwrite=TRUE)
+
+#Save Final Rasters 2070
+
+writeRaster(env70_26_BC.selected, filename="cmip5/env70_26_BC", overwrite=TRUE)
+writeRaster(env70_45_BC.selected, filename="cmip5/env70_45_BC", overwrite=TRUE)
+writeRaster(env70_85_BC.selected, filename="cmip5/env70_85_BC", overwrite=TRUE)
+
+writeRaster(env70_26_CC.selected, filename="cmip5/env70_26_CC", overwrite=TRUE)
+writeRaster(env70_45_CC.selected, filename="cmip5/env70_45_CC", overwrite=TRUE)
+writeRaster(env70_85_CC.selected, filename="cmip5/env70_85_CC", overwrite=TRUE)
+
+writeRaster(env70_26_CN.selected, filename="cmip5/env70_26_CN", overwrite=TRUE)
+writeRaster(env70_45_CN.selected, filename="cmip5/env70_45_CN", overwrite=TRUE)
+writeRaster(env70_85_CN.selected, filename="cmip5/env70_85_CN", overwrite=TRUE)
+
+writeRaster(env70_26_GS.selected, filename="cmip5/env70_26_GS", overwrite=TRUE)
+writeRaster(env70_45_GS.selected, filename="cmip5/env70_45_GS", overwrite=TRUE)
+writeRaster(env70_85_GS.selected, filename="cmip5/env70_85_GS", overwrite=TRUE)
+
+writeRaster(env70_26_HD.selected, filename="cmip5/env70_26_HD", overwrite=TRUE)
+writeRaster(env70_45_HD.selected, filename="cmip5/env70_45_HD", overwrite=TRUE)
+writeRaster(env70_85_HD.selected, filename="cmip5/env70_85_HD", overwrite=TRUE)
+
+writeRaster(env70_26_IP.selected, filename="cmip5/env70_26_IP", overwrite=TRUE)
+writeRaster(env70_45_IP.selected, filename="cmip5/env70_45_IP", overwrite=TRUE)
+writeRaster(env70_85_IP.selected, filename="cmip5/env70_85_IP", overwrite=TRUE)
+
+writeRaster(env70_26_MI.selected, filename="cmip5/env70_26_MI", overwrite=TRUE)
+writeRaster(env70_45_MI.selected, filename="cmip5/env70_45_MI", overwrite=TRUE)
+writeRaster(env70_85_MI.selected, filename="cmip5/env70_85_MI", overwrite=TRUE)
+
+writeRaster(env70_26_MR.selected, filename="cmip5/env70_26_MR", overwrite=TRUE)
+writeRaster(env70_45_MR.selected, filename="cmip5/env70_45_MR", overwrite=TRUE)
+writeRaster(env70_85_MR.selected, filename="cmip5/env70_85_MR", overwrite=TRUE)
+
+writeRaster(env70_26_MC.selected, filename="cmip5/env70_26_MC", overwrite=TRUE)
+writeRaster(env70_45_MC.selected, filename="cmip5/env70_45_MC", overwrite=TRUE)
+writeRaster(env70_85_MC.selected, filename="cmip5/env70_85_MC", overwrite=TRUE)
+
+writeRaster(env70_26_MP.selected, filename="cmip5/env70_26_MP", overwrite=TRUE)
+writeRaster(env70_45_MP.selected, filename="cmip5/env70_45_MP", overwrite=TRUE)
+writeRaster(env70_85_MP.selected, filename="cmip5/env70_85_MP", overwrite=TRUE)
+
+writeRaster(env70_26_MG.selected, filename="cmip5/env70_26_MG", overwrite=TRUE)
+writeRaster(env70_45_MG.selected, filename="cmip5/env70_45_MG", overwrite=TRUE)
+writeRaster(env70_85_MG.selected, filename="cmip5/env70_85_MG", overwrite=TRUE)
+
+writeRaster(env70_26_NO.selected, filename="cmip5/env70_26_NO", overwrite=TRUE)
+writeRaster(env70_45_NO.selected, filename="cmip5/env70_45_NO", overwrite=TRUE)
+writeRaster(env70_85_NO.selected, filename="cmip5/env70_85_NO", overwrite=TRUE)
+
+#############################################################################################################################
+#############################################################################################################################
+
+
+
+
+#################################
+####Load Saved Raster Present####
+#################################
+
+
+# Change directory
+setwd("C:/Users/sukam/Dropbox/Doutorado/Gis/Modelado/alternatus")
+
+library(raster)
+environment <- stack("cmip5/environment")
+env.saved <- stack("cmip5/env_saved")
+
+#Load Saved Stack 2050
+env50_26_BC.saved <- stack("cmip5/env50_26_BC")
+env50_45_BC.saved<- stack("cmip5/env50_45_BC")
+env50_85_BC.saved<- stack("cmip5/env50_85_BC")
+
+env50_26_CC.saved<- stack("cmip5/env50_26_CC")
+env50_45_CC.saved<- stack("cmip5/env50_45_CC")
+env50_85_CC.saved<- stack("cmip5/env50_85_CC")
+
+env50_26_CN.saved<- stack("cmip5/env50_26_CN")
+env50_45_CN.saved<- stack("cmip5/env50_45_CN")
+env50_85_CN.saved<- stack("cmip5/env50_85_CN")
+
+env50_26_GS.saved<- stack("cmip5/env50_26_GS")
+env50_45_GS.saved<- stack("cmip5/env50_45_GS")
+env50_85_GS.saved<- stack("cmip5/env50_85_GS")
+
+env50_26_HD.saved<- stack("cmip5/env50_26_HD")
+env50_45_HD.saved<- stack("cmip5/env50_45_HD")
+env50_85_HD.saved<- stack("cmip5/env50_85_HD")
+
+env50_26_IP.saved<- stack("cmip5/env50_26_IP")
+env50_45_IP.saved<- stack("cmip5/env50_45_IP")
+env50_85_IP.saved<- stack("cmip5/env50_85_IP")
+
+env50_26_MI.saved<- stack("cmip5/env50_26_MI")
+env50_45_MI.saved<- stack("cmip5/env50_45_MI")
+env50_85_MI.saved<- stack("cmip5/env50_85_MI")
+
+env50_26_MR.saved<- stack("cmip5/env50_26_MR")
+env50_45_MR.saved<- stack("cmip5/env50_45_MR")
+env50_85_MR.saved<- stack("cmip5/env50_85_MR")
+
+env50_26_MC.saved<- stack("cmip5/env50_26_MC")
+env50_45_MC.saved<- stack("cmip5/env50_45_MC")
+env50_85_MC.saved<- stack("cmip5/env50_85_MC")
+
+env50_26_MP.saved<- stack("cmip5/env50_26_MP")
+env50_45_MP.saved<- stack("cmip5/env50_45_MP")
+env50_85_MP.saved<- stack("cmip5/env50_85_MP")
+
+env50_26_MG.saved<- stack("cmip5/env50_26_MG")
+env50_45_MG.saved<- stack("cmip5/env50_45_MG")
+env50_85_MG.saved<- stack("cmip5/env50_85_MG")
+
+env50_26_NO.saved<- stack("cmip5/env50_26_NO")
+env50_45_NO.saved<- stack("cmip5/env50_45_NO")
+env50_85_NO.saved<- stack("cmip5/env50_85_NO")
+
+#Load Saved stacks 2070
+env70_26_BC.saved <- stack("cmip5/env70_26_BC")
+env70_45_BC.saved<- stack("cmip5/env70_45_BC")
+env70_85_BC.saved<- stack("cmip5/env70_85_BC")
+
+env70_26_CC.saved<- stack("cmip5/env70_26_CC")
+env70_45_CC.saved<- stack("cmip5/env70_45_CC")
+env70_85_CC.saved<- stack("cmip5/env70_85_CC")
+
+env70_26_CN.saved<- stack("cmip5/env70_26_CN")
+env70_45_CN.saved<- stack("cmip5/env70_45_CN")
+env70_85_CN.saved<- stack("cmip5/env70_85_CN")
+
+env70_26_GS.saved<- stack("cmip5/env70_26_GS")
+env70_45_GS.saved<- stack("cmip5/env70_45_GS")
+env70_85_GS.saved<- stack("cmip5/env70_85_GS")
+
+env70_26_HD.saved<- stack("cmip5/env70_26_HD")
+env70_45_HD.saved<- stack("cmip5/env70_45_HD")
+env70_85_HD.saved<- stack("cmip5/env70_85_HD")
+
+env70_26_IP.saved<- stack("cmip5/env70_26_IP")
+env70_45_IP.saved<- stack("cmip5/env70_45_IP")
+env70_85_IP.saved<- stack("cmip5/env70_85_IP")
+
+env70_26_MI.saved<- stack("cmip5/env70_26_MI")
+env70_45_MI.saved<- stack("cmip5/env70_45_MI")
+env70_85_MI.saved<- stack("cmip5/env70_85_MI")
+
+env70_26_MR.saved<- stack("cmip5/env70_26_MR")
+env70_45_MR.saved<- stack("cmip5/env70_45_MR")
+env70_85_MR.saved<- stack("cmip5/env70_85_MR")
+
+env70_26_MC.saved<- stack("cmip5/env70_26_MC")
+env70_45_MC.saved<- stack("cmip5/env70_45_MC")
+env70_85_MC.saved<- stack("cmip5/env70_85_MC")
+
+env70_26_MP.saved<- stack("cmip5/env70_26_MP")
+env70_45_MP.saved<- stack("cmip5/env70_45_MP")
+env70_85_MP.saved<- stack("cmip5/env70_85_MP")
+
+env70_26_MG.saved<- stack("cmip5/env70_26_MG")
+env70_45_MG.saved<- stack("cmip5/env70_45_MG")
+env70_85_MG.saved<- stack("cmip5/env70_85_MG")
+
+env70_26_NO.saved<- stack("cmip5/env70_26_NO")
+env70_45_NO.saved<- stack("cmip5/env70_45_NO")
+env70_85_NO.saved<- stack("cmip5/env70_85_NO")
 
 
 ##########################################
 #### INPUT AND PLOT DISTRIBUTION DATA ####
 ##########################################
-
-# Change directory
-setwd("C:/Users/sukam/Dropbox/Doutorado/Gis/Modelado/alternatus")
 
 # Read data
 alternatus <- read.csv("alternatus.csv", h = T, sep=";")
@@ -1727,8 +1937,9 @@ dis.chaco <- readOGR("C:/Users/sukam/Dropbox/Doutorado/Gis/Modelado/Shapes","Cha
 
 
 #x11(w=6, h=6) #Windows only
-pdf("alternatus1.pdf", width = 8.267, height= 11.692, paper="a4")
+pdf("alternatus2.pdf", width = 8.267, height= 11.692, paper="a4")
 plot(environment[[1]], col = matlab.like(100), main = "Altitude", las=1) #colorRamps
+data(wrld_simpl)
 plot(wrld_simpl, add = TRUE, col="transparent", border="gray70", lwd = 0.25)
 plot(dis.cerrado, col=rgb(1,1,1,0.2), border="gray80", lwd = 0.5, add=T)
 plot(dis.caatinga, col=rgb(1,1,1,0.2), border="gray80", lwd = 0.5, add=T)
@@ -1858,7 +2069,7 @@ envSample<- function (coord, filters, res, do.plot=TRUE){
 
 
 # Apply environmental filter to create training data set
-env.data <- extract(env.selected, alternatus)
+env.data <- extract(environment, alternatus)
 env.data <- as.data.frame(env.data)
 (alternatus.training <- envSample(alternatus, filters=list(env.data$bio2, env.data$bio15, env.data$bio18,
 	env.data$bio8), res=list(20, 20, 20, 20), do.plot=TRUE)) # 4 predictors with smallest VIF
@@ -1879,7 +2090,7 @@ library(dplyr)
 # Generate background points for training dataset
 mask <- environment$bio1
 set.seed(22111962)
-bg.train <- randomPoints(mask, 204) #Remember to put the number of points after filter application (Number of points held after filter)
+bg.train <- randomPoints(mask, 204) #Remember to put the number of points after filter application "env.data training" (Number of points held after filter)
 plot(!is.na(mask), legend = F)
 points(bg.train, cex = 0.5)
 bg.df.train <- data.frame(Occurrence = rep(0, 204), lon = bg.train[, 1], lat = bg.train[, 2])
@@ -1895,7 +2106,7 @@ alternatus.training.spdf
 # Generate background points for testing dataset
 mask <- environment$bio1
 set.seed(22111962)
-bg <- randomPoints(mask, 194)  #Remember to put the number of points after filter application (Number of points removed after filter)
+bg <- randomPoints(mask, 194)  #Remember to put the number of points after filter application "env.data testing" (Number of points removed after filter)
 plot(!is.na(mask), legend = F)
 points(bg, cex = 0.5)
 bg.df <- data.frame(Occurrence = rep(0, 194), lon = bg[, 1], lat = bg[, 2])      
@@ -1922,7 +2133,7 @@ occurrence.resp <-  rep(1, length(alternatus.training$lon))
 # Prepare data
 alternatusBiomodData_PA_equal <- BIOMOD_FormatingData(
 	resp.var = occurrence.resp,
-	expl.var = env.selected,
+	expl.var = env.saved,
 	resp.xy = alternatus.training,
 	resp.name = "Occurrence",
 	PA.nb.rep = 10,
@@ -1933,7 +2144,7 @@ alternatusBiomodData_PA_equal
 
 alternatusBiomodData_PA_10000 <- BIOMOD_FormatingData(
 	resp.var = occurrence.resp,
-	expl.var = env.selected,
+	expl.var = env.saved,
 	resp.xy = alternatus.training,
 	resp.name = "Occurrence",
 	PA.nb.rep = 10,
@@ -1965,7 +2176,7 @@ alternatusModelOut_PA_equal <- BIOMOD_Modeling(alternatusBiomodData_PA_equal,
 	NbRunEval = 10,
 	DataSplit = 75, 
 	Prevalence = NULL, 
-	VarImport = 5,
+	VarImport = 3,
 	models.eval.meth = c("KAPPA","TSS","ROC","ACCURACY","BIAS"),
 	SaveObj = TRUE,
 	rescal.all.models = FALSE,
@@ -1989,7 +2200,7 @@ alternatusModelOut_PA_10000 <- BIOMOD_Modeling(
 	NbRunEval = 10,
 	DataSplit = 75, 
 	Prevalence = NULL, 
-	VarImport = 5,
+	VarImport = 3,
 	models.eval.meth = c("KAPPA","TSS","ROC","ACCURACY","BIAS"),
 	SaveObj = TRUE,
 	rescal.all.models = FALSE,
@@ -2006,15 +2217,30 @@ alternatusModelOut_PA_10000 <- BIOMOD_Modeling(
 #Relative importance of the explanatory variables
 #Get Variables Importance
 imp.var_PA_equal <- get_variables_importance(alternatusModelOut_PA_equal)
-sink("imp.var_PA_equal.txt")
-imp.var_PA_equal
-sink()
-
 imp.var_PA_10000 <- get_variables_importance(alternatusModelOut_PA_10000)
-sink("imp.var_PA_10000.txt")
-imp.var_PA_10000
-sink()
 
+
+#Importance of variables
+sdm.models <- c("GBM","CTA","RF") #3 models
+imp.var <- c("alt","bio2","bio3","bio8","bio9", "bio13", "bio14", "bio15", "bio18", "bio19") #5 evaluation methods
+
+means.i <- numeric(0)
+means.j <- numeric(10)
+for (i in 1:3){
+  for (j in 1:10){
+    means.j[j] <- mean(imp.var_PA_equal[paste(imp.var[j]),paste(sdm.models[i]),,],na.rm=T)
+  }
+  means.i <- c(means.i, means.j)
+}
+
+
+summary.imp.var.equal <- data.frame(rep(sdm.models,each=1), rep(imp.var,1), means.i)
+names(summary.imp.var.equal) <- c("Model", "Variable", "Mean")
+summary.imp.var.equal
+tabla<- xtabs(summary.imp.var.equal$Mean ~ summary.imp.var.equal$Variable + summary.imp.var.equal$Model) # RF, CTA, GBM with best performance
+sink("summary.imp.var.equal.txt")
+tabla
+sink()
 
 # Get evaluations
 alternatusModelEval_PA_equal <- get_evaluations(alternatusModelOut_PA_equal)
@@ -2085,14 +2311,14 @@ sink()
 
 
 ##BIOMOD_Modeling Again###   
-##Run again only with the selected models ("GBM","CTA",RF")
-alternatusModelOut_PA_equal <- BIOMOD_Modeling(alternatusBiomodData_PA_equal, 
-                                               models = c("GBM","CTA", "RF"), 
+##Run again only if the selected models are different ("GBM","RF")
+alternatusModelOut_PA_equal.2 <- BIOMOD_Modeling(alternatusBiomodData_PA_equal, 
+                                               models = c("RF"),
                                                models.options = myBiomodOption, 
                                                NbRunEval = 10,
                                                DataSplit = 75, 
                                                Prevalence = NULL, 
-                                               VarImport = 0,
+                                               VarImport = 3,
                                                models.eval.meth = c("KAPPA","TSS","ROC","ACCURACY","BIAS"),
                                                SaveObj = TRUE,
                                                rescal.all.models = FALSE,
@@ -2114,15 +2340,9 @@ alternatusModelEnsemble <- BIOMOD_EnsembleModeling(
   prob.median = FALSE,
   committee.averaging = FALSE,
   prob.mean.weight = FALSE,
-  VarImport = 5,
+  VarImport = 3,
   prob.mean.weight.decay = 'proportional')
 
-
-#Get Variables Importance EM
-imp.var_EM <- get_variables_importance(alternatusModelEnsemble)
-sink("imp.var_EM.txt")
-imp.var_EM
-sink()
 
 #Get evaluation EM
 alternatus.EM.evaluations <- get_evaluations(alternatusModelEnsemble)
@@ -2140,7 +2360,7 @@ sink()
 
 alternatus.projections <- BIOMOD_Projection(
   modeling.output = alternatusModelOut_PA_equal,
-  new.env = env.selected,
+  new.env = env.saved,
   #If you wanted to predict to a different area, or different
   #conditions you would change the above line
   proj.name = "Current",
@@ -2191,7 +2411,6 @@ northarrow <- function(loc,size,bearing=0,cols,cex=1,...) {
                       cex=cex)
 }
 
-############################################################################
 
 #Shapes
 caa.col <- adjustcolor("#c7e9c0", alpha.f=0.6)
@@ -2383,30 +2602,30 @@ area_current_presence                     #Area of occupancy = 3,247,257 km2 (wi
 #### Model projection for the future ####
 #########################################
 
-weathermod <- c(env50_26_BC.selected, env50_45_BC.selected, env50_85_BC.selected,
-                env50_26_CC.selected, env50_45_CC.selected, env50_85_CC.selected,
-                env50_26_CN.selected, env50_45_CN.selected, env50_85_CN.selected,
-                env50_26_GS.selected, env50_45_GS.selected, env50_85_GS.selected,
-                env50_26_HD.selected, env50_45_HD.selected, env50_85_HD.selected,
-                env50_26_IP.selected, env50_45_IP.selected, env50_85_IP.selected,
-                env50_26_MI.selected, env50_45_MI.selected, env50_85_MI.selected,
-                env50_26_MR.selected, env50_45_MR.selected, env50_85_MR.selected,
-                env50_26_MC.selected, env50_45_MC.selected, env50_85_MC.selected,
-                env50_26_MP.selected, env50_45_MP.selected, env50_85_MP.selected,
-                env50_26_MG.selected, env50_45_MG.selected, env50_85_MG.selected,
-                env50_26_NO.selected, env50_45_NO.selected, env50_85_NO.selected,
-                env70_26_BC.selected, env70_45_BC.selected, env70_85_BC.selected,
-                env70_26_CC.selected, env70_45_CC.selected, env70_85_CC.selected,
-                env70_26_CN.selected, env70_45_CN.selected, env70_85_CN.selected,
-                env70_26_GS.selected, env70_45_GS.selected, env70_85_GS.selected,
-                env70_26_HD.selected, env70_45_HD.selected, env70_85_HD.selected,
-                env70_26_IP.selected, env70_45_IP.selected, env70_85_IP.selected,
-                env70_26_MI.selected, env70_45_MI.selected, env70_85_MI.selected,
-                env70_26_MR.selected, env70_45_MR.selected, env70_85_MR.selected,
-                env70_26_MC.selected, env70_45_MC.selected, env70_85_MC.selected,
-                env70_26_MP.selected, env70_45_MP.selected, env70_85_MP.selected,
-                env70_26_MG.selected, env70_45_MG.selected, env70_85_MG.selected,
-                env70_26_NO.selected, env70_45_NO.selected, env70_85_NO.selected)
+weathermod <- c(env50_26_BC.saved, env50_45_BC.saved, env50_85_BC.saved,
+                env50_26_CC.saved, env50_45_CC.saved, env50_85_CC.saved,
+                env50_26_CN.saved, env50_45_CN.saved, env50_85_CN.saved,
+                env50_26_GS.saved, env50_45_GS.saved, env50_85_GS.saved,
+                env50_26_HD.saved, env50_45_HD.saved, env50_85_HD.saved,
+                env50_26_IP.saved, env50_45_IP.saved, env50_85_IP.saved,
+                env50_26_MI.saved, env50_45_MI.saved, env50_85_MI.saved,
+                env50_26_MR.saved, env50_45_MR.saved, env50_85_MR.saved,
+                env50_26_MC.saved, env50_45_MC.saved, env50_85_MC.saved,
+                env50_26_MP.saved, env50_45_MP.saved, env50_85_MP.saved,
+                env50_26_MG.saved, env50_45_MG.saved, env50_85_MG.saved,
+                env50_26_NO.saved, env50_45_NO.saved, env50_85_NO.saved,
+                env70_26_BC.saved, env70_45_BC.saved, env70_85_BC.saved,
+                env70_26_CC.saved, env70_45_CC.saved, env70_85_CC.saved,
+                env70_26_CN.saved, env70_45_CN.saved, env70_85_CN.saved,
+                env70_26_GS.saved, env70_45_GS.saved, env70_85_GS.saved,
+                env70_26_HD.saved, env70_45_HD.saved, env70_85_HD.saved,
+                env70_26_IP.saved, env70_45_IP.saved, env70_85_IP.saved,
+                env70_26_MI.saved, env70_45_MI.saved, env70_85_MI.saved,
+                env70_26_MR.saved, env70_45_MR.saved, env70_85_MR.saved,
+                env70_26_MC.saved, env70_45_MC.saved, env70_85_MC.saved,
+                env70_26_MP.saved, env70_45_MP.saved, env70_85_MP.saved,
+                env70_26_MG.saved, env70_45_MG.saved, env70_85_MG.saved,
+                env70_26_NO.saved, env70_45_NO.saved, env70_85_NO.saved)
 
 
 short <- c("_50_26_BC", "_50_45_BC", "_50_85_BC",
@@ -2436,125 +2655,302 @@ short <- c("_50_26_BC", "_50_45_BC", "_50_85_BC",
 
 
 
-
-#########################################
-#### Model projection for the future ####
-#########################################
-
 #Loop Step 1
-for(i in weathermod){
-  for(j in short){
-    for(k in 1:length(short)){
-    
-      nam <- paste0("alternatus.proj", j, sep = "")
-      nam1 <- paste0("alternatus.fut", j, sep="")
-      assign(nam, BIOMOD_Projection(
-        modeling.output = alternatusModelOut_PA_equal,
-        new.env = i,
-        proj.name = nam1[k],
-        selected.models = "all"))
-    }
+nam <- NULL
+for(k in c(1:length(short))){
+  nam[k] <- paste0("ammodytoides.proj", short[k], sep = "")  
+  assign(nam[k], BIOMOD_Projection(
+    modeling.output = ammodytoidesModelOut_PA_equal,
+    new.env = stack(wmod[k]),
+    proj.name =  paste0("futuro", short[k] , sep=""),
+    selected.models = "all"))
+}
+
+#Loop Step 2
+
+lista.bio <- NULL
+###find projection files
+for(k in 1:length(short)){
+  lista.bio[k] <- mixedsort(list.files(paste(getwd(), paste0("/Occurrence/proj_futuro", short[k], sep=""), sep = ""), full.names = T, 
+                                       pattern = "Occurrence.grd"))
+}
+
+#Loop Step 3
+nam2 <- NULL
+# Stack projections  
+for(k in 1:length(short)){
+  nam2[k] <- paste("projections",short[k], sep="")
+  assign(nam2[k], stack(lista.bio[k]))
+}
+
+
+lista.proj <- c(projections_50_26_BC, projections_50_45_BC, projections_50_85_BC,
+                projections_50_26_CC, projections_50_45_CC, projections_50_85_CC,
+                projections_50_26_CN, projections_50_45_CN, projections_50_85_CN,
+                projections_50_26_GS, projections_50_45_GS, projections_50_85_GS,
+                projections_50_26_HD, projections_50_45_HD, projections_50_85_HD,
+                projections_50_26_IP, projections_50_45_IP, projections_50_85_IP,
+                projections_50_26_MI, projections_50_45_MI, projections_50_85_MI,
+                projections_50_26_MR, projections_50_45_MR, projections_50_85_MR,
+                projections_50_26_MC, projections_50_45_MC, projections_50_85_MC,
+                projections_50_26_MP, projections_50_45_MP, projections_50_85_MP,
+                projections_50_26_MG, projections_50_45_MG, projections_50_85_MG,
+                projections_50_26_NO, projections_50_45_NO, projections_50_85_NO,
+                projections_70_26_BC, projections_70_45_BC, projections_70_85_BC,
+                projections_70_26_CC, projections_70_45_CC, projections_70_85_CC,
+                projections_70_26_CN, projections_70_45_CN, projections_70_85_CN,
+                projections_70_26_GS, projections_70_45_GS, projections_70_85_GS,
+                projections_70_26_HD, projections_70_45_HD, projections_70_85_HD,
+                projections_70_26_IP, projections_70_45_IP, projections_70_85_IP,
+                projections_70_26_MI, projections_70_45_MI, projections_70_85_MI,
+                projections_70_26_MR, projections_70_45_MR, projections_70_85_MR,
+                projections_70_26_MC, projections_70_45_MC, projections_70_85_MC,
+                projections_70_26_MP, projections_70_45_MP, projections_70_85_MP,
+                projections_70_26_MG, projections_70_45_MG, projections_70_85_MG,
+                projections_70_26_NO, projections_70_45_NO, projections_70_85_NO)
+
+
+
+nam3 <- NULL
+for(o in lista.proj){
+  for(k in 1:length(short)){
+    nam3[k] <- paste0("projections",short[k],".mean", sep="")
+    assign(nam3[k], mean(o)/1000)
   }
 }
 
- 
-#Loop Step 2    
-# Stack projections  
-for(i in weathermod){
-  for(j in short){
-    for(k in 1:length(short)){
+
+#Loop Step 4
+#Maps
+library(colorRamps)
+library(maptools)
+data("wrld_simpl")
+
+lista.mean <- c(projections_50_26_BC.mean, projections_50_45_BC.mean, projections_50_85_BC.mean,
+                projections_50_26_CC.mean, projections_50_45_CC.mean, projections_50_85_CC.mean,
+                projections_50_26_CN.mean, projections_50_45_CN.mean, projections_50_85_CN.mean,
+                projections_50_26_GS.mean, projections_50_45_GS.mean, projections_50_85_GS.mean,
+                projections_50_26_HD.mean, projections_50_45_HD.mean, projections_50_85_HD.mean,
+                projections_50_26_IP.mean, projections_50_45_IP.mean, projections_50_85_IP.mean,
+                projections_50_26_MI.mean, projections_50_45_MI.mean, projections_50_85_MI.mean,
+                projections_50_26_MR.mean, projections_50_45_MR.mean, projections_50_85_MR.mean,
+                projections_50_26_MC.mean, projections_50_45_MC.mean, projections_50_85_MC.mean,
+                projections_50_26_MP.mean, projections_50_45_MP.mean, projections_50_85_MP.mean,
+                projections_50_26_MG.mean, projections_50_45_MG.mean, projections_50_85_MG.mean,
+                projections_50_26_NO.mean, projections_50_45_NO.mean, projections_50_85_NO.mean,
+                projections_70_26_BC.mean, projections_70_45_BC.mean, projections_70_85_BC.mean,
+                projections_70_26_CC.mean, projections_70_45_CC.mean, projections_70_85_CC.mean,
+                projections_70_26_CN.mean, projections_70_45_CN.mean, projections_70_85_CN.mean,
+                projections_70_26_GS.mean, projections_70_45_GS.mean, projections_70_85_GS.mean,
+                projections_70_26_HD.mean, projections_70_45_HD.mean, projections_70_85_HD.mean,
+                projections_70_26_IP.mean, projections_70_45_IP.mean, projections_70_85_IP.mean,
+                projections_70_26_MI.mean, projections_70_45_MI.mean, projections_70_85_MI.mean,
+                projections_70_26_MR.mean, projections_70_45_MR.mean, projections_70_85_MR.mean,
+                projections_70_26_MC.mean, projections_70_45_MC.mean, projections_70_85_MC.mean,
+                projections_70_26_MP.mean, projections_70_45_MP.mean, projections_70_85_MP.mean,
+                projections_70_26_MG.mean, projections_70_45_MG.mean, projections_70_85_MG.mean,
+                projections_70_26_NO.mean, projections_70_45_NO.mean, projections_70_85_NO.mean)
+
+
+
+for(s in lista.mean){
+  for(k in 1:length(short)){
     source("northarrow.R") 
-      
-    nam2 <- paste("projections",j, sep="")
-    assign(nam2, stack(paste0("c:/Users/sukam/Dropbox/Doutorado/Gis/Modelado/Occurrence/proj_fut/proj",j,"_Occurrence.grd", sep="")))
-    
-    #Shapes
-    caa.col <- adjustcolor("#c7e9c0", alpha.f=0.6)
-    cerr.col <- adjustcolor("#41ab5d", alpha.f=0.7) 
-    cha.col <- adjustcolor("#a1d99b", alpha=0.7)
-    
-    #Maps
-    pdf(paste0("alternatus",j,sep=""), width = 8.267, height= 11.692, paper="a4")
-    nam3 <- paste0("projections",j,".mean", sep="")
-    assign(nam3, mean(nam2)/1000)
-    plot(nam3, col = matlab.like(100), main = j, las = 1)
+    pdf(paste0("ammodytoides",short[k], ".pdf", sep=""), width = 8.267, height= 11.692, paper="a4")   
+    plot(s, col = matlab.like(100), main = short[k], las = 1, ylim=c(-60, 15), xlim=c(-85, -30))
     plot(wrld_simpl, add = TRUE, col="transparent", border="white", lwd = 0.5)
     plot(dis.caatinga, col=caa.col, border="#c7e9c0", lwd = 0.5, add=T)
     plot(dis.cerrado, col=cerr.col, border="#41ab5d", lwd = 0.5, add=T)
     plot(dis.chaco, col=cha.col, border="#a1d99b", lwd = 0.5, add=T)
-    points(alternatus$lon, alternatus$lat, pch = 21, cex = 0.7, col = "gray10", bg = "gray")
+    points(ammodytoides$lon, ammodytoides$lat, pch = 21, cex = 0.7, col = "gray10", bg = "gray")
     par(new=TRUE)
     northarrow(loc= c(-40,5),size= 2)
     par(new=TRUE)
     scalebar(1000, xy = c(-60,-50), type = 'bar', divs = 4, below = "km", lonlat = NULL)
     dev.off()
-    }
   }
 }
-    
-#Loop Step 3
-    ## Convert to binary
-    ## *****************
-for(i in weathermod){
-  for(j in short){
-    for(k in 1:length(short)){
-      source("northarrow.R") 
-    nam4 <- paste0("projections", j, ".binary", sep="")
-    assign(nam4, BinaryTransformation(nam3, 0.92))
-    #class(projections.EM_2050_rcp26.mean.binary) #This is a raster layer!
-    #str(values(projections.EM_2050_rcp26.mean.binary)) #These are only the binary values!
-    #summary(values(projections.EM_2050_rcp26.mean.binary))
-    
-    ##Create GRID and ASC Files
-    library(raster)
-    writeRaster(paste0("projections",j, ".binary", sep=""), filename= paste0("alternatus.Binary.",j,".grd", sep=""), overwrite=TRUE) #grid
-    writeRaster(paste0("projections",j, ".binary", sep=""),filename= paste0("alternatus.Binary.",j,".asc", sep=""),overwrite=TRUE) #Asc
-    
-    ##Create Map
-    
-    #Map
-    pdf(paste0("alternatus.Binary",j,sep=""), width = 8.267, height= 11.692, paper="a4")
-    plot(paste0("projections", j, ".binary", sep=""),main = paste0("alternatus", j, ".Binary", sep=""), col=colorRampPalette(c("white","red"))(255))
-    plot(wrld_simpl, add = TRUE, col="transparent", border="Black", lwd = 0.5)
-    points(alternatus$lon, alternatus$lat, pch = 21, cex = 0.7, col = "gray10", bg = "gray")
-    par(new=TRUE)
-    northarrow(loc= c(-40,5),size= 2)
-    par(new=TRUE)
-    scalebar(1000, xy = c(-60,-50), type = 'bar', divs = 4, below = "km", lonlat = NULL)
-    dev.off()
-    }
+
+
+
+#Loop Step 5
+## Convert to binary
+
+nam4 <- NULL
+for(s in lista.mean){
+  for(k in 1:length(short)){
+    nam4[k] <- paste0("projections", short[k], ".binary", sep="")
+    assign(nam4[k], BinaryTransformation(s, 0.48))
   }
 }
-    
-#Loop Step 4
-for(i in weathermod){
-  for(j in short){
-    for(k in 1:length(short)){
-    ## Calculate area of occupancy from binary unprojected area
-    ## ********************************************************
-    nam5 <- paste0("area",j, sep="")
-    assign(nam5, area(nam4))
-    #class(area_EM_2050_rcp26)
-    #str(values(area_EM_2050_rcp26))
-    #summary(values(area_EM_2050_rcp26))
-    
-    nam6 <- paste0("area_total", j, sep="")
-    assign(nam6, data.frame(values(nam4), values(nam5))) #Combine binary and area info for each cell
-    names(nam6) <- c("Pres_Abs", "Area")
-    head(nam6)
-    
-    nam7 <- paste0("area", j, sep="")
-    assign(nam7, tapply(paste0("area_total", j, sep="")$Area, paste0("area_total", j, sep="")$Pres_Abs, sum))
-    
-    nam8 <- paste0("area", j, "_presence")
-    assign(nam8, paste0("area",j, sep="")[2])
+
+##Create GRID and ASC Files
+library(raster)
+
+list.binary <- c(projections_50_26_BC.binary, projections_50_45_BC.binary, projections_50_85_BC.binary,
+                 projections_50_26_CC.binary, projections_50_45_CC.binary, projections_50_85_CC.binary,
+                 projections_50_26_CN.binary, projections_50_45_CN.binary, projections_50_85_CN.binary,
+                 projections_50_26_GS.binary, projections_50_45_GS.binary, projections_50_85_GS.binary,
+                 projections_50_26_HD.binary, projections_50_45_HD.binary, projections_50_85_HD.binary,
+                 projections_50_26_IP.binary, projections_50_45_IP.binary, projections_50_85_IP.binary,
+                 projections_50_26_MI.binary, projections_50_45_MI.binary, projections_50_85_MI.binary,
+                 projections_50_26_MR.binary, projections_50_45_MR.binary, projections_50_85_MR.binary,
+                 projections_50_26_MC.binary, projections_50_45_MC.binary, projections_50_85_MC.binary,
+                 projections_50_26_MP.binary, projections_50_45_MP.binary, projections_50_85_MP.binary,
+                 projections_50_26_MG.binary, projections_50_45_MG.binary, projections_50_85_MG.binary,
+                 projections_50_26_NO.binary, projections_50_45_NO.binary, projections_50_85_NO.binary,
+                 projections_70_26_BC.binary, projections_70_45_BC.binary, projections_70_85_BC.binary,
+                 projections_70_26_CC.binary, projections_70_45_CC.binary, projections_70_85_CC.binary,
+                 projections_70_26_CN.binary, projections_70_45_CN.binary, projections_70_85_CN.binary,
+                 projections_70_26_GS.binary, projections_70_45_GS.binary, projections_70_85_GS.binary,
+                 projections_70_26_HD.binary, projections_70_45_HD.binary, projections_70_85_HD.binary,
+                 projections_70_26_IP.binary, projections_70_45_IP.binary, projections_70_85_IP.binary,
+                 projections_70_26_MI.binary, projections_70_45_MI.binary, projections_70_85_MI.binary,
+                 projections_70_26_MR.binary, projections_70_45_MR.binary, projections_70_85_MR.binary,
+                 projections_70_26_MC.binary, projections_70_45_MC.binary, projections_70_85_MC.binary,
+                 projections_70_26_MP.binary, projections_70_45_MP.binary, projections_70_85_MP.binary,
+                 projections_70_26_MG.binary, projections_70_45_MG.binary, projections_70_85_MG.binary,
+                 projections_70_26_NO.binary, projections_70_45_NO.binary, projections_70_85_NO.binary)
+
+for(n in list.binary){
+  for(k in 1:length(short)){
+    writeRaster(n, filename= paste0("ammodytoides.Binary.",short[k],".grd", sep=""), overwrite=TRUE) #grid
+    writeRaster(n, filename= paste0("ammodytoides.Binary.",short[k],".asc", sep=""),overwrite=TRUE) #Asc
+  }
+}  
+
+##Create Map
+#Map
+for(k in 1:length(short)){
+  pdf(paste0("ammodytoides.Binary",short[k],".pdf", sep=""), width = 8.267, height= 11.692, paper="a4")
+  plot(n, main = paste0("ammodytoides", short[k], ".Binary", sep=""), col=colorRampPalette(c("white","red"))(255), ylim=c(-60, 15), xlim=c(-85, -30))
+  plot(wrld_simpl, add = TRUE, col="transparent", border="Black", lwd = 0.5)
+  points(ammodytoides$lon, ammodytoides$lat, pch = 21, cex = 0.7, col = "gray10", bg = "gray")
+  par(new=TRUE)
+  northarrow(loc= c(-40,5),size= 2)
+  par(new=TRUE)
+  scalebar(1000, xy = c(-60,-50), type = 'bar', divs = 4, below = "km", lonlat = NULL)
+  dev.off()
+}
+
+#Loop Step 5
+## Calculate area of occupancy from binary unprojected area
+
+
+nam5 <- NULL
+
+for(k in 1:length(short)){
+  nam5[k] <- paste0("area", short[k], sep="")
+  assign(nam5[k], area(n))
+}    
+
+list.areas <- c(area_50_26_BC, area_50_45_BC, area_50_85_BC,
+                area_50_26_CC, area_50_45_CC, area_50_85_CC,
+                area_50_26_CN, area_50_45_CN, area_50_85_CN,
+                area_50_26_GS, area_50_45_GS, area_50_85_GS,
+                area_50_26_HD, area_50_45_HD, area_50_85_HD,
+                area_50_26_IP, area_50_45_IP, area_50_85_IP,
+                area_50_26_MI, area_50_45_MI, area_50_85_MI,
+                area_50_26_MR, area_50_45_MR, area_50_85_MR,
+                area_50_26_MC, area_50_45_MC, area_50_85_MC,
+                area_50_26_MP, area_50_45_MP, area_50_85_MP,
+                area_50_26_MG, area_50_45_MG, area_50_85_MG,
+                area_50_26_NO, area_50_45_NO, area_50_85_NO,
+                area_70_26_BC, area_70_45_BC, area_70_85_BC,
+                area_70_26_CC, area_70_45_CC, area_70_85_CC,
+                area_70_26_CN, area_70_45_CN, area_70_85_CN,
+                area_70_26_GS, area_70_45_GS, area_70_85_GS,
+                area_70_26_HD, area_70_45_HD, area_70_85_HD,
+                area_70_26_IP, area_70_45_IP, area_70_85_IP,
+                area_70_26_MI, area_70_45_MI, area_70_85_MI,
+                area_70_26_MR, area_70_45_MR, area_70_85_MR,
+                area_70_26_MC, area_70_45_MC, area_70_85_MC,
+                area_70_26_MP, area_70_45_MP, area_70_85_MP,
+                area_70_26_MG, area_70_45_MG, area_70_85_MG,
+                area_70_26_NO, area_70_45_NO, area_70_85_NO)
+
+
+nam6 <- NULL
+
+for(a in list.areas){   
+  for(k in 1:length(short)){
+    for(n in list.binary){
+      nam6[k] <- paste0("area_total", short[k], sep="")
+      assign(nam6[k], data.frame(Pres_Abs=list.binary[[k]]@data@values, Area=list.areas[[k]]@data@values)) #Combine binary and area info for each cell
+    }  
+  } 
+}
+
+
+nam7 <- character(length(short))
+
+
+list.area.tot <- c(area_total_50_26_BC, area_total_50_45_BC, area_total_50_85_BC,
+                   area_total_50_26_CC, area_total_50_45_CC, area_total_50_85_CC,
+                   area_total_50_26_CN, area_total_50_45_CN, area_total_50_85_CN,
+                   area_total_50_26_GS, area_total_50_45_GS, area_total_50_85_GS,
+                   area_total_50_26_HD, area_total_50_45_HD, area_total_50_85_HD,
+                   area_total_50_26_IP, area_total_50_45_IP, area_total_50_85_IP,
+                   area_total_50_26_MI, area_total_50_45_MI, area_total_50_85_MI,
+                   area_total_50_26_MR, area_total_50_45_MR, area_total_50_85_MR,
+                   area_total_50_26_MC, area_total_50_45_MC, area_total_50_85_MC,
+                   area_total_50_26_MP, area_total_50_45_MP, area_total_50_85_MP,
+                   area_total_50_26_MG, area_total_50_45_MG, area_total_50_85_MG,
+                   area_total_50_26_NO, area_total_50_45_NO, area_total_50_85_NO,
+                   area_total_70_26_BC, area_total_70_45_BC, area_total_70_85_BC,
+                   area_total_70_26_CC, area_total_70_45_CC, area_total_70_85_CC,
+                   area_total_70_26_CN, area_total_70_45_CN, area_total_70_85_CN,
+                   area_total_70_26_GS, area_total_70_45_GS, area_total_70_85_GS,
+                   area_total_70_26_HD, area_total_70_45_HD, area_total_70_85_HD,
+                   area_total_70_26_IP, area_total_70_45_IP, area_total_70_85_IP,
+                   area_total_70_26_MI, area_total_70_45_MI, area_total_70_85_MI,
+                   area_total_70_26_MR, area_total_70_45_MR, area_total_70_85_MR,
+                   area_total_70_26_MC, area_total_70_45_MC, area_total_70_85_MC,
+                   area_total_70_26_MP, area_total_70_45_MP, area_total_70_85_MP,
+                   area_total_70_26_MG, area_total_70_45_MG, area_total_70_85_MG,
+                   area_total_70_26_NO, area_total_70_45_NO, area_total_70_85_NO)
+
+
+for(t in list.area.tot){
+  for(k in 1:length(short)){
+    nam7[k] <- paste0("area", short[k], sep="")
+    assign(nam7[k], tapply(t[k[2]], t[k[1]], sum))
+  }
+}
+
+list.presence <- c(area_futuro_50_26_BC, area_futuro_50_45_BC, area_futuro_50_85_BC,
+                   area_futuro_50_26_CC, area_futuro_50_45_CC, area_futuro_50_85_CC,
+                   area_futuro_50_26_CN, area_futuro_50_45_CN, area_futuro_50_85_CN,
+                   area_futuro_50_26_GS, area_futuro_50_45_GS, area_futuro_50_85_GS,
+                   area_futuro_50_26_HD, area_futuro_50_45_HD, area_futuro_50_85_HD,
+                   area_futuro_50_26_IP, area_futuro_50_45_IP, area_futuro_50_85_IP,
+                   area_futuro_50_26_MI, area_futuro_50_45_MI, area_futuro_50_85_MI,
+                   area_futuro_50_26_MR, area_futuro_50_45_MR, area_futuro_50_85_MR,
+                   area_futuro_50_26_MC, area_futuro_50_45_MC, area_futuro_50_85_MC,
+                   area_futuro_50_26_MP, area_futuro_50_45_MP, area_futuro_50_85_MP,
+                   area_futuro_50_26_MG, area_futuro_50_45_MG, area_futuro_50_85_MG,
+                   area_futuro_50_26_NO, area_futuro_50_45_NO, area_futuro_50_85_NO,
+                   area_futuro_70_26_BC, area_futuro_70_45_BC, area_futuro_70_85_BC,
+                   area_futuro_70_26_CC, area_futuro_70_45_CC, area_futuro_70_85_CC,
+                   area_futuro_70_26_CN, area_futuro_70_45_CN, area_futuro_70_85_CN,
+                   area_futuro_70_26_GS, area_futuro_70_45_GS, area_futuro_70_85_GS,
+                   area_futuro_70_26_HD, area_futuro_70_45_HD, area_futuro_70_85_HD,
+                   area_futuro_70_26_IP, area_futuro_70_45_IP, area_futuro_70_85_IP,
+                   area_futuro_70_26_MI, area_futuro_70_45_MI, area_futuro_70_85_MI,
+                   area_futuro_70_26_MR, area_futuro_70_45_MR, area_futuro_70_85_MR,
+                   area_futuro_70_26_MC, area_futuro_70_45_MC, area_futuro_70_85_MC,
+                   area_futuro_70_26_MP, area_futuro_70_45_MP, area_futuro_70_85_MP,
+                   area_futuro_70_26_MG, area_futuro_70_45_MG, area_futuro_70_85_MG,
+                   area_futuro_70_26_NO, area_futuro_70_45_NO, area_futuro_70_85_NO)
+
+nam8 <- NULL
+for(p in list.presence){
+  for(k in 1:length(short)){
+    nam8[k] <- paste0("area", short[k], "_presence")
+    assign(nam8[k], list.presence[k[2]])
     #area_2050_rcp26_presence   #Area of occupancy = 1,192,400 km2 (will vary every time!)
-
-    }
   }
 }
-
-
 
 
 ##############################################################################################################################
@@ -2568,7 +2964,7 @@ for(i in weathermod){
 
 alternatus.projections <- BIOMOD_Projection(
   modeling.output = alternatusModelOut_PA_equal,
-  new.env = env50_26.selected,
+  new.env = env50_26.saved,
   proj.name = "EM.2050_rcp26",
   selected.models = "all")
 
@@ -2630,7 +3026,7 @@ area_2050_rcp26_presence   #Area of occupancy = 1,192,400 km2 (will vary every t
 
 alternatus.projections <- BIOMOD_Projection(
   modeling.output = alternatusModelOut_PA_equal,
-  new.env = env50_45.selected,
+  new.env = env50_45.saved,
   proj.name = "EM.2050_rcp45",
   selected.models = "all")
 
@@ -2691,7 +3087,7 @@ area_2050_rcp45_presence  #Area of occupancy = 1,299,410 km2 (will vary every ti
 
 alternatus.projections <- BIOMOD_Projection(
 	modeling.output = alternatusModelOut_PA_equal,
-	new.env = env50_85.selected,
+	new.env = env50_85.saved,
 	proj.name = "EM.2050_rcp85",
 	selected.models = "all")
 
@@ -2769,7 +3165,7 @@ predict_area_2050_rcp85 # result = -0.3275401,  -570104.8 km2
 
 alternatus.projections_2070_26 <- BIOMOD_Projection(
 	modeling.output = alternatusModelOut_PA_equal,
-	new.env = env70_26.selected,
+	new.env = env70_26.saved,
 	#If you wanted to predict to a different area, or different
 	#conditions you would change the above line
 	proj.name = "EM.2070_rcp26",
@@ -2823,7 +3219,7 @@ area_2070_rcp26_total_presence   #Area of occupancy = 1,640,932 km2 (will vary e
 
 alternatus.projections_2070_45 <- BIOMOD_Projection(
   modeling.output = alternatusModelOut_PA_equal,
-  new.env = env70_45.selected,
+  new.env = env70_45.saved,
   #If you wanted to predict to a different area, or different
   #conditions you would change the above line
   proj.name = "EM.2070_rcp45",
@@ -2877,7 +3273,7 @@ area_2070_rcp45_total_presence
 
 alternatus.projections_2070_85 <- BIOMOD_Projection(
   modeling.output = alternatusModelOut_PA_equal,
-  new.env = env70_85.selected,
+  new.env = env70_85.saved,
   #If you wanted to predict to a different area, or different
   #conditions you would change the above line
   proj.name = "EM.2070_rcp85",
