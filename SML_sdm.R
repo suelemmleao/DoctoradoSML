@@ -976,7 +976,7 @@ area_current_presence                     #Area of occupancy = 3,247,257 km2 (wi
 library(foreach)
 library(doParallel)
 
-cl <- makeCluster(detectCores(7)) # number of cores in computer
+cl <- makeCluster(detectCores(4)) # number of cores in computer
 registerDoParallel(cl)
 getDoParWorkers()
 
@@ -987,15 +987,15 @@ for(j in 1:length(GCM.raster.list)){
     
     alternatus.projections <- BIOMOD_Projection(
       modeling.output = alternatusModelOut_PA_equal,
-      new.env = GCM.raster.list[[j]][[k]],
-      proj.name = paste(names(GCM.raster.list)[[j]],names(GCM.raster.list[[j]])[[k]],sep='.'),
+      new.env = GCM.raster.list[[3]][[5]],
+      proj.name = paste(names(GCM.raster.list)[[3]],names(GCM.raster.list[[3]])[[5]],sep='.'),
       selected.models = "all")
   } 
 }
 
 
 # Find and stack projections
-gcm <- c("BC", "CC", "CN", "GS", "HD", "IP", "MI", "MR", "MC", "MP", "MG", "NO")
+gcm <- c("BC", "CC", "CN") #, "GS", "HD", "IP", "MI", "MR", "MC", "MP", "MG", "NO")
 year <- c("env50", "env70")
 rcp <- c("26", "45", "85")
 
